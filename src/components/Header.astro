@@ -50,6 +50,15 @@ import { Icon } from "astro-icon/components";
       </li>
       <li>
         <a
+          href="/support"
+          class="text-gray-600 hover:text-gray-900 transition-colors"
+          aria-current={Astro.url.pathname === '/support' ? 'page' : undefined}
+        >
+          Support
+        </a>
+      </li>
+      <li>
+        <a
           href="/contact"
           class="px-4 py-2 bg-black text-white rounded-lg hover:bg-gray-800 transition-colors"
           aria-current={Astro.url.pathname === '/contact' ? 'page' : undefined}
@@ -85,6 +94,16 @@ import { Icon } from "astro-icon/components";
           aria-current={Astro.url.pathname === '/about' ? 'page' : undefined}
         >
           About
+        </a>
+      </li>
+      <li>
+        <a
+          href="/support"
+          class="block px-4 py-3 text-gray-600 hover:bg-gray-50 hover:text-gray-900 transition-colors"
+          role="menuitem"
+          aria-current={Astro.url.pathname === '/support' ? 'page' : undefined}
+        >
+          Support
         </a>
       </li>
       <li>

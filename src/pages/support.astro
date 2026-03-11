@@ -1,0 +1,80 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import ScrollReveal from "../components/ScrollReveal.tsx";
+import { SITE } from "../config/site.mjs";
+
+type Campaign = {
+  name: string;
+  description: string;
+  url: string;
+  cta: string;
+};
+
+const campaigns: Campaign[] = [
+  {
+    name: "Giveth",
+    description: "Support the house through the Giveth platform.",
+    url: "https://giveth.io/es/project/giveth-house",
+    cta: "Support on Giveth",
+  },
+  {
+    name: "CrowdWalrus",
+    description: "Contribute through the CrowdWalrus campaign.",
+    url: "https://crowdwalrus.xyz/campaigns/givethouse",
+    cta: "Support on CrowdWalrus",
+  },
+];
+---
+
+<Layout
+  title={`Support | ${SITE.title}`}
+  description="Support Giveth House through the current donation platforms and campaigns that help keep the house alive."
+  canonicalURL={`${SITE.url}/support`}
+>
+  <Header />
+  <main id="main-content" role="main">
+    <section class="max-w-6xl mx-auto px-4 py-20">
+      <ScrollReveal client:idle>
+        <h1 class="text-5xl font-bold text-gray-900 mb-4">Support Giveth House</h1>
+      </ScrollReveal>
+
+      <ScrollReveal client:load delay={0.1}>
+        <p class="text-xl text-gray-600 mb-12 max-w-2xl">
+          Giveth House exists thanks to community support. Here you can find the current
+          platforms and campaigns where you can contribute to help keep the house alive.
+        </p>
+      </ScrollReveal>
+
+      <div class="grid gap-6 md:grid-cols-2">
+        {campaigns.map((campaign, index) => (
+          <ScrollReveal client:load delay={0.15 + index * 0.1}>
+            <article class="bg-white rounded-lg border border-gray-200 p-6 shadow-sm flex flex-col justify-between h-full">
+              <div>
+                <h2 class="text-2xl font-semibold text-gray-900 mb-2">
+                  {campaign.name}
+                </h2>
+                <p class="text-gray-600 mb-4">
+                  {campaign.description}
+                </p>
+              </div>
+              <div>
+                <a
+                  href={campaign.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-flex items-center justify-center px-5 py-2.5 bg-black text-white rounded-lg hover:bg-gray-800 transition-colors text-sm font-medium"
+                >
+                  {campaign.cta}
+                </a>
+              </div>
+            </article>
+          </ScrollReveal>
+        ))}
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+
