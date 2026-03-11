@@ -1,0 +1,103 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import ScrollReveal from "../components/ScrollReveal.tsx";
+import { SITE } from "../config/site.mjs";
+---
+
+<Layout
+  title={`FAQs | ${SITE.title}`}
+  description="Frequently asked questions about Giveth House — who it's for, how stays work, events, and how the house is funded."
+  canonicalURL={`${SITE.url}/faqs`}
+>
+  <Header />
+  <main id="main-content" role="main">
+    <section class="max-w-6xl mx-auto px-4 py-20">
+      <ScrollReveal client:idle>
+        <h1 class="text-5xl font-bold text-gray-900 mb-4">FAQs</h1>
+      </ScrollReveal>
+
+      <ScrollReveal client:load delay={0.1}>
+        <p class="text-xl text-gray-600 mb-12 max-w-2xl">
+          Learn more about what Giveth House is, who it's for, and how you can
+          visit, stay, or support the space.
+        </p>
+      </ScrollReveal>
+
+      <div class="space-y-6">
+        <ScrollReveal client:load delay={0.2}>
+          <div class="bg-white rounded-lg border border-gray-200 p-6 shadow-sm">
+            <h2 class="text-xl font-semibold text-gray-900 mb-2">
+              What is Giveth House?
+            </h2>
+            <p class="text-gray-600">
+              Giveth House is a community-driven Web3 hub in Barcelona's Sants
+              neighborhood — a shared home, coworking space, and gathering place
+              for builders and communities working across the decentralized
+              ecosystem.
+            </p>
+          </div>
+        </ScrollReveal>
+
+        <ScrollReveal client:load delay={0.3}>
+          <div class="bg-white rounded-lg border border-gray-200 p-6 shadow-sm">
+            <h2 class="text-xl font-semibold text-gray-900 mb-2">
+              Who is it for?
+            </h2>
+            <p class="text-gray-600">
+              The house is primarily for open source contributors, DAO builders,
+              Ethereum ecosystem participants, and Web3 communities visiting
+              Barcelona who want to cowork, collaborate, or host community
+              gatherings.
+            </p>
+          </div>
+        </ScrollReveal>
+
+        <ScrollReveal client:load delay={0.4}>
+          <div class="bg-white rounded-lg border border-gray-200 p-6 shadow-sm">
+            <h2 class="text-xl font-semibold text-gray-900 mb-2">
+              Can I stay at the house?
+            </h2>
+            <p class="text-gray-600">
+              Stays are possible depending on availability and alignment with
+              the spirit of the space. If you're planning to attend an event,
+              hackathon, or work session in Barcelona, you can reach out to
+              share your dates, your work, and how you'd like to plug into the
+              community.
+            </p>
+          </div>
+        </ScrollReveal>
+
+        <ScrollReveal client:load delay={0.5}>
+          <div class="bg-white rounded-lg border border-gray-200 p-6 shadow-sm">
+            <h2 class="text-xl font-semibold text-gray-900 mb-2">
+              Can I host an event?
+            </h2>
+            <p class="text-gray-600">
+              Yes. Giveth House regularly hosts small talks, workshops, hacker
+              houses, community dinners, and informal meetups. The basement and
+              common areas are well suited for intimate gatherings and
+              collaborative sessions.
+            </p>
+          </div>
+        </ScrollReveal>
+
+        <ScrollReveal client:load delay={0.6}>
+          <div class="bg-white rounded-lg border border-gray-200 p-6 shadow-sm">
+            <h2 class="text-xl font-semibold text-gray-900 mb-2">
+              How is Giveth House funded?
+            </h2>
+            <p class="text-gray-600">
+              The house is supported through community donations on the Giveth
+              platform. Contributions help cover rent, utilities, maintenance,
+              and operational costs so the space can remain open as a shared
+              resource for the Web3 ecosystem.
+            </p>
+          </div>
+        </ScrollReveal>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
