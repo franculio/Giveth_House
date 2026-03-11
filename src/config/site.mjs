@@ -1,9 +1,10 @@
 export const SITE = {
-  title: "Astro Base",
-  description: "A minimal, modern starter template for building fast websites with Astro",
+  title: "Giveth House",
+  description:
+    "A community-driven Web3 hub in Barcelona (Sants) — a shared home, coworking space, and gathering place for builders and communities to connect, collaborate, and grow.",
   defaultLanguage: "en",
   url: "https://astro-base.example.com", // Update this with your actual site URL
-  author: "Astro Base",
+  author: "Giveth House",
   ogImage: "/og-image.png", // Add this image to your public folder
   // Web3Forms: Get your access key from https://web3forms.com
   // Leave empty to disable form submissions
