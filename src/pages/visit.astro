@@ -1,0 +1,79 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import ScrollReveal from "../components/ScrollReveal.tsx";
+import { SITE } from "../config/site.mjs";
+---
+
+<Layout
+  title={`Visit | ${SITE.title}`}
+  description="Learn how to visit or stay at Giveth House in Barcelona, whether for coworking, community activities, or a longer stay."
+  canonicalURL={`${SITE.url}/visit`}
+>
+  <Header />
+  <main id="main-content" role="main">
+    <section class="max-w-4xl mx-auto px-4 py-20">
+      <ScrollReveal client:idle>
+        <h1 class="text-5xl font-bold text-gray-900 mb-4">Visit the Giveth House</h1>
+      </ScrollReveal>
+
+      <ScrollReveal client:load delay={0.1}>
+        <p class="text-xl text-gray-600 mb-12">
+          There are different ways to experience the house depending on your needs.
+        </p>
+      </ScrollReveal>
+
+      <div class="grid gap-6 md:grid-cols-2 mb-12">
+        <ScrollReveal client:load delay={0.2}>
+          <article class="bg-white rounded-lg border border-gray-200 p-6 shadow-sm h-full">
+            <h2 class="text-2xl font-semibold text-gray-900 mb-2">
+              Option 1 — Stay at the House
+            </h2>
+            <p class="text-gray-600">
+              Builders and contributors visiting Barcelona sometimes stay at the house for a period of
+              time while working on Web3 projects, attending events, or collaborating with other
+              community members.
+            </p>
+          </article>
+        </ScrollReveal>
+
+        <ScrollReveal client:load delay={0.3}>
+          <article class="bg-white rounded-lg border border-gray-200 p-6 shadow-sm h-full">
+            <h2 class="text-2xl font-semibold text-gray-900 mb-2">
+              Option 2 — Visit and Cowork
+            </h2>
+            <p class="text-gray-600">
+              You can also come to the house for the day to cowork, meet other builders, or participate
+              in community gatherings and activities.
+            </p>
+          </article>
+        </ScrollReveal>
+      </div>
+
+      <ScrollReveal client:load delay={0.4}>
+        <section class="bg-gray-50 rounded-lg border border-gray-200 p-6 mb-10">
+          <h2 class="text-2xl font-semibold text-gray-900 mb-3">How it Works</h2>
+          <p class="text-gray-600">
+            For now, both stays and visits are coordinated manually. If you are interested in staying
+            at the house or coming by to cowork, the best way is to reach out through our contact form
+            and tell us a bit about yourself and what you are working on.
+          </p>
+        </section>
+      </ScrollReveal>
+
+      <ScrollReveal client:load delay={0.5}>
+        <div class="flex justify-start">
+          <a
+            href="/contact"
+            class="px-6 py-3 bg-black text-white rounded-lg hover:bg-gray-800 transition-colors font-medium"
+          >
+            Contact Us
+          </a>
+        </div>
+      </ScrollReveal>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+
