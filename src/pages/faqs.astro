@@ -4,6 +4,34 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import ScrollReveal from "../components/ScrollReveal.tsx";
 import { SITE } from "../config/site.mjs";
+
+const faqs = [
+  {
+    question: "What is Giveth House?",
+    answer:
+      "Giveth House is a community-driven Web3 hub in Barcelona's Sants neighborhood — a shared home, coworking space, and gathering place for builders and communities working across the decentralized ecosystem.",
+  },
+  {
+    question: "Who is it for?",
+    answer:
+      "The house is primarily for open source contributors, DAO builders, Ethereum ecosystem participants, and Web3 communities visiting Barcelona who want to cowork, collaborate, or host community gatherings.",
+  },
+  {
+    question: "Can I stay at the house?",
+    answer:
+      "Stays are possible depending on availability and alignment with the spirit of the space. If you're planning to attend an event, hackathon, or work session in Barcelona, you can reach out to share your dates, your work, and how you'd like to plug into the community.",
+  },
+  {
+    question: "Can I host an event?",
+    answer:
+      "Yes. Giveth House regularly hosts small talks, workshops, hacker houses, community dinners, and informal meetups. The basement and common areas are well suited for intimate gatherings and collaborative sessions.",
+  },
+  {
+    question: "How is Giveth House funded?",
+    answer:
+      "The house is supported through community donations on the Giveth platform. Contributions help cover rent, utilities, maintenance, and operational costs so the space can remain open as a shared resource for the Web3 ecosystem.",
+  },
+];
 ---
 
 <Layout
@@ -25,79 +53,37 @@ import { SITE } from "../config/site.mjs";
         </p>
       </ScrollReveal>
 
-      <div class="space-y-6">
-        <ScrollReveal client:load delay={0.2}>
-          <div class="bg-white rounded-lg border border-gray-200 p-6 shadow-sm">
-            <h2 class="text-xl font-semibold text-gray-900 mb-2">
-              What is Giveth House?
-            </h2>
-            <p class="text-gray-600">
-              Giveth House is a community-driven Web3 hub in Barcelona's Sants
-              neighborhood — a shared home, coworking space, and gathering place
-              for builders and communities working across the decentralized
-              ecosystem.
-            </p>
-          </div>
-        </ScrollReveal>
-
-        <ScrollReveal client:load delay={0.3}>
-          <div class="bg-white rounded-lg border border-gray-200 p-6 shadow-sm">
-            <h2 class="text-xl font-semibold text-gray-900 mb-2">
-              Who is it for?
-            </h2>
-            <p class="text-gray-600">
-              The house is primarily for open source contributors, DAO builders,
-              Ethereum ecosystem participants, and Web3 communities visiting
-              Barcelona who want to cowork, collaborate, or host community
-              gatherings.
-            </p>
-          </div>
-        </ScrollReveal>
-
-        <ScrollReveal client:load delay={0.4}>
-          <div class="bg-white rounded-lg border border-gray-200 p-6 shadow-sm">
-            <h2 class="text-xl font-semibold text-gray-900 mb-2">
-              Can I stay at the house?
-            </h2>
-            <p class="text-gray-600">
-              Stays are possible depending on availability and alignment with
-              the spirit of the space. If you're planning to attend an event,
-              hackathon, or work session in Barcelona, you can reach out to
-              share your dates, your work, and how you'd like to plug into the
-              community.
-            </p>
-          </div>
-        </ScrollReveal>
-
-        <ScrollReveal client:load delay={0.5}>
-          <div class="bg-white rounded-lg border border-gray-200 p-6 shadow-sm">
-            <h2 class="text-xl font-semibold text-gray-900 mb-2">
-              Can I host an event?
-            </h2>
-            <p class="text-gray-600">
-              Yes. Giveth House regularly hosts small talks, workshops, hacker
-              houses, community dinners, and informal meetups. The basement and
-              common areas are well suited for intimate gatherings and
-              collaborative sessions.
-            </p>
-          </div>
-        </ScrollReveal>
-
-        <ScrollReveal client:load delay={0.6}>
-          <div class="bg-white rounded-lg border border-gray-200 p-6 shadow-sm">
-            <h2 class="text-xl font-semibold text-gray-900 mb-2">
-              How is Giveth House funded?
-            </h2>
-            <p class="text-gray-600">
-              The house is supported through community donations on the Giveth
-              platform. Contributions help cover rent, utilities, maintenance,
-              and operational costs so the space can remain open as a shared
-              resource for the Web3 ecosystem.
-            </p>
-          </div>
-        </ScrollReveal>
-      </div>
+      <ScrollReveal client:load delay={0.2}>
+        <div class="space-y-3" role="list">
+          {faqs.map((faq) => (
+            <details
+              class="faq-accordion group bg-white rounded-lg border border-gray-200 shadow-sm overflow-hidden"
+            >
+              <summary class="flex items-center justify-between gap-4 list-none cursor-pointer px-6 py-4 text-left font-semibold text-gray-900 hover:bg-gray-50 transition-colors [&::-webkit-details-marker]:hidden">
+                <span>{faq.question}</span>
+                <span
+                  class="shrink-0 w-6 h-6 flex items-center justify-center text-gray-400 group-open:rotate-180 transition-transform"
+                  aria-hidden="true"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </span>
+              </summary>
+              <div class="px-6 pb-4 pt-0 border-t border-gray-100">
+                <p class="text-gray-600 pt-3">{faq.answer}</p>
+              </div>
+            </details>
+          ))}
+        </div>
+      </ScrollReveal>
     </section>
   </main>
   <Footer />
 </Layout>
+
+<style>
+  .faq-accordion summary::-webkit-details-marker {
+    display: none;
+  }
+</style>
