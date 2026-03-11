@@ -1,7 +1,7 @@
 export const SITE = {
-  title: "Giveth House",
+  title: "Giveth House — A Home for Web3 Builders and Communities",
   description:
-    "A community-driven Web3 hub in Barcelona (Sants) — a shared home, coworking space, and gathering place for builders and communities to connect, collaborate, and grow.",
+    "A shared living, coworking, and community space in Barcelona where Web3 builders meet, collaborate, and create.",
   defaultLanguage: "en",
   url: "https://astro-base.example.com", // Update this with your actual site URL
   author: "Giveth House",
