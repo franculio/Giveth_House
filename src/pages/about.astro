@@ -8,7 +8,7 @@ import { SITE } from "../config/site.mjs";
 
 <Layout
   title={`About | ${SITE.title}`}
-  description="Learn about Giveth House — a community-driven Web3 hub in Barcelona (Sants) supporting builders through coworking, events, and collaboration."
+  description="Giveth House is the physical home of the Giveth Galaxy — a community-driven Web3 hub in Barcelona open to builders, contributors, and communities since 2017."
   canonicalURL={`${SITE.url}/about`}
 >
   <Header />
@@ -26,98 +26,78 @@ import { SITE } from "../config/site.mjs";
       </ScrollReveal>
 
       <div class="prose prose-lg max-w-none">
+
         <ScrollReveal client:load delay={0.2}>
           <h2>Story</h2>
           <p>
-            Giveth House began as a simple idea: in a world where most Web3
-            collaboration happens online, people still need real spaces to meet,
-            share a table, and build trust. The house opened its doors in 2017,
-            shortly after the creation of the Giveth project in 2016, as a
-            physical anchor for a global, open, and collaborative community.
+            Giveth was founded in 2016 by altruists who emerged from the early Ethereum
+            ecosystem with a clear mission: build open, decentralized infrastructure to fund
+            public goods and reward those who give to society and the world. A year later,
+            Giveth House opened its doors in Barcelona — a physical anchor for a global,
+            borderless community.
           </p>
           <p>
-            Since then, it has quietly served as a meeting point for
-            contributors across the decentralized ecosystem. People arrive for
-            conferences, collaborations, or a few weeks of focused work — and
-            often leave with new friendships, new projects, and a deeper
-            connection to the community.
+            The house was the vision of <strong>Griff Green</strong>, one of Giveth's founders
+            and a central figure in the blockchain4good ecosystem. His idea was simple: in a
+            world where most Web3 collaboration happens online, people still need real spaces
+            to meet, share a table, and build the kind of trust that only comes from being in
+            the same room. Since then, the house has quietly served as a meeting point for
+            contributors across the decentralized ecosystem — people arrive for conferences,
+            collaborations, or a few weeks of focused work, and often leave with new
+            friendships, new projects, and a deeper connection to the community.
           </p>
         </ScrollReveal>
 
-        <ScrollReveal client:load delay={0.35}>
+        <ScrollReveal client:load delay={0.3}>
+          <h2>Why Barcelona</h2>
+          <p>
+            The choice of Barcelona was deliberate. Inspired by firsthand experience of the
+            Catalan struggle for independence, Giveth's founders wanted to establish a haven
+            that represents freedom of thought and freedom of choice — a physical space to
+            exercise those freedoms in practice.
+          </p>
+          <p>
+            Giveth House is open to and inclusive of all walks of life that carry equality,
+            safety, camaraderie, and freedom from hierarchy in their philosophy. The Sants
+            neighbourhood — historically rooted in workers' movements and cooperative
+            culture — felt like a natural home for a solarpunk, blockchain4good community.
+          </p>
+        </ScrollReveal>
+
+        <ScrollReveal client:load delay={0.4}>
           <h2>Community</h2>
           <p>
-            Giveth House is a shared home, coworking space, and community hub
-            where developers, researchers, organizers, DAO contributors, and
-            visitors passing through Barcelona come together to work and live
-            side by side.
+            Giveth House is the physical home of the Giveth Galaxy — an expanding community
+            of interconnected projects and DAOs bound by a shared sense of common good.
+            Over the years, the house has welcomed people connected to projects like
+            Ethereum Foundation, Arbitrum, Starknet, Dappnode, Fuel Labs, dOrg, Vocdoni,
+            Talent Layer, General Magic, and many others. Some stay for a few days, others
+            for weeks — the common thread is a shared curiosity about building new systems
+            for coordination, cooperation, and collective impact.
           </p>
-          <p>
-            Over the years, the house has welcomed people connected to projects
-            like Ethereum Foundation, Arbitrum, Starknet, Dappnode, Fuel Labs,
-            dOrg, Vocdoni, Talent Layer, General Magic, and many others. Some
-            stay for a few days, others for weeks — the common thread is a
-            shared curiosity about building new systems for coordination,
-            cooperation, and collective impact.
-          </p>
-          <p>
-            On any given week, the house might host people who are here to:
-          </p>
-          <ul>
-            <li>
-              live temporarily while visiting Barcelona
-            </li>
-            <li>
-              cowork with other builders and teams
-            </li>
-            <li>
-              host workshops, talks, or small meetups
-            </li>
-            <li>
-              collaborate on open-source and public goods projects
-            </li>
-            <li>
-              gather informally to share ideas and experiences
-            </li>
-          </ul>
           <p>
             More than just accommodation, the house acts as a{" "}
-            <strong>Schelling point for the Web3 ecosystem</strong> — a place
-            where collaborations, friendships, and new ideas emerge naturally.
+            <strong>Schelling point for the Web3 ecosystem</strong> — a place where
+            collaborations, friendships, and new ideas emerge naturally.
           </p>
         </ScrollReveal>
 
         <ScrollReveal client:load delay={0.5}>
           <h2>Values</h2>
           <p>
-            Giveth House is rooted in the values that shaped the early Ethereum
-            ecosystem. It is not a polished coworking space or a startup
-            office, but a deliberately human space shaped by:
+            Giveth House is not a polished coworking space or a startup office, but a
+            deliberately human place shaped by:
           </p>
           <ul>
-            <li>
-              openness
-            </li>
-            <li>
-              cooperation
-            </li>
-            <li>
-              experimentation
-            </li>
-            <li>
-              freedom of thought
-            </li>
-            <li>
-              community governance and shared responsibility
-            </li>
+            <li>openness and freedom of thought</li>
+            <li>cooperation and camaraderie</li>
+            <li>regenerative economics and public goods</li>
+            <li>solarpunk optimism — building better systems together</li>
           </ul>
           <p>
-            Many people describe the house as{" "}
-            <strong>solar-punk</strong> — optimistic, collaborative, and
-            oriented toward building better systems together. It is a place
-            where people cook together, share ideas late into the night, host
-            spontaneous gatherings, and sometimes sketch the beginnings of new
-            projects on a whiteboard.
+            Many people describe the house as <strong>solarpunk</strong> — optimistic,
+            collaborative, and oriented toward building better systems together. It is a
+            place where the values behind the code become real.
           </p>
         </ScrollReveal>
 
@@ -125,41 +105,33 @@ import { SITE } from "../config/site.mjs";
           <h2>Stewardship</h2>
           <p>
             Since 2022, the house has been stewarded by{" "}
-            <strong>Franco Ruiz</strong>, who coordinates guest stays, maintains
-            the space, organizes activities, and supports collaborations between
-            residents and visitors.
+            <strong>Franco Ruiz</strong>, who coordinates guest stays, maintains the space,
+            organizes activities, and supports collaborations between residents and visitors.
           </p>
           <p>
-            Stewardship is a continuous act of care: keeping the doors open,
-            tending to the shared space, and making sure the house remains
-            welcoming and sustainable for everyone who passes through.
+            The house has grown over the years — most recently expanding to a third floor
+            with a rooftop terrace, a long-dreamed-of open space for the community to breathe,
+            gather, and enjoy Barcelona. In 2024, the neighbourhood demolition that had
+            threatened the house was officially cancelled. Giveth House is here to stay.
           </p>
         </ScrollReveal>
 
         <ScrollReveal client:load delay={0.7}>
           <h2>Support the House</h2>
           <p>
-            Giveth House exists because the community chooses to support it.
-            Donations from contributors across the ecosystem help cover the
-            practical realities of maintaining a shared space — rent, utilities,
-            maintenance, and operations.
+            Giveth House exists because the community chooses to support it. Donations from
+            contributors across the ecosystem help cover the practical realities of maintaining
+            a shared space — rent, utilities, maintenance, and operations.
           </p>
           <p>
-            The long-term vision is for the house to remain:
-          </p>
-          <ul>
-            <li>a home for visiting contributors</li>
-            <li>a meeting point for Web3 communities</li>
-            <li>a place for experimentation and collaboration</li>
-            <li>a welcoming entry point for new builders</li>
-          </ul>
-          <p>
-            Ultimately, the house exists to strengthen the{" "}
-            <strong>human connections</strong> that power decentralized
-            networks. Every contribution helps keep this small but meaningful
-            corner of the Web3 ecosystem alive.
+            The long-term vision is for the house to remain a free, open resource for the
+            Web3 ecosystem — a physical place where the Giveth Galaxy lands on earth, and
+            where the next generation of builders finds community, collaboration, and a warm
+            place to land in Barcelona. Every contribution helps keep this small but
+            meaningful corner of the blockchain4good world alive.
           </p>
         </ScrollReveal>
+
       </div>
     </section>
   </main>
