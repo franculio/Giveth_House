@@ -5,6 +5,12 @@ export const SITE: {
   url: string;
   author: string;
   ogImage: string;
+  telegramBot: string;
+  telegramHandle: string;
+  francoHandle: string;
+  neighborhood: string;
+  givethDonation: string;
+  web3formsAccessKey: string;
 };
 
 export type SiteConfig = typeof SITE;

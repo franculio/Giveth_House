@@ -1,35 +1,35 @@
 ---
 import ScrollReveal from "./ScrollReveal.tsx";
+import { SITE } from "../config/site.mjs";
 ---
 
 <section id="about" class="max-w-6xl mx-auto px-4 py-20">
   <ScrollReveal client:idle scale={true}>
     <div class="bg-black rounded-2xl p-12 text-center text-white">
-      <h2 class="text-4xl font-bold mb-4">Visit, Host, or Support</h2>
+      <h2 class="text-4xl font-bold mb-4">Ready to Visit?</h2>
       <p class="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-        Giveth House is a community-driven space for Web3 builders and communities in Barcelona —
-        come cowork, collaborate, or host an event.
+        Everything starts with the Telegram bot. Apply for a stay, coworking day, or event —
+        Franco reviews every request personally.
       </p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
         <a
-          href="/visit"
+          href={SITE.telegramBot}
+          target="_blank"
+          rel="noopener noreferrer"
           class="inline-flex items-center justify-center px-8 py-3 bg-white text-black rounded-lg hover:bg-gray-100 transition-colors font-medium"
         >
-          Visit the House
-        </a>
-        <a
-          href="/contact"
-          class="inline-flex items-center justify-center px-8 py-3 bg-black text-white border border-gray-700 rounded-lg hover:bg-gray-900 transition-colors font-medium"
-        >
-          Host an Event
+          Apply via Telegram
         </a>
         <a
           href="/support"
-          class="inline-flex items-center justify-center px-8 py-3 bg-white text-black rounded-lg hover:bg-gray-100 transition-colors font-medium"
+          class="inline-flex items-center justify-center px-8 py-3 bg-black text-white border border-gray-700 rounded-lg hover:bg-gray-900 transition-colors font-medium"
         >
           Support the House
         </a>
       </div>
+      <p class="text-sm text-gray-500 mt-6">
+        No fixed price — contribute what feels right through the Giveth platform.
+      </p>
     </div>
   </ScrollReveal>
 </section>

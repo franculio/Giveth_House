@@ -8,72 +8,165 @@ import { SITE } from "../config/site.mjs";
 
 <Layout
   title={`Visit | ${SITE.title}`}
-  description="Learn how to visit or stay at Giveth House in Barcelona, whether for coworking, community activities, or a longer stay."
+  description="Learn how to stay at Giveth House in Barcelona — a gift economy home for Web3 builders. Apply via Telegram, get approved, and contribute what feels right."
   canonicalURL={`${SITE.url}/visit`}
 >
   <Header />
   <main id="main-content" role="main">
     <section class="max-w-4xl mx-auto px-4 py-20">
+
       <ScrollReveal client:idle>
-        <h1 class="text-5xl font-bold text-gray-900 mb-4">Visit the Giveth House</h1>
+        <h1 class="text-5xl font-bold text-gray-900 mb-4">Visit Giveth House</h1>
       </ScrollReveal>
 
       <ScrollReveal client:load delay={0.1}>
         <p class="text-xl text-gray-600 mb-12">
-          There are different ways to experience the house depending on your needs.
+          A community home in Barcelona for builders, contributors, and communities across the
+          Web3 and ReFi ecosystem.
         </p>
       </ScrollReveal>
 
-      <div class="grid gap-6 md:grid-cols-2 mb-12">
-        <ScrollReveal client:load delay={0.2}>
+      <!-- Gift economy callout -->
+      <ScrollReveal client:load delay={0.15}>
+        <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 mb-12">
+          <h2 class="text-lg font-semibold text-gray-900 mb-2">Gift Economy</h2>
+          <p class="text-gray-600">
+            There is no fixed price for staying at Giveth House. Guests are invited to contribute
+            what feels right through the{" "}
+            <a
+              href={SITE.givethDonation}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="underline hover:text-gray-900"
+            >Giveth donation platform</a>
+            {" "}— in crypto, on almost any chain. The house runs entirely on community generosity.
+          </p>
+        </div>
+      </ScrollReveal>
+
+      <!-- Types of stays -->
+      <ScrollReveal client:load delay={0.2}>
+        <h2 class="text-2xl font-bold text-gray-900 mb-6">Ways to visit</h2>
+      </ScrollReveal>
+
+      <div class="grid gap-6 md:grid-cols-3 mb-14">
+        <ScrollReveal client:load delay={0.25}>
           <article class="bg-white rounded-lg border border-gray-200 p-6 shadow-sm h-full">
-            <h2 class="text-2xl font-semibold text-gray-900 mb-2">
-              Option 1 — Stay at the House
-            </h2>
-            <p class="text-gray-600">
-              Builders and contributors visiting Barcelona sometimes stay at the house for a period of
-              time while working on Web3 projects, attending events, or collaborating with other
-              community members.
+            <h3 class="text-xl font-semibold text-gray-900 mb-2">Stay</h3>
+            <p class="text-gray-600 text-sm">
+              Overnight accommodation for contributors passing through Barcelona or attending
+              events. Priority for people with a connection to Giveth, Web3, or the ReFi ecosystem.
             </p>
           </article>
         </ScrollReveal>
 
         <ScrollReveal client:load delay={0.3}>
           <article class="bg-white rounded-lg border border-gray-200 p-6 shadow-sm h-full">
-            <h2 class="text-2xl font-semibold text-gray-900 mb-2">
-              Option 2 — Visit and Cowork
-            </h2>
-            <p class="text-gray-600">
-              You can also come to the house for the day to cowork, meet other builders, or participate
-              in community gatherings and activities.
+            <h3 class="text-xl font-semibold text-gray-900 mb-2">Coworking</h3>
+            <p class="text-gray-600 text-sm">
+              Day use of the house as a workspace. Good for remote workers and builders who want
+              to work alongside the community without staying overnight.
+            </p>
+          </article>
+        </ScrollReveal>
+
+        <ScrollReveal client:load delay={0.35}>
+          <article class="bg-white rounded-lg border border-gray-200 p-6 shadow-sm h-full">
+            <h3 class="text-xl font-semibold text-gray-900 mb-2">Visit</h3>
+            <p class="text-gray-600 text-sm">
+              Short visits to meet the community, attend a gathering, or connect with people at the
+              house. Open to anyone aligned with the values of the space.
             </p>
           </article>
         </ScrollReveal>
       </div>
 
+      <!-- How it works -->
       <ScrollReveal client:load delay={0.4}>
-        <section class="bg-gray-50 rounded-lg border border-gray-200 p-6 mb-10">
-          <h2 class="text-2xl font-semibold text-gray-900 mb-3">How it Works</h2>
-          <p class="text-gray-600">
-            For now, both stays and visits are coordinated manually. If you are interested in staying
-            at the house or coming by to cowork, the best way is to reach out through our contact form
-            and tell us a bit about yourself and what you are working on.
-          </p>
-        </section>
+        <h2 class="text-2xl font-bold text-gray-900 mb-6">How it works</h2>
       </ScrollReveal>
 
-      <ScrollReveal client:load delay={0.5}>
-        <div class="flex justify-start">
+      <div class="space-y-4 mb-14">
+        <ScrollReveal client:load delay={0.45}>
+          <div class="flex gap-4 items-start">
+            <div class="w-8 h-8 rounded-full bg-black text-white flex items-center justify-center text-sm font-bold shrink-0 mt-0.5">1</div>
+            <div>
+              <h3 class="font-semibold text-gray-900 mb-1">Apply via the Telegram bot</h3>
+              <p class="text-gray-600 text-sm">
+                Open <a href={SITE.telegramBot} target="_blank" rel="noopener noreferrer" class="underline hover:text-gray-900">{SITE.telegramHandle}</a>
+                {" "}and complete the short intake form — type of stay, dates, a bit about yourself,
+                and your connection to the community.
+              </p>
+            </div>
+          </div>
+        </ScrollReveal>
+
+        <ScrollReveal client:load delay={0.5}>
+          <div class="flex gap-4 items-start">
+            <div class="w-8 h-8 rounded-full bg-black text-white flex items-center justify-center text-sm font-bold shrink-0 mt-0.5">2</div>
+            <div>
+              <h3 class="font-semibold text-gray-900 mb-1">Franco reviews your request</h3>
+              <p class="text-gray-600 text-sm">
+                Franco ({SITE.francoHandle}) reviews every request personally and gets back to you
+                via Telegram. Approvals are based on availability and alignment with the space.
+              </p>
+            </div>
+          </div>
+        </ScrollReveal>
+
+        <ScrollReveal client:load delay={0.55}>
+          <div class="flex gap-4 items-start">
+            <div class="w-8 h-8 rounded-full bg-black text-white flex items-center justify-center text-sm font-bold shrink-0 mt-0.5">3</div>
+            <div>
+              <h3 class="font-semibold text-gray-900 mb-1">Arrive, connect, and contribute</h3>
+              <p class="text-gray-600 text-sm">
+                Coordinate your arrival with Franco — there is no self-entry system. After your
+                stay, contribute what feels right through the{" "}
+                <a href={SITE.givethDonation} target="_blank" rel="noopener noreferrer" class="underline hover:text-gray-900">Giveth platform</a>.
+              </p>
+            </div>
+          </div>
+        </ScrollReveal>
+      </div>
+
+      <!-- Getting there -->
+      <ScrollReveal client:load delay={0.6}>
+        <div class="bg-white rounded-xl border border-gray-200 p-6 mb-12">
+          <h2 class="text-2xl font-bold text-gray-900 mb-1">Getting there</h2>
+          <p class="text-gray-500 text-sm mb-3">{SITE.neighborhood}</p>
+          <p class="text-gray-600 text-sm">
+            The house is in the Sants neighbourhood — a lively, local area of Barcelona well
+            connected to the city centre and the airport. The exact address and arrival
+            instructions are shared with guests once their stay is confirmed.
+          </p>
+          <p class="text-sm text-gray-500 mt-4 border-t border-gray-100 pt-4">
+            There is no self-entry system. You'll coordinate your arrival directly with Franco
+            after your request is approved.
+          </p>
+        </div>
+      </ScrollReveal>
+
+      <!-- CTA -->
+      <ScrollReveal client:load delay={0.65}>
+        <div class="flex flex-col sm:flex-row gap-4">
           <a
-            href="/contact"
-            class="px-6 py-3 bg-black text-white rounded-lg hover:bg-gray-800 transition-colors font-medium"
+            href={SITE.telegramBot}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center px-8 py-3 bg-black text-white rounded-lg hover:bg-gray-800 transition-colors font-medium"
           >
-            Contact Us
+            Apply via Telegram
+          </a>
+          <a
+            href="/faqs"
+            class="inline-flex items-center justify-center px-8 py-3 bg-white text-gray-900 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors font-medium"
+          >
+            Read the FAQs
           </a>
         </div>
       </ScrollReveal>
+
     </section>
   </main>
   <Footer />
 </Layout>
-

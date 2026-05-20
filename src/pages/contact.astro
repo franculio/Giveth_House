@@ -2,31 +2,92 @@
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
-import ContactForm from "../components/ContactForm.astro";
 import ScrollReveal from "../components/ScrollReveal.tsx";
 import { SITE } from "../config/site.mjs";
 ---
 
 <Layout
   title={`Contact | ${SITE.title}`}
-  description="Contact Giveth House in Barcelona — visit the house, host an event, or connect with the community."
+  description="Get in touch with Giveth House Barcelona — apply for a stay via Telegram or reach out to Franco directly."
   canonicalURL={`${SITE.url}/contact`}
 >
   <Header />
   <main id="main-content" role="main">
     <section class="max-w-2xl mx-auto px-4 py-20">
+
       <ScrollReveal client:idle>
-        <h1 class="text-5xl font-bold text-gray-900 mb-4">Contact</h1>
+        <h1 class="text-5xl font-bold text-gray-900 mb-4">Get in Touch</h1>
       </ScrollReveal>
-      <ScrollReveal client:idle delay={0.2}>
-        <p class="text-xl text-gray-600 mb-12">Get in touch with us. We'd love to hear from you.</p>
+
+      <ScrollReveal client:idle delay={0.1}>
+        <p class="text-xl text-gray-600 mb-12">
+          The best way to connect with Giveth House is through Telegram.
+          Everything — stays, coworking, events — starts with the bot.
+        </p>
       </ScrollReveal>
-      
-      <ScrollReveal client:idle delay={0.3}>
-        <ContactForm />
-      </ScrollReveal>
+
+      <div class="space-y-4">
+        <ScrollReveal client:idle delay={0.2}>
+          <div class="bg-white rounded-xl border border-gray-200 p-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+            <div>
+              <h2 class="text-lg font-semibold text-gray-900 mb-1">Apply for a stay or visit</h2>
+              <p class="text-gray-600 text-sm">
+                Use the Telegram bot to request a stay, coworking day, or event.
+                Franco reviews every request personally.
+              </p>
+            </div>
+            <a
+              href={SITE.telegramBot}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="shrink-0 inline-flex items-center justify-center px-6 py-2.5 bg-black text-white rounded-lg hover:bg-gray-800 transition-colors font-medium text-sm"
+            >
+              Open bot
+            </a>
+          </div>
+        </ScrollReveal>
+
+        <ScrollReveal client:idle delay={0.3}>
+          <div class="bg-white rounded-xl border border-gray-200 p-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+            <div>
+              <h2 class="text-lg font-semibold text-gray-900 mb-1">Contact Franco directly</h2>
+              <p class="text-gray-600 text-sm">
+                For anything else — questions, collaborations, or just saying hi.
+                Franco is the house coordinator and steward.
+              </p>
+            </div>
+            <a
+              href={`https://t.me/${SITE.francoHandle.replace('@', '')}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="shrink-0 inline-flex items-center justify-center px-6 py-2.5 bg-white text-gray-900 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors font-medium text-sm"
+            >
+              {SITE.francoHandle}
+            </a>
+          </div>
+        </ScrollReveal>
+
+        <ScrollReveal client:idle delay={0.4}>
+          <div class="bg-white rounded-xl border border-gray-200 p-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+            <div>
+              <h2 class="text-lg font-semibold text-gray-900 mb-1">Follow on X</h2>
+              <p class="text-gray-600 text-sm">
+                Updates, community moments, and announcements from Giveth House.
+              </p>
+            </div>
+            <a
+              href="https://x.com/GivethHouse"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="shrink-0 inline-flex items-center justify-center px-6 py-2.5 bg-white text-gray-900 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors font-medium text-sm"
+            >
+              @GivethHouse
+            </a>
+          </div>
+        </ScrollReveal>
+      </div>
+
     </section>
   </main>
   <Footer />
 </Layout>
-
