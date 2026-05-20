@@ -65,8 +65,16 @@ import { Icon } from "astro-icon/components";
         </ul>
       </div>
     </div>
-    <div class="pt-8 border-t border-gray-200 text-center text-gray-600">
+    <div class="pt-8 border-t border-gray-200 flex flex-col sm:flex-row items-center justify-between gap-3 text-gray-500 text-sm">
       <p>&copy; {new Date().getFullYear()} Giveth House. All rights reserved.</p>
+      <a
+        href="https://www.hubsnetwork.org/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="hover:text-gray-900 transition-colors"
+      >
+        Part of the Hubs Network
+      </a>
     </div>
   </div>
 </footer>
