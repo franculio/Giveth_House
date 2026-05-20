@@ -25,6 +25,9 @@ pnpm-debug.log*
 # jetbrains setting folder
 .idea/
 
+# Claude Code local settings
+.claude/settings.local.json
+
 Giveth_house_context.md
 Giveth_sitemap.md
 about_context.md
