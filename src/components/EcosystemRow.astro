@@ -1,0 +1,34 @@
+---
+import ScrollReveal from "./ScrollReveal.tsx";
+
+const projects = [
+  { name: "Giveth", url: "https://giveth.io" },
+  { name: "Dappnode", url: "https://dappnode.com" },
+  { name: "Blossom Labs", url: "https://blossomlabs.eth.limo" },
+  { name: "Akasha Hub", url: "https://akasha.org" },
+  { name: "ReFi Barcelona", url: "https://www.refibcn.cat" },
+  { name: "Hubs Network", url: "https://www.hubsnetwork.org" },
+];
+---
+
+<section class="border-y border-gray-100 bg-gray-50 py-10 px-4">
+  <div class="max-w-4xl mx-auto">
+    <ScrollReveal client:idle delay={0.1}>
+      <p class="text-xs font-semibold uppercase tracking-widest text-gray-400 text-center mb-6">
+        Part of the community
+      </p>
+      <div class="flex flex-wrap justify-center gap-3">
+        {projects.map((project) => (
+          <a
+            href={project.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center px-4 py-2 rounded-full border border-gray-200 bg-white text-sm font-medium text-gray-600 hover:border-gray-400 hover:text-gray-900 hover:bg-white transition-all shadow-sm"
+          >
+            {project.name}
+          </a>
+        ))}
+      </div>
+    </ScrollReveal>
+  </div>
+</section>
