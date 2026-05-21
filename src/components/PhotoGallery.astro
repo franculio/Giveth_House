@@ -1,0 +1,36 @@
+---
+import ScrollReveal from "./ScrollReveal.tsx";
+
+const photos = [
+  { src: "/images/salon_normal.jfif", alt: "Living room at Giveth House" },
+  { src: "/images/Terraza_1.png", alt: "Rooftop terrace at Giveth House" },
+  { src: "/images/bunker_evento.jfif", alt: "Community event in the basement" },
+  { src: "/images/Sofa_con_gente.jfif", alt: "People at Giveth House" },
+  { src: "/images/salon_reunion_1.jfif", alt: "Coworking session at Giveth House" },
+  { src: "/images/Terraza_2.jfif", alt: "Terrace view at Giveth House" },
+];
+---
+
+<section class="max-w-6xl mx-auto px-4 py-20">
+  <ScrollReveal client:idle delay={0.1}>
+    <h2 class="text-4xl font-bold text-gray-900 text-center mb-4">The Space</h2>
+    <p class="text-center text-gray-500 mb-10 max-w-xl mx-auto">
+      A home, a workspace, a terrace — in the heart of Barcelona's Sants neighbourhood.
+    </p>
+  </ScrollReveal>
+
+  <ScrollReveal client:idle delay={0.2}>
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+      {photos.map((photo) => (
+        <div class="aspect-square overflow-hidden rounded-lg bg-gray-100">
+          <img
+            src={photo.src}
+            alt={photo.alt}
+            class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+            loading="lazy"
+          />
+        </div>
+      ))}
+    </div>
+  </ScrollReveal>
+</section>
