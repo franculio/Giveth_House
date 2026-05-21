@@ -1,0 +1,60 @@
+---
+import ScrollReveal from "./ScrollReveal.tsx";
+import { SITE } from "../config/site.mjs";
+---
+
+<section class="bg-gray-900 text-white py-20 px-4">
+  <div class="max-w-4xl mx-auto">
+
+    <ScrollReveal client:idle delay={0.1}>
+      <p class="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-4">
+        Community Funded
+      </p>
+      <h2 class="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
+        No tickets. No membership fees.<br class="hidden md:block" /> Just generosity.
+      </h2>
+      <p class="text-gray-300 text-lg max-w-2xl mb-12">
+        Giveth House has no fixed price for staying. Guests are invited to contribute
+        what feels right after their visit — through the Giveth donation platform,
+        in crypto, on almost any chain. The house has run this way since 2017.
+      </p>
+    </ScrollReveal>
+
+    <ScrollReveal client:idle delay={0.2}>
+      <div class="grid md:grid-cols-3 gap-6 mb-12">
+        <div class="border border-gray-700 rounded-xl p-6">
+          <div class="text-2xl font-bold text-white mb-1">500+</div>
+          <div class="text-gray-400 text-sm">visitors hosted since 2017</div>
+        </div>
+        <div class="border border-gray-700 rounded-xl p-6">
+          <div class="text-2xl font-bold text-white mb-1">7+</div>
+          <div class="text-gray-400 text-sm">years open in Barcelona</div>
+        </div>
+        <div class="border border-gray-700 rounded-xl p-6">
+          <div class="text-2xl font-bold text-white mb-1">100%</div>
+          <div class="text-gray-400 text-sm">community-supported, zero ticket sales</div>
+        </div>
+      </div>
+    </ScrollReveal>
+
+    <ScrollReveal client:idle delay={0.3}>
+      <div class="flex flex-col sm:flex-row gap-4">
+        <a
+          href={SITE.givethDonation}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center justify-center px-6 py-3 bg-white text-gray-900 rounded-lg hover:bg-gray-100 transition-colors font-medium text-sm"
+        >
+          Donate on Giveth
+        </a>
+        <a
+          href="/support"
+          class="inline-flex items-center justify-center px-6 py-3 border border-gray-600 text-gray-300 rounded-lg hover:border-gray-400 hover:text-white transition-colors font-medium text-sm"
+        >
+          Other ways to support
+        </a>
+      </div>
+    </ScrollReveal>
+
+  </div>
+</section>
