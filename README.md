@@ -30,5 +30,5 @@ This project is open source and available under the MIT License.
 
 ---
 
-**Giveth House** — A home for Web3 builders and communities.  
-[Giveth](https://giveth.io/es/project/giveth-house) · [X @GivethHouse](https://x.com/GivethHouse)
+**Live site:** [giveth.house](https://giveth.house)  
+[Giveth](https://giveth.io/project/giveth-house) · [X @GivethHouse](https://x.com/GivethHouse)

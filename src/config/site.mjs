@@ -3,7 +3,7 @@ export const SITE = {
   description:
     "A shared living, coworking, and community space in Barcelona where Web3 builders meet, collaborate, and create.",
   defaultLanguage: "en",
-  url: "https://givethhouse.com", // TODO: update with actual URL if different
+  url: "https://giveth.house",
   author: "Giveth House",
   ogImage: "/og-image.png", // Add this image to your public folder
   telegramBot: "https://t.me/GivethHousy_bot",
