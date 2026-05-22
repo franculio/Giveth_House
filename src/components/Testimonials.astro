@@ -1,0 +1,58 @@
+---
+import ScrollReveal from "./ScrollReveal.tsx";
+
+const testimonials = [
+  {
+    quote:
+      "80% of what I know about web3, Ethereum, and the history of everything — I learned inside the walls of the Giveth House, from people who were there coding, supporting, creating, and building.",
+    name: "Mafer",
+    role: "Trusted Seed / Commons Stack contributor",
+  },
+  {
+    quote:
+      "It's not exactly a home, it's not exactly work — but it's like this third space.",
+    name: "Jess",
+    role: "Co-organiser, ETH Gathering",
+  },
+  {
+    quote:
+      "The best thing you can do is come to the Giveth House and enjoy yourself. It's about building community, building friendships, connecting people in real life.",
+    name: "Griff Green",
+    role: "Co-founder of Giveth, founder of the house",
+  },
+  {
+    quote:
+      "Every person who comes also contributes and puts their own thing into the house. It has a really homey feeling.",
+    name: "Franco Ruiz",
+    role: "Steward, Giveth House",
+  },
+];
+---
+
+<section class="max-w-6xl mx-auto px-4 py-12 md:py-20">
+  <ScrollReveal client:idle delay={0.1}>
+    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-4">
+      What people say
+    </h2>
+    <p class="text-center text-gray-500 mb-12 max-w-xl mx-auto">
+      From the people who've been here.
+    </p>
+  </ScrollReveal>
+
+  <div class="grid md:grid-cols-2 gap-6">
+    {testimonials.map((t, i) => (
+      <ScrollReveal client:idle delay={0.15 + i * 0.1}>
+        <figure class="bg-white border border-gray-200 rounded-xl p-6 h-full flex flex-col justify-between shadow-sm">
+          <blockquote class="text-gray-700 text-base leading-relaxed mb-6">
+            <span class="text-3xl text-gray-200 font-serif leading-none select-none">"</span>
+            {t.quote}
+          </blockquote>
+          <figcaption>
+            <p class="font-semibold text-gray-900 text-sm">{t.name}</p>
+            <p class="text-gray-500 text-xs mt-0.5">{t.role}</p>
+          </figcaption>
+        </figure>
+      </ScrollReveal>
+    ))}
+  </div>
+</section>
