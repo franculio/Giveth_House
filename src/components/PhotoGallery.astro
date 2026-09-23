@@ -1,13 +1,20 @@
 ---
+import { Image } from "astro:assets";
 import ScrollReveal from "./ScrollReveal.tsx";
+import salonNormal from "../assets/images/salon_normal.jpg";
+import terraza1 from "../assets/images/Terraza_1.png";
+import bunkerEvento from "../assets/images/bunker_evento.jpg";
+import sofaConGente from "../assets/images/Sofa_con_gente.jpg";
+import salonReunion1 from "../assets/images/salon_reunion_1.jpg";
+import terraza2 from "../assets/images/Terraza_2.jpg";
 
 const photos = [
-  { src: "/images/salon_normal.jfif", alt: "Living room at Giveth House" },
-  { src: "/images/Terraza_1.png", alt: "Rooftop terrace at Giveth House" },
-  { src: "/images/bunker_evento.jfif", alt: "Community event in the basement" },
-  { src: "/images/Sofa_con_gente.jfif", alt: "People at Giveth House" },
-  { src: "/images/salon_reunion_1.jfif", alt: "Coworking session at Giveth House" },
-  { src: "/images/Terraza_2.jfif", alt: "Terrace view at Giveth House" },
+  { src: salonNormal, alt: "Living room at Giveth House" },
+  { src: terraza1, alt: "Rooftop terrace at Giveth House" },
+  { src: bunkerEvento, alt: "Community event in the basement" },
+  { src: sofaConGente, alt: "People at Giveth House" },
+  { src: salonReunion1, alt: "Coworking session at Giveth House" },
+  { src: terraza2, alt: "Terrace view at Giveth House" },
 ];
 ---
 
@@ -23,9 +30,13 @@ const photos = [
     <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
       {photos.map((photo) => (
         <div class="aspect-square overflow-hidden rounded-lg bg-gray-100">
-          <img
+          <Image
             src={photo.src}
             alt={photo.alt}
+            width={600}
+            height={600}
+            format="webp"
+            quality={75}
             class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
             loading="lazy"
           />
