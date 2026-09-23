@@ -10,7 +10,6 @@ export const SITE: {
   francoHandle: string;
   neighborhood: string;
   givethDonation: string;
-  web3formsAccessKey: string;
 };
 
 export type SiteConfig = typeof SITE;

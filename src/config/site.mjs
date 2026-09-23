@@ -11,7 +11,4 @@ export const SITE = {
   francoHandle: "@CuidadoP",
   neighborhood: "Sants, Barcelona",
   givethDonation: "https://giveth.io/project/giveth-house",
-  // Web3Forms: Get your access key from https://web3forms.com
-  // Leave empty to disable form submissions
-  web3formsAccessKey: "", // e.g., "YOUR_ACCESS_KEY_HERE"
 };
