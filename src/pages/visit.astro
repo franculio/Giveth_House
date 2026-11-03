@@ -10,7 +10,7 @@ import salonMesaGiveth from "../assets/images/salon_mesa_giveth.jpg";
 
 <Layout
   title={`Visit | ${SITE.title}`}
-  description="Learn how to stay at Giveth House in Barcelona — a gift economy home for Web3 builders. Apply via Telegram, get approved, and contribute what feels right."
+  description="Learn how to stay at Giveth House in Barcelona — a gift economy home for Web3 builders. Message us on Telegram, get approved, and contribute what feels right."
   canonicalURL={`${SITE.url}/visit`}
 >
   <Header />
@@ -52,9 +52,7 @@ import salonMesaGiveth from "../assets/images/salon_mesa_giveth.jpg";
             There is no fixed price for staying at Giveth House. Guests are invited to contribute
             what feels right through the{" "}
             <a
-              href={SITE.givethDonation}
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/donate"
               class="underline hover:text-gray-900"
             >Giveth donation platform</a>
             {" "}— in crypto, on almost any chain. The house runs entirely on community generosity.
@@ -109,11 +107,12 @@ import salonMesaGiveth from "../assets/images/salon_mesa_giveth.jpg";
           <div class="flex gap-4 items-start">
             <div class="w-8 h-8 rounded-full bg-black text-white flex items-center justify-center text-sm font-bold shrink-0 mt-0.5">1</div>
             <div>
-              <h3 class="font-semibold text-gray-900 mb-1">Apply via the Telegram bot</h3>
+              <h3 class="font-semibold text-gray-900 mb-1">Message us on Telegram</h3>
               <p class="text-gray-600 text-sm">
-                Open <a href={SITE.telegramBot} target="_blank" rel="noopener noreferrer" class="underline hover:text-gray-900">{SITE.telegramHandle}</a>
-                {" "}and complete the short intake form — type of stay, dates, a bit about yourself,
-                and your connection to the community.
+                Write to <a href={SITE.houseTelegram} target="_blank" rel="noopener noreferrer" class="underline hover:text-gray-900">{SITE.houseHandle}</a>
+                {" "}and tell us who you are, your dates, what brings you to Barcelona, your
+                connection to Giveth, web3 or ReFi, and whether someone from the community
+                recommended you.
               </p>
             </div>
           </div>
@@ -140,7 +139,7 @@ import salonMesaGiveth from "../assets/images/salon_mesa_giveth.jpg";
               <p class="text-gray-600 text-sm">
                 Coordinate your arrival with Franco — there is no self-entry system. After your
                 stay, contribute what feels right through the{" "}
-                <a href={SITE.givethDonation} target="_blank" rel="noopener noreferrer" class="underline hover:text-gray-900">Giveth platform</a>.
+                <a href="/donate" class="underline hover:text-gray-900">Giveth platform</a>.
               </p>
             </div>
           </div>
@@ -168,12 +167,12 @@ import salonMesaGiveth from "../assets/images/salon_mesa_giveth.jpg";
       <ScrollReveal client:load delay={0.65}>
         <div class="flex flex-col sm:flex-row gap-4">
           <a
-            href={SITE.telegramBot}
+            href={SITE.houseTelegram}
             target="_blank"
             rel="noopener noreferrer"
             class="inline-flex items-center justify-center px-8 py-3 bg-black text-white rounded-lg hover:bg-gray-800 transition-colors font-medium"
           >
-            Apply via Telegram
+            Message us on Telegram
           </a>
           <a
             href="/faqs"

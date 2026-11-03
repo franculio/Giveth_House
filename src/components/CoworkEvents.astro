@@ -1,16 +1,21 @@
 ---
+import { Image } from "astro:assets";
 import ScrollReveal from "./ScrollReveal.tsx";
 import { SITE } from "../config/site.mjs";
+import bunkerEvento from "../assets/images/bunker_evento.jpg";
 
 const events = [
-  "ETHBarcelona / ETHCC",
+  "ETHBarcelona / ETHBCN and ETHCC side gatherings",
   "Devconnect",
-  "Giveth retreat",
+  "Giveth retreats",
   "DAppNode offsite",
   "Commons Stack retreat",
+  "Curve Labs team retreat",
   "ReClaim hackathon",
   "COSMOS Hacker House",
-  "Curve Labs retreat",
+  "ETHGathering",
+  "Holo Hack, Vocdoni and dOrg retreats",
+  "Community dinners, including a yearly Christmas dinner",
 ];
 ---
 
@@ -23,15 +28,15 @@ const events = [
           Coworking
         </p>
         <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-          Come work with us for a day
+          Cowork with us
         </h2>
         <p class="text-gray-600 mb-4">
-          You don't have to stay overnight. The house is open as a workspace for remote workers
-          and builders who want to work alongside the community, and a coworking day is often how
-          the best conversations start.
+          Working remotely on something open source, web3, ReFi or public goods? Come work from
+          the house for the day. Desks, good company and people building similar things, in a home
+          rather than an office.
         </p>
         <p class="text-gray-600 mb-8">
-          Same gift economy as everything else here: no fee, just contribute what feels right.
+          Like everything here, there's no fee: contribute what feels right.
         </p>
         <a
           href={SITE.houseTelegram}
@@ -39,7 +44,7 @@ const events = [
           rel="noopener noreferrer"
           class="inline-flex items-center justify-center px-6 py-3 bg-black text-white rounded-lg hover:bg-gray-800 transition-colors font-medium text-sm"
         >
-          Ask for a coworking day
+          Ask about coworking
         </a>
       </div>
     </ScrollReveal>
@@ -47,29 +52,45 @@ const events = [
     <ScrollReveal client:idle delay={0.2}>
       <div>
         <p class="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-4">
-          Built here
+          Events
         </p>
         <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-          Gatherings we've hosted
+          Host something here
         </h2>
-        <p class="text-gray-600 mb-6">
-          Retreats, hackathons and hacker houses from across the ecosystem have used the house as
-          their base.
+        <div class="aspect-video overflow-hidden rounded-xl bg-gray-100 mb-6">
+          <Image
+            src={bunkerEvento}
+            alt="A community event in the basement at Giveth House"
+            width={800}
+            height={450}
+            format="webp"
+            quality={75}
+            class="w-full h-full object-cover"
+            loading="lazy"
+          />
+        </div>
+        <p class="text-gray-600 mb-4">
+          The basement and common areas work well for talks, workshops, small hacker houses,
+          retreats and community dinners. Over the years the house has hosted:
         </p>
-        <ul class="flex flex-wrap gap-2 mb-8">
+        <ul class="flex flex-wrap gap-2 mb-6">
           {events.map((event) => (
-            <li class="inline-flex items-center px-4 py-2 rounded-full border border-gray-200 bg-white text-sm font-medium text-gray-600 shadow-sm">
+            <li class="inline-flex items-center px-3 py-1.5 rounded-full border border-gray-200 bg-white text-xs md:text-sm font-medium text-gray-600 shadow-sm">
               {event}
             </li>
           ))}
         </ul>
+        <p class="text-gray-600 mb-8">
+          Fun fact: the Token Engineering Commons launched its bonding-curve economy from the
+          house kitchen.
+        </p>
         <a
           href={SITE.houseTelegram}
           target="_blank"
           rel="noopener noreferrer"
           class="inline-flex items-center justify-center px-6 py-3 bg-white text-gray-900 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors font-medium text-sm"
         >
-          Host something here
+          Propose an event
         </a>
       </div>
     </ScrollReveal>

@@ -5,8 +5,6 @@ export const SITE: {
   url: string;
   author: string;
   ogImage: string;
-  telegramBot: string;
-  telegramHandle: string;
   houseHandle: string;
   houseTelegram: string;
   neighborhood: string;

@@ -6,8 +6,6 @@ export const SITE = {
   url: "https://giveth.house",
   author: "Giveth House",
   ogImage: "/og-image.png", // Add this image to your public folder
-  telegramBot: "https://t.me/GivethHousy_bot",
-  telegramHandle: "@GivethHousy_bot",
   houseHandle: "@Giveth_House",
   houseTelegram: "https://t.me/Giveth_House",
   neighborhood: "Sants, Barcelona",

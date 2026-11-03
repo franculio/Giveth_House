@@ -8,7 +8,7 @@ import { SITE } from "../config/site.mjs";
 
 <Layout
   title={`Contact | ${SITE.title}`}
-  description="Get in touch with Giveth House Barcelona — apply for a stay via Telegram or reach out to Franco directly."
+  description="Get in touch with Giveth House Barcelona. Message the house on Telegram to ask about a stay, a coworking day or an event."
   canonicalURL={`${SITE.url}/contact`}
 >
   <Header />
@@ -22,8 +22,7 @@ import { SITE } from "../config/site.mjs";
       <ScrollReveal client:idle delay={0.1}>
         <p class="text-xl text-gray-600 mb-12">
           The best way to connect with Giveth House is through Telegram.
-          Write to the house account for anything, or use the bot to apply
-          for a stay, coworking, or a visit.
+          Write to the house account for anything: a stay, a coworking day, a visit or an event.
         </p>
       </ScrollReveal>
 
@@ -34,7 +33,7 @@ import { SITE } from "../config/site.mjs";
               <h2 class="text-lg font-semibold text-gray-900 mb-1">Message the house</h2>
               <p class="text-gray-600 text-sm">
                 Stays, coworking, visits, collaborations, or just saying hi.
-                Write to the house account on Telegram.
+                If you're asking about a stay, tell us who you are, your dates and what brings you to Barcelona.
               </p>
             </div>
             <a
@@ -49,26 +48,6 @@ import { SITE } from "../config/site.mjs";
         </ScrollReveal>
 
         <ScrollReveal client:idle delay={0.3}>
-          <div class="bg-white rounded-xl border border-gray-200 p-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-            <div>
-              <h2 class="text-lg font-semibold text-gray-900 mb-1">Apply for a stay or visit</h2>
-              <p class="text-gray-600 text-sm">
-                Use the Telegram bot to request a stay, coworking day, or event.
-                Franco reviews every request personally.
-              </p>
-            </div>
-            <a
-              href={SITE.telegramBot}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="shrink-0 inline-flex items-center justify-center px-6 py-2.5 bg-white text-gray-900 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors font-medium text-sm"
-            >
-              Open bot
-            </a>
-          </div>
-        </ScrollReveal>
-
-        <ScrollReveal client:idle delay={0.4}>
           <div class="bg-white rounded-xl border border-gray-200 p-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
             <div>
               <h2 class="text-lg font-semibold text-gray-900 mb-1">Follow on X</h2>

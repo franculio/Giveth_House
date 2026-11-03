@@ -17,7 +17,7 @@ const campaigns: Campaign[] = [
     name: "Giveth",
     description:
       "Support the house directly through the Giveth platform. Donate in almost any crypto token on most major chains — 100% of donations go to the project.",
-    url: SITE.givethDonation,
+    url: "/donate",
     cta: "Donate on Giveth",
   },
 ];
@@ -80,17 +80,12 @@ const campaigns: Campaign[] = [
                   {campaign.description}
                 </p>
               </div>
-              <div class="flex flex-wrap items-center gap-x-5 gap-y-3">
+              <div>
                 <a
                   href={campaign.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
                   class="inline-flex items-center justify-center px-5 py-2.5 bg-black text-white rounded-lg hover:bg-gray-800 transition-colors text-sm font-medium"
                 >
                   {campaign.cta}
-                </a>
-                <a href="/donate" class="text-sm text-gray-600 underline hover:text-gray-900">
-                  How to donate in 3 steps
                 </a>
               </div>
             </article>
