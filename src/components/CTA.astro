@@ -8,23 +8,25 @@ import { SITE } from "../config/site.mjs";
     <div class="bg-black rounded-2xl p-8 md:p-12 text-center text-white">
       <h2 class="text-3xl md:text-4xl font-bold mb-4">Ready to Visit?</h2>
       <p class="text-lg md:text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-        Everything starts with the Telegram bot. Apply for a stay, coworking day, or event —
+        Write to us on Telegram, or apply for a stay, coworking day, or event through the bot.
         Franco reviews every request personally.
       </p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
         <a
-          href={SITE.telegramBot}
+          href={SITE.houseTelegram}
           target="_blank"
           rel="noopener noreferrer"
           class="inline-flex items-center justify-center px-8 py-3 bg-white text-black rounded-lg hover:bg-gray-100 transition-colors font-medium"
         >
-          Apply via Telegram
+          Write to us on Telegram
         </a>
         <a
-          href="/support"
+          href={SITE.telegramBot}
+          target="_blank"
+          rel="noopener noreferrer"
           class="inline-flex items-center justify-center px-8 py-3 bg-black text-white border border-gray-700 rounded-lg hover:bg-gray-900 transition-colors font-medium"
         >
-          Support the House
+          Apply via the bot
         </a>
       </div>
       <p class="text-sm text-gray-500 mt-6">
