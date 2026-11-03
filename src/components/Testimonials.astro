@@ -27,8 +27,7 @@ const fallbackCss = `[data-testimonials]:not([data-ready]) > astro-island:nth-ch
       <ScrollReveal client:idle delay={0.15 + (i % TESTIMONIALS_VISIBLE) * 0.1}>
         <figure class="bg-white border border-gray-200 rounded-xl p-6 h-full flex flex-col justify-between shadow-sm">
           <blockquote class="text-gray-700 text-base leading-relaxed mb-6">
-            <span class="text-3xl text-gray-200 font-serif leading-none select-none">"</span>
-            {t.quote}
+            <span class="text-3xl text-gray-300 font-serif leading-none select-none" aria-hidden="true">&ldquo;</span>{t.quote}<span class="text-3xl text-gray-300 font-serif leading-none select-none" aria-hidden="true">&rdquo;</span>
           </blockquote>
           <figcaption>
             <p class="font-semibold text-gray-900 text-sm">{t.name}</p>

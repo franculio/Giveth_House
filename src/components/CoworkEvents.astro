@@ -1,0 +1,78 @@
+---
+import ScrollReveal from "./ScrollReveal.tsx";
+import { SITE } from "../config/site.mjs";
+
+const events = [
+  "ETHBarcelona / ETHCC",
+  "Devconnect",
+  "Giveth retreat",
+  "DAppNode offsite",
+  "Commons Stack retreat",
+  "ReClaim hackathon",
+  "COSMOS Hacker House",
+  "Curve Labs retreat",
+];
+---
+
+<section class="max-w-6xl mx-auto px-4 py-12 md:py-20">
+  <div class="grid md:grid-cols-2 gap-10 md:gap-16 items-start">
+
+    <ScrollReveal client:idle delay={0.1}>
+      <div>
+        <p class="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-4">
+          Coworking
+        </p>
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          Come work with us for a day
+        </h2>
+        <p class="text-gray-600 mb-4">
+          You don't have to stay overnight. The house is open as a workspace for remote workers
+          and builders who want to work alongside the community, and a coworking day is often how
+          the best conversations start.
+        </p>
+        <p class="text-gray-600 mb-8">
+          Same gift economy as everything else here: no fee, just contribute what feels right.
+        </p>
+        <a
+          href={SITE.houseTelegram}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center justify-center px-6 py-3 bg-black text-white rounded-lg hover:bg-gray-800 transition-colors font-medium text-sm"
+        >
+          Ask for a coworking day
+        </a>
+      </div>
+    </ScrollReveal>
+
+    <ScrollReveal client:idle delay={0.2}>
+      <div>
+        <p class="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-4">
+          Built here
+        </p>
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          Gatherings we've hosted
+        </h2>
+        <p class="text-gray-600 mb-6">
+          Retreats, hackathons and hacker houses from across the ecosystem have used the house as
+          their base.
+        </p>
+        <ul class="flex flex-wrap gap-2 mb-8">
+          {events.map((event) => (
+            <li class="inline-flex items-center px-4 py-2 rounded-full border border-gray-200 bg-white text-sm font-medium text-gray-600 shadow-sm">
+              {event}
+            </li>
+          ))}
+        </ul>
+        <a
+          href={SITE.houseTelegram}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center justify-center px-6 py-3 bg-white text-gray-900 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors font-medium text-sm"
+        >
+          Host something here
+        </a>
+      </div>
+    </ScrollReveal>
+
+  </div>
+</section>
