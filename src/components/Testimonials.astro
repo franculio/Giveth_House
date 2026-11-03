@@ -1,39 +1,12 @@
 ---
 import ScrollReveal from "./ScrollReveal.tsx";
+import { testimonials, TESTIMONIALS_VISIBLE } from "../data/testimonials";
 
-const testimonials = [
-  {
-    quote:
-      "80% of what I know about web3, Ethereum, and the history of everything — I learned inside the walls of the Giveth House, from people who were there coding, supporting, creating, and building.",
-    name: "Mafer",
-    role: "Trusted Seed / Commons Stack contributor",
-  },
-  {
-    quote:
-      "It's not exactly a home, it's not exactly work — but it's like this third space.",
-    name: "Jess",
-    role: "Co-organiser, ETH Gathering",
-  },
-  {
-    quote:
-      "The best thing you can do is come to the Giveth House and enjoy yourself. It's about building community, building friendships, connecting people in real life.",
-    name: "Griff Green",
-    role: "Co-founder of Giveth, founder of the house",
-  },
-  {
-    quote:
-      "Every person who comes also contributes and puts their own thing into the house. It has a really homey feeling.",
-    name: "Franco Ruiz",
-    role: "Steward, Giveth House",
-  },
-  {
-    quote:
-      "Sometimes the nicest surprises happen when you're not looking for them. I was recommended to visit the Giveth House as I was hosting an event nearby. I was looking for a bed, and instead I found warmth, intriguing conversations with veterans of my industry, a place of productivity, comfort and some newfound friends who I'll meet at next conferences around the globe. Support Giveth, so Franco can continue to build out this little magical oasis in the vast desert of today's commercialized world.",
-    name: "Robert",
-    role: "Web3Privacy Now",
-  },
-];
+// Before the script runs (or without JS) only the first N cards show.
+const fallbackCss = `[data-testimonials]:not([data-ready]) > astro-island:nth-child(n+${TESTIMONIALS_VISIBLE + 1}) { display: none; }`;
 ---
+
+<style is:inline set:html={fallbackCss}></style>
 
 <section class="max-w-6xl mx-auto px-4 py-12 md:py-20">
   <ScrollReveal client:idle delay={0.1}>
@@ -45,9 +18,13 @@ const testimonials = [
     </p>
   </ScrollReveal>
 
-  <div class="grid md:grid-cols-2 gap-6 md:[&>*:last-child:nth-child(odd)>*]:col-span-2">
+  <div
+    data-testimonials
+    data-max={TESTIMONIALS_VISIBLE}
+    class="grid md:grid-cols-2 gap-6 md:[&>*:last-child:nth-child(odd)>*]:col-span-2"
+  >
     {testimonials.map((t, i) => (
-      <ScrollReveal client:idle delay={0.15 + i * 0.1}>
+      <ScrollReveal client:idle delay={0.15 + (i % TESTIMONIALS_VISIBLE) * 0.1}>
         <figure class="bg-white border border-gray-200 rounded-xl p-6 h-full flex flex-col justify-between shadow-sm">
           <blockquote class="text-gray-700 text-base leading-relaxed mb-6">
             <span class="text-3xl text-gray-200 font-serif leading-none select-none">"</span>
@@ -62,3 +39,18 @@ const testimonials = [
     ))}
   </div>
 </section>
+
+<script>
+  const grid = document.querySelector<HTMLElement>("[data-testimonials]");
+  if (grid) {
+    const max = Number(grid.dataset.max) || 4;
+    const cards = Array.from(grid.children);
+    for (let i = cards.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [cards[i], cards[j]] = [cards[j], cards[i]];
+    }
+    cards.slice(max).forEach((card) => card.remove());
+    cards.slice(0, max).forEach((card) => grid.appendChild(card));
+    grid.dataset.ready = "true";
+  }
+</script>
