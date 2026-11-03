@@ -20,13 +20,6 @@ const campaigns: Campaign[] = [
     url: SITE.givethDonation,
     cta: "Donate on Giveth",
   },
-  {
-    name: "CrowdWalrus",
-    description:
-      "Contribute through the CrowdWalrus campaign and help keep the house running as a free, open resource for the Web3 community.",
-    url: "https://crowdwalrus.xyz/campaigns/givethouse",
-    cta: "Support on CrowdWalrus",
-  },
 ];
 ---
 
@@ -75,7 +68,7 @@ const campaigns: Campaign[] = [
         <h2 class="text-2xl font-bold text-gray-900 mb-6">Donate</h2>
       </ScrollReveal>
 
-      <div class="grid gap-6 md:grid-cols-2 mb-12">
+      <div class="grid gap-6 mb-12">
         {campaigns.map((campaign, index) => (
           <ScrollReveal client:load delay={0.35 + index * 0.1}>
             <article class="bg-white rounded-lg border border-gray-200 p-6 shadow-sm flex flex-col justify-between h-full">

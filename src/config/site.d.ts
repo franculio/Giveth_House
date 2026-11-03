@@ -7,7 +7,8 @@ export const SITE: {
   ogImage: string;
   telegramBot: string;
   telegramHandle: string;
-  francoHandle: string;
+  houseHandle: string;
+  houseTelegram: string;
   neighborhood: string;
   givethDonation: string;
 };

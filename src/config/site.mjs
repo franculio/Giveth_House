@@ -8,7 +8,8 @@ export const SITE = {
   ogImage: "/og-image.png", // Add this image to your public folder
   telegramBot: "https://t.me/GivethHousy_bot",
   telegramHandle: "@GivethHousy_bot",
-  francoHandle: "@CuidadoP",
+  houseHandle: "@Giveth_House",
+  houseTelegram: "https://t.me/Giveth_House",
   neighborhood: "Sants, Barcelona",
   givethDonation: "https://giveth.io/project/giveth-house",
 };
