@@ -15,6 +15,7 @@ export default defineConfig({
     icon(),
     mdx(),
     sitemap({
+      filter: (page) => !page.includes("/guests/"),
       changefreq: "weekly",
       priority: 0.7,
       lastmod: new Date(),

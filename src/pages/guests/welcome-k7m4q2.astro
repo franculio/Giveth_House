@@ -1,0 +1,136 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import ScrollReveal from "../../components/ScrollReveal.tsx";
+import { SITE } from "../../config/site.mjs";
+
+const wifiNetworks = ["Blue", "Purple", "Green", "Yellow"];
+---
+
+<Layout
+  title={`Welcome | ${SITE.title}`}
+  description="A guide for confirmed Giveth House guests."
+  canonicalURL={`${SITE.url}/guests/welcome-k7m4q2`}
+  noindex={true}
+  nofollow={true}
+>
+  <Header />
+  <main id="main-content" role="main">
+    <section class="max-w-3xl mx-auto px-4 py-12 md:py-20">
+
+      <ScrollReveal client:idle>
+        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Welcome to Giveth House!</h1>
+      </ScrollReveal>
+
+      <ScrollReveal client:load delay={0.1}>
+        <p class="text-xl text-gray-600 mb-12">
+          Here's everything you need for your stay. Franco will send you the exact address by
+          message.
+        </p>
+      </ScrollReveal>
+
+      <ScrollReveal client:load delay={0.15}>
+        <h2 class="text-2xl font-bold text-gray-900 mb-4">Getting here</h2>
+        <ul class="list-disc pl-5 space-y-2 text-gray-600 mb-12">
+          <li>
+            The house is in Sants, about a 10 to 15 minute walk from Barcelona-Sants train station.
+          </li>
+          <li>
+            From the airport (BCN), the easiest way is the Rodalies R2 Nord train from T2 to Sants
+            Estació (about 20 minutes), then a short walk.
+          </li>
+          <li>
+            By metro, take L9 Sud to Torrassa and then L1 to Mercat Nou, or L9 Sud to Plaça Espanya
+            and then L5 to Plaça de Sants.
+          </li>
+          <li>
+            By bus, take the 46 straight from the airport to Magòria-La Campana, then walk about
+            10 minutes.
+          </li>
+        </ul>
+      </ScrollReveal>
+
+      <ScrollReveal client:load delay={0.2}>
+        <h2 class="text-2xl font-bold text-gray-900 mb-4">Arriving</h2>
+        <ul class="list-disc pl-5 space-y-2 text-gray-600 mb-12">
+          <li>
+            There's no self check-in: someone needs to open the door. Send your arrival time a day
+            before so we can make sure someone's home.
+          </li>
+          <li>Ring the "bajos" bell.</li>
+        </ul>
+      </ScrollReveal>
+
+      <ScrollReveal client:load delay={0.25}>
+        <h2 class="text-2xl font-bold text-gray-900 mb-4">During your stay</h2>
+        <ul class="list-disc pl-5 space-y-3 text-gray-600 mb-12">
+          <li>Bedding and towels are provided, so no need to bring your own.</li>
+          <li>
+            <strong class="text-gray-900">Wifi.</strong>
+            There are four networks, named by color: {wifiNetworks.join(", ")}. They all use the
+            same password, which is written on the whiteboard in the kitchen. They run on different
+            modems, so some work better on some floors. If one is slow where you are, try another.
+          </li>
+          <li>
+            <strong class="text-gray-900">Kitchen.</strong>
+            Clean up after you cook and leave everything as you found it, or better. There are two
+            fridges: the gray one is for things you don't want to share, and the white one is for
+            things you're happy to share.
+          </li>
+          <li>
+            <strong class="text-gray-900">Quiet.</strong>
+            Use common sense and respect the people in the house and our neighbors.
+          </li>
+          <li>
+            <strong class="text-gray-900">Cleaning.</strong>
+            The house is cleaned on Mondays and Thursdays from 9 to 12.
+          </li>
+          <li>The house is shared, so treat it like a friend's home.</li>
+        </ul>
+      </ScrollReveal>
+
+      <ScrollReveal client:load delay={0.3}>
+        <h2 class="text-2xl font-bold text-gray-900 mb-4">When you leave</h2>
+        <ul class="list-disc pl-5 space-y-2 text-gray-600 mb-12">
+          <li>
+            Strip your bed and leave the sheets and towels in the basket in front of the bathroom.
+            There's a sign in the hallway.
+          </li>
+          <li>If you're leaving early and don't want to wake anyone, just send a message.</li>
+          <li>If your plans change, let us know so the bed can go to someone else.</li>
+        </ul>
+      </ScrollReveal>
+
+      <ScrollReveal client:load delay={0.35}>
+        <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 mb-8">
+          <h2 class="text-lg font-semibold text-gray-900 mb-2">Keep the house going</h2>
+          <p class="text-gray-600 mb-4">
+            The house runs on donations. If you'd like to contribute for your stay, give whatever
+            feels right.
+          </p>
+          <a
+            href="/donate"
+            class="inline-flex items-center justify-center px-5 py-2.5 bg-black text-white rounded-lg hover:bg-gray-800 transition-colors text-sm font-medium"
+          >
+            How to donate
+          </a>
+        </div>
+      </ScrollReveal>
+
+      <ScrollReveal client:load delay={0.4}>
+        <p class="text-gray-500 text-sm">
+          Questions during your stay? Write to us at
+          <a
+            href={SITE.houseTelegram}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="underline hover:text-gray-900"
+          >{SITE.houseHandle}</a>.
+        </p>
+      </ScrollReveal>
+
+    </section>
+  </main>
+  <Footer />
+</Layout>
