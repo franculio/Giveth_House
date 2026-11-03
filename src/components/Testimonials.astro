@@ -26,6 +26,12 @@ const testimonials = [
     name: "Franco Ruiz",
     role: "Steward, Giveth House",
   },
+  {
+    quote:
+      "Sometimes the nicest surprises happen when you're not looking for them. I was recommended to visit the Giveth House as I was hosting an event nearby. I was looking for a bed, and instead I found warmth, intriguing conversations with veterans of my industry, a place of productivity, comfort and some newfound friends who I'll meet at next conferences around the globe. Support Giveth, so Franco can continue to build out this little magical oasis in the vast desert of today's commercialized world.",
+    name: "Robert",
+    role: "Web3Privacy Now",
+  },
 ];
 ---
 
@@ -39,7 +45,7 @@ const testimonials = [
     </p>
   </ScrollReveal>
 
-  <div class="grid md:grid-cols-2 gap-6">
+  <div class="grid md:grid-cols-2 gap-6 md:[&>*:last-child:nth-child(odd)>*]:col-span-2">
     {testimonials.map((t, i) => (
       <ScrollReveal client:idle delay={0.15 + i * 0.1}>
         <figure class="bg-white border border-gray-200 rounded-xl p-6 h-full flex flex-col justify-between shadow-sm">
