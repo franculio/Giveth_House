@@ -11,13 +11,13 @@ export const TESTIMONIALS_VISIBLE = 4;
 export const testimonials: Testimonial[] = [
   {
     quote:
-      "80% of what I know about web3, Ethereum, and the history of everything — I learned inside the walls of the Giveth House, from people who were there coding, supporting, creating, and building.",
+      "80% of what I know about web3, blockchain, Ethereum, and the history of everything I learned inside the walls of the Giveth House, from people who were there coding, supporting, creating, and building.",
     name: "Mafer",
     role: "Trusted Seed / Commons Stack contributor",
   },
   {
     quote:
-      "It's not exactly a home, it's not exactly work — but it's like this third space.",
+      "It's not exactly a home, it's not exactly work, but it's like this third space.",
     name: "Jess",
     role: "Co-organiser, ETH Gathering",
   },

@@ -1,7 +1,7 @@
 export const SITE = {
-  title: "Giveth House — A Home for Web3 Builders and Communities",
+  title: "Giveth House: A Home for Web3 Builders and Communities",
   description:
-    "A shared living, coworking, and community space in Barcelona where Web3 builders meet, collaborate, and create.",
+    "A community home in Barcelona for Web3 builders and communities. Stay, cowork and meet. No fixed prices, open since 2017.",
   defaultLanguage: "en",
   url: "https://giveth.house",
   author: "Giveth House",
