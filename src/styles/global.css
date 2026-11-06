@@ -1,5 +1,71 @@
 @import "tailwindcss";
+@import "@fontsource-variable/red-hat-display/wght.css";
+@import "@fontsource-variable/red-hat-text/wght.css";
 @plugin "@tailwindcss/typography";
+
+/* Design tokens: see docs/STYLE_GUIDE.md */
+@theme {
+  --font-display: "Red Hat Display Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Red Hat Text Variable", ui-sans-serif, system-ui, sans-serif;
+
+  --color-ink: #1b1657;
+  --color-ink-muted: #5d6283;
+  --color-grape: #5326ec;
+  --color-grape-dark: #3c14c4;
+  --color-lavender: #8668fc;
+  --color-lavender-300: #b9a9ff;
+  --color-dandelion: #fed670;
+  --color-aquamarine: #2fc8e0;
+  --color-tulip: #e1458d;
+  --color-ocean: #165ffa;
+  --color-shark: #1d1e1f;
+  --color-botticelli: #d7ddea;
+  --color-athens: #ebecf2;
+  --color-bone: #f7f7f9;
+}
+
+@layer base {
+  body {
+    color: var(--color-ink);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.01em;
+  }
+
+  h1 {
+    letter-spacing: -0.02em;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-grape);
+    outline-offset: 2px;
+  }
+
+  [data-dark] :focus-visible {
+    outline-color: var(--color-lavender-300);
+  }
+}
+
+/* Long-form text (About page) in the brand colors */
+.prose {
+  --tw-prose-body: var(--color-ink);
+  --tw-prose-headings: var(--color-ink);
+  --tw-prose-lead: var(--color-ink-muted);
+  --tw-prose-links: var(--color-grape);
+  --tw-prose-bold: var(--color-ink);
+  --tw-prose-counters: var(--color-ink-muted);
+  --tw-prose-bullets: var(--color-ink-muted);
+  --tw-prose-hr: var(--color-athens);
+  --tw-prose-quotes: var(--color-ink);
+  --tw-prose-quote-borders: var(--color-athens);
+  --tw-prose-captions: var(--color-ink-muted);
+  --tw-prose-code: var(--color-ink);
+}
 
 /* Accessibility: Skip to content link */
 .sr-only {
