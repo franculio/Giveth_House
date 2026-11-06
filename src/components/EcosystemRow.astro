@@ -1,34 +1,56 @@
 ---
+import { Image } from "astro:assets";
 import ScrollReveal from "./ScrollReveal.tsx";
+import giveth from "../assets/logos/giveth.svg";
+import dappnode from "../assets/logos/dappnode.png";
+import blossom from "../assets/logos/blossom.svg";
+import akasha from "../assets/logos/akasha.png";
+import refibcn from "../assets/logos/refibcn.png";
+import hubsnetwork from "../assets/logos/hubsnetwork.svg";
 
 const projects = [
-  { name: "Giveth", url: "https://giveth.io" },
-  { name: "Dappnode", url: "https://dappnode.com" },
-  { name: "Blossom Labs", url: "https://blossom.software" },
-  { name: "Akasha Hub", url: "https://akasha.barcelona" },
-  { name: "ReFi Barcelona", url: "https://www.refibcn.cat" },
-  { name: "Hubs Network", url: "https://www.hubsnetwork.org" },
+  { name: "Giveth", url: "https://giveth.io", logo: giveth, height: 30 },
+  { name: "Dappnode", url: "https://dappnode.com", logo: dappnode, height: 32 },
+  { name: "Blossom Labs", url: "https://blossom.software", logo: blossom, height: 32 },
+  { name: "Akasha Hub", url: "https://akasha.barcelona", logo: akasha, height: 40 },
+  { name: "ReFi Barcelona", url: "https://www.refibcn.cat", logo: refibcn, height: 32, showName: true },
+  { name: "Hubs Network", url: "https://www.hubsnetwork.org", logo: hubsnetwork, height: 24 },
 ];
 ---
 
 <section class="border-y border-gray-100 bg-gray-50 py-10 px-4">
-  <div class="max-w-4xl mx-auto">
+  <div class="max-w-5xl mx-auto">
     <ScrollReveal client:idle delay={0.1}>
-      <p class="text-xs font-semibold uppercase tracking-widest text-gray-400 text-center mb-6">
+      <p class="text-xs font-semibold uppercase tracking-widest text-gray-400 text-center mb-8">
         Part of the community
       </p>
-      <div class="flex flex-wrap justify-center gap-3">
+      <ul class="flex flex-wrap items-center justify-center gap-x-10 gap-y-6 md:gap-x-14">
         {projects.map((project) => (
-          <a
-            href={project.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="inline-flex items-center px-4 py-2 rounded-full border border-gray-200 bg-white text-sm font-medium text-gray-600 hover:border-gray-400 hover:text-gray-900 hover:bg-white transition-all shadow-sm"
-          >
-            {project.name}
-          </a>
+          <li>
+            <a
+              href={project.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`${project.name} (opens in new tab)`}
+              class="flex items-center gap-2 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 focus-visible:grayscale-0 focus-visible:opacity-100 transition-all duration-300"
+            >
+              <Image
+                src={project.logo}
+                alt={project.showName ? "" : project.name}
+                height={project.height * 2}
+                format={project.logo.format === "svg" ? undefined : "webp"}
+                quality={90}
+                class="w-auto"
+                style={`height: ${project.height}px`}
+                loading="lazy"
+              />
+              {project.showName && (
+                <span class="text-sm font-semibold text-gray-700">{project.name}</span>
+              )}
+            </a>
+          </li>
         ))}
-      </div>
+      </ul>
     </ScrollReveal>
   </div>
 </section>
