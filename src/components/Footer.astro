@@ -4,45 +4,48 @@ import { Icon } from "astro-icon/components";
 
 <footer
   id="contact"
-  class="w-full py-12 px-4 border-t border-athens bg-white"
+  data-dark
+  class="w-full py-12 px-4 bg-ink text-botticelli"
   role="contentinfo"
 >
   <div class="max-w-6xl mx-auto">
     <div class="grid md:grid-cols-3 gap-8 mb-8">
       <div>
-        <h2 class="text-lg font-semibold text-ink mb-4">Giveth House</h2>
-        <p class="text-ink-muted">
+        <a href="/" class="inline-block text-white mb-4" aria-label="Giveth House - Home">
+          <Icon name="giveth-house-logo-compact" class="h-14 w-auto" aria-hidden="true" />
+        </a>
+        <p class="text-botticelli max-w-sm">
           A community-driven Web3 hub in Barcelona — a shared home,
           coworking space, and gathering place for builders and communities.
         </p>
       </div>
       <div>
-        <h2 class="text-lg font-semibold text-ink mb-4">Links</h2>
+        <h2 class="text-lg font-semibold text-white mb-4">Links</h2>
         <ul class="space-y-2">
           <li>
-            <a href="/about" class="text-ink hover:text-grape transition-colors">About</a>
+            <a href="/about" class="text-lavender-300 hover:text-white transition-colors">About</a>
           </li>
           <li>
-            <a href="/visit" class="text-ink hover:text-grape transition-colors">Visit</a>
+            <a href="/visit" class="text-lavender-300 hover:text-white transition-colors">Visit</a>
           </li>
           <li>
-            <a href="/faqs" class="text-ink hover:text-grape transition-colors">FAQs</a>
+            <a href="/faqs" class="text-lavender-300 hover:text-white transition-colors">FAQs</a>
           </li>
           <li>
-            <a href="/support" class="text-ink hover:text-grape transition-colors">Support</a>
+            <a href="/support" class="text-lavender-300 hover:text-white transition-colors">Support</a>
           </li>
           <li>
-            <a href="/donate" class="text-ink hover:text-grape transition-colors">Donate</a>
+            <a href="/donate" class="text-lavender-300 hover:text-white transition-colors">Donate</a>
           </li>
         </ul>
       </div>
       <div>
-        <h2 class="text-lg font-semibold text-ink mb-4">Connect</h2>
+        <h2 class="text-lg font-semibold text-white mb-4">Connect</h2>
         <ul class="space-y-2">
           <li>
             <a
               href="https://x.com/GivethHouse"
-              class="flex items-center gap-2 text-ink hover:text-grape transition-colors"
+              class="flex items-center gap-2 text-lavender-300 hover:text-white transition-colors"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Follow Giveth House on X (opens in new tab)"
@@ -56,7 +59,7 @@ import { Icon } from "astro-icon/components";
               href="https://t.me/Giveth_House"
               target="_blank"
               rel="noopener noreferrer"
-              class="flex items-center gap-2 text-ink hover:text-grape transition-colors"
+              class="flex items-center gap-2 text-lavender-300 hover:text-white transition-colors"
             >
               <Icon name="tabler:brand-telegram" class="w-5 h-5" aria-hidden="true" />
               <span>Telegram</span>
@@ -65,13 +68,13 @@ import { Icon } from "astro-icon/components";
         </ul>
       </div>
     </div>
-    <div class="pt-8 border-t border-athens flex flex-col sm:flex-row items-center justify-between gap-3 text-ink-muted text-sm">
+    <div class="pt-8 border-t border-white/20 flex flex-col sm:flex-row items-center justify-between gap-3 text-botticelli text-sm">
       <p>&copy; {new Date().getFullYear()} Giveth House. Open source · MIT License.</p>
       <a
         href="https://www.hubsnetwork.org/"
         target="_blank"
         rel="noopener noreferrer"
-        class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-athens bg-bone text-ink-muted hover:border-ink hover:text-ink hover:bg-white transition-all text-xs font-medium"
+        class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-white/30 text-botticelli hover:bg-white hover:text-ink transition-colors text-xs font-medium"
         aria-label="Giveth House is part of the Hubs Network (opens in new tab)"
       >
         <Icon name="tabler:hexagons" class="w-3.5 h-3.5" aria-hidden="true" />

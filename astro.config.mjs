@@ -12,7 +12,7 @@ export default defineConfig({
   site: SITE.url,
   integrations: [
     react(),
-    icon(),
+    icon({ iconDir: "src/assets/brand" }),
     mdx(),
     sitemap({
       filter: (page) => !page.includes("/guests/"),
