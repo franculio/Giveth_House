@@ -190,6 +190,8 @@ example the donation callout. It should feel like a signature, not wallpaper.
 
 ## 7. Components
 
+The site builds these with three shared components in `src/components`: `Button.astro`, `Card.astro` and `Chip.astro`. Use them instead of writing the classes by hand.
+
 **Buttons**
 - Primary: `grape` background, white text, 8 px radius, 44 px tall minimum, 24 px horizontal padding. Hover `grape-dark`.
   One primary button per section.
@@ -300,7 +302,7 @@ The site currently uses Tailwind's default grays and system fonts. Replace as fo
 
 ### Suggested order of work
 
-Status on 2026-11-06: steps 1, 2, 3 and 5 are applied on the site; step 4 and 6 are still open.
+Status on 2026-11-06: steps 1 to 5 are applied on the site; only step 6 (the social-sharing image) is open.
 
 1. Fonts and tokens in `global.css`, with `font-sans` on the body.
 2. Replace colors with the migration map above, page by page.

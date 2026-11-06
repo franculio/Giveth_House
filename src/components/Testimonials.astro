@@ -4,6 +4,7 @@ import { testimonials, TESTIMONIALS_VISIBLE } from "../data/testimonials";
 
 // Before the script runs (or without JS) only the first N cards show.
 const fallbackCss = `[data-testimonials]:not([data-ready]) > astro-island:nth-child(n+${TESTIMONIALS_VISIBLE + 1}) { display: none; }`;
+import Card from "./Card.astro";
 ---
 
 <style is:inline set:html={fallbackCss}></style>
@@ -25,7 +26,7 @@ const fallbackCss = `[data-testimonials]:not([data-ready]) > astro-island:nth-ch
   >
     {testimonials.map((t, i) => (
       <ScrollReveal client:idle delay={0.15 + (i % TESTIMONIALS_VISIBLE) * 0.1}>
-        <figure class="bg-white border border-athens rounded-xl p-6 h-full flex flex-col justify-between shadow-sm">
+        <Card as="figure" class="h-full flex flex-col justify-between">
           <blockquote class="text-ink text-base leading-relaxed mb-6">
             <span class="text-3xl text-lavender font-serif leading-none select-none" aria-hidden="true">&ldquo;</span>{t.quote}<span class="text-3xl text-lavender font-serif leading-none select-none" aria-hidden="true">&rdquo;</span>
           </blockquote>
@@ -33,7 +34,7 @@ const fallbackCss = `[data-testimonials]:not([data-ready]) > astro-island:nth-ch
             <p class="font-semibold text-ink text-sm">{t.name}</p>
             <p class="text-ink-muted text-xs mt-0.5">{t.role}</p>
           </figcaption>
-        </figure>
+        </Card>
       </ScrollReveal>
     ))}
   </div>

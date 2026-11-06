@@ -6,6 +6,8 @@ import ScrollReveal from "../../components/ScrollReveal.tsx";
 import { SITE } from "../../config/site.mjs";
 
 const wifiNetworks = ["Blue", "Purple", "Green", "Yellow"];
+import Button from "../../components/Button.astro";
+import Card from "../../components/Card.astro";
 ---
 
 <Layout
@@ -123,19 +125,16 @@ const wifiNetworks = ["Blue", "Purple", "Green", "Yellow"];
       </ScrollReveal>
 
       <ScrollReveal client:load delay={0.35}>
-        <div class="bg-bone border border-athens rounded-xl p-6 mb-8">
+        <Card tone="bone" class="mb-8">
           <h2 class="text-lg font-semibold text-ink mb-2">Keep the house going</h2>
           <p class="text-ink-muted mb-4">
             The house runs on donations. If you'd like to contribute for your stay, give whatever
             feels right.
           </p>
-          <a
-            href="/donate"
-            class="inline-flex items-center justify-center px-5 py-2.5 bg-grape text-white rounded-lg hover:bg-grape-dark transition-colors text-sm font-medium"
-          >
+          <Button href="/donate">
             How to donate
-          </a>
-        </div>
+          </Button>
+        </Card>
       </ScrollReveal>
 
       <ScrollReveal client:load delay={0.4}>

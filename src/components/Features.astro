@@ -1,6 +1,7 @@
 ---
 import ScrollReveal from "./ScrollReveal.tsx";
 import { Icon } from "astro-icon/components";
+import Card from "./Card.astro";
 ---
 
 <section id="features" class="max-w-6xl mx-auto px-4 py-12 md:py-20">
@@ -12,18 +13,18 @@ import { Icon } from "astro-icon/components";
   </ScrollReveal>
   <div class="grid md:grid-cols-2 gap-8">
     <ScrollReveal client:idle delay={0.2} scale={true}>
-      <div class="p-6 bg-white rounded-lg border border-athens hover:shadow-lg transition-shadow">
+      <Card class="h-full hover:shadow-lg transition-shadow">
         <div class="w-12 h-12 bg-athens rounded-lg flex items-center justify-center mb-4">
           <Icon name="tabler:home" class="w-6 h-6 text-ink" aria-hidden="true" />
         </div>
         <h3 class="text-xl font-semibold text-ink mb-2">Stay</h3>
         <p class="text-ink-muted">
-          A place to sleep for contributors visiting Barcelona. A home, not a hotel. The house runs on donations: guests contribute what they can through the Giveth platform after their stay.
+          A place to sleep for contributors visiting Barcelona. A home, not a hotel.
         </p>
-      </div>
+      </Card>
     </ScrollReveal>
     <ScrollReveal client:idle delay={0.3} scale={true}>
-      <div class="p-6 bg-white rounded-lg border border-athens hover:shadow-lg transition-shadow">
+      <Card class="h-full hover:shadow-lg transition-shadow">
         <div class="w-12 h-12 bg-athens rounded-lg flex items-center justify-center mb-4">
           <Icon name="tabler:desk" class="w-6 h-6 text-ink" aria-hidden="true" />
         </div>
@@ -31,10 +32,10 @@ import { Icon } from "astro-icon/components";
         <p class="text-ink-muted">
           A shared workspace for builders, researchers and contributors from the Ethereum and blockchain4good world. Come to focus and work alongside people building similar things.
         </p>
-      </div>
+      </Card>
     </ScrollReveal>
     <ScrollReveal client:idle delay={0.4} scale={true}>
-      <div class="p-6 bg-white rounded-lg border border-athens hover:shadow-lg transition-shadow">
+      <Card class="h-full hover:shadow-lg transition-shadow">
         <div class="w-12 h-12 bg-athens rounded-lg flex items-center justify-center mb-4">
           <Icon name="tabler:users" class="w-6 h-6 text-ink" aria-hidden="true" />
         </div>
@@ -42,10 +43,10 @@ import { Icon } from "astro-icon/components";
         <p class="text-ink-muted">
           Talks, workshops, hacker houses, unconferences and community dinners. Teams and communities from across Web3 keep coming back to meet and build together in a small space, among people who share their values.
         </p>
-      </div>
+      </Card>
     </ScrollReveal>
     <ScrollReveal client:idle delay={0.5} scale={true}>
-      <div class="p-6 bg-white rounded-lg border border-athens hover:shadow-lg transition-shadow">
+      <Card class="h-full hover:shadow-lg transition-shadow">
         <div class="w-12 h-12 bg-athens rounded-lg flex items-center justify-center mb-4">
           <Icon name="tabler:heart-handshake" class="w-6 h-6 text-ink" aria-hidden="true" />
         </div>
@@ -53,7 +54,7 @@ import { Icon } from "astro-icon/components";
         <p class="text-ink-muted">
           The real value of Giveth House is the people. Over 500 visitors from across the Web3 world have passed through, and many friendships, collaborations and projects that started here kept growing long after they left.
         </p>
-      </div>
+      </Card>
     </ScrollReveal>
   </div>
 </section>

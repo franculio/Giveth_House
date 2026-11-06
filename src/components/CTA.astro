@@ -1,6 +1,7 @@
 ---
 import ScrollReveal from "./ScrollReveal.tsx";
 import { SITE } from "../config/site.mjs";
+import Button from "./Button.astro";
 ---
 
 <section id="about" class="max-w-6xl mx-auto px-4 py-12 md:py-20">
@@ -12,24 +13,13 @@ import { SITE } from "../config/site.mjs";
         request personally.
       </p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a
-          href={SITE.houseTelegram}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="inline-flex items-center justify-center px-8 py-3 bg-white text-ink rounded-lg hover:bg-athens transition-colors font-medium"
-        >
+        <Button href={SITE.houseTelegram} variant="on-dark" size="lg">
           Write to us on Telegram
-        </a>
-        <a
-          href="/support"
-          class="inline-flex items-center justify-center px-8 py-3 text-white border-2 border-white rounded-lg hover:bg-white transition-colors font-medium hover:text-ink"
-        >
+        </Button>
+        <Button href="/support" variant="on-dark-outline" size="lg">
           Support the House
-        </a>
+        </Button>
       </div>
-      <p class="text-sm text-botticelli mt-6">
-        No fixed price. Contribute what feels right through the Giveth platform.
-      </p>
     </div>
   </ScrollReveal>
 </section>

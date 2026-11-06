@@ -1,6 +1,7 @@
 ---
 import ScrollReveal from "./ScrollReveal.tsx";
 import { SITE } from "../config/site.mjs";
+import Button from "./Button.astro";
 ---
 
 <section data-dark class="bg-ink text-white py-12 md:py-20 px-4">
@@ -20,18 +21,12 @@ import { SITE } from "../config/site.mjs";
 
     <ScrollReveal client:idle delay={0.3}>
       <div class="flex flex-col sm:flex-row gap-4">
-        <a
-          href="/donate"
-          class="inline-flex items-center justify-center px-6 py-3 bg-white text-ink rounded-lg hover:bg-athens transition-colors font-medium text-sm"
-        >
+        <Button href="/donate" variant="on-dark">
           Donate on Giveth
-        </a>
-        <a
-          href="/support#other-ways"
-          class="inline-flex items-center justify-center px-6 py-3 border-2 border-white text-white rounded-lg hover:bg-white transition-colors font-medium text-sm hover:text-ink"
-        >
+        </Button>
+        <Button href="/support#other-ways" variant="on-dark-outline">
           Other ways to support
-        </a>
+        </Button>
       </div>
     </ScrollReveal>
 

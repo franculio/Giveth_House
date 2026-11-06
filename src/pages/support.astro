@@ -21,6 +21,8 @@ const campaigns: Campaign[] = [
     cta: "Donate on Giveth",
   },
 ];
+import Button from "../components/Button.astro";
+import Card from "../components/Card.astro";
 ---
 
 <Layout
@@ -38,13 +40,13 @@ const campaigns: Campaign[] = [
 
       <ScrollReveal client:load delay={0.1}>
         <p class="text-xl text-ink-muted mb-10 max-w-2xl">
-          Giveth House runs on a gift economy and on community generosity alone. No ticket sales and no membership fees, just people who think a physical meeting place for the blockchain4good ecosystem is worth keeping alive.
+          Giveth House runs on community generosity alone. It exists because people think a physical meeting place for the blockchain4good ecosystem is worth keeping alive.
         </p>
       </ScrollReveal>
 
       <!-- What your support makes possible -->
       <ScrollReveal client:load delay={0.2}>
-        <div class="bg-bone border border-athens rounded-xl p-6 mb-10">
+        <Card tone="bone" class="mb-10">
           <h2 class="text-lg font-semibold text-ink mb-3">What your support makes possible</h2>
           <p class="text-ink-muted mb-4">
             Since 2017, Giveth House has hosted over <strong>500 visitors</strong> from across the Web3 ecosystem, including builders from Ethereum Foundation, Arbitrum, Starknet, Dappnode, General Magic, Vocdoni, Fuel Labs, Blobscan, Gitcoin and many more. It has hosted hacker houses, workshops, unconferences and community dinners, and many collaborations that started over a shared meal and became real projects.
@@ -52,7 +54,7 @@ const campaigns: Campaign[] = [
           <p class="text-ink-muted">
             Your donations cover what keeps the doors open: rent, utilities, maintenance and the day-to-day running of the house.
           </p>
-        </div>
+        </Card>
       </ScrollReveal>
 
       <!-- Donation platforms -->
@@ -63,7 +65,7 @@ const campaigns: Campaign[] = [
       <div class="grid gap-6 mb-12">
         {campaigns.map((campaign, index) => (
           <ScrollReveal client:load delay={0.35 + index * 0.1}>
-            <article class="bg-white rounded-lg border border-athens p-6 shadow-sm flex flex-col justify-between h-full">
+            <Card as="article" class="flex flex-col justify-between h-full">
               <div>
                 <h3 class="text-2xl font-semibold text-ink mb-2">
                   {campaign.name}
@@ -73,14 +75,11 @@ const campaigns: Campaign[] = [
                 </p>
               </div>
               <div>
-                <a
-                  href={campaign.url}
-                  class="inline-flex items-center justify-center px-5 py-2.5 bg-grape text-white rounded-lg hover:bg-grape-dark transition-colors text-sm font-medium"
-                >
+                <Button href={campaign.url}>
                   {campaign.cta}
-                </a>
+                </Button>
               </div>
-            </article>
+            </Card>
           </ScrollReveal>
         ))}
       </div>
@@ -130,7 +129,7 @@ const campaigns: Campaign[] = [
         <div class="border-t border-athens pt-10">
           <h2 class="text-2xl font-bold text-ink mb-4">If you've stayed here</h2>
           <p class="text-ink-muted mb-4">
-            Giveth House runs on a gift economy, so there is no fixed price for staying. If you got something out of being here, please consider giving back through the donation page above.
+            If you got something out of being here, please consider giving back through the donation page above.
           </p>
         </div>
       </ScrollReveal>
@@ -146,14 +145,9 @@ const campaigns: Campaign[] = [
           <p class="text-ink-muted mb-6">
             There are no fixed tiers or public prices. If you're interested, write to us and we'll talk about what makes sense.
           </p>
-          <a
-            href={SITE.houseTelegram}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="inline-flex items-center justify-center px-5 py-2.5 bg-grape text-white rounded-lg hover:bg-grape-dark transition-colors text-sm font-medium"
-          >
+          <Button href={SITE.houseTelegram}>
             Get in touch via Telegram
-          </a>
+          </Button>
         </div>
       </ScrollReveal>
 

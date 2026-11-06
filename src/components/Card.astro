@@ -1,0 +1,19 @@
+---
+interface Props {
+  as?: string;
+  tone?: "white" | "bone";
+  class?: string;
+  [key: string]: unknown;
+}
+
+const { as: Tag = "div", tone = "white", class: extra = "", ...rest } = Astro.props;
+
+const tones = {
+  white: "bg-white shadow-sm",
+  bone: "bg-bone",
+};
+---
+
+<Tag class:list={["rounded-2xl border border-athens p-6", tones[tone], extra]} {...rest}>
+  <slot />
+</Tag>

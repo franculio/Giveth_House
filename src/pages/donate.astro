@@ -20,6 +20,8 @@ const steps = [
     body: "That's it. Thank you!",
   },
 ];
+import Button from "../components/Button.astro";
+import Card from "../components/Card.astro";
 ---
 
 <Layout
@@ -37,9 +39,7 @@ const steps = [
 
       <ScrollReveal client:load delay={0.1}>
         <p class="text-xl text-ink-muted mb-6 max-w-2xl">
-          Giveth House has no prices, no tickets and no membership fees. It runs on
-          contributions from the people who stay, cowork and gather here. Every donation goes
-          into rent, utilities, maintenance and keeping the doors open for the community.
+          Giveth House has no fixed prices and no membership fees. It runs on contributions from the people who stay, cowork and gather here. Donations pay for rent, utilities and maintenance.
         </p>
         <p class="text-ink-muted mb-12 max-w-2xl">
           Contribute whatever feels right for your stay. There's no minimum and no expected amount.
@@ -79,19 +79,14 @@ const steps = [
 
       <ScrollReveal client:load delay={0.4}>
         <div class="flex flex-col sm:flex-row gap-4 mb-12">
-          <a
-            href={SITE.givethDonation}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="inline-flex items-center justify-center px-8 py-3 bg-grape text-white rounded-lg hover:bg-grape-dark transition-colors font-medium"
-          >
+          <Button href={SITE.givethDonation} size="lg">
             Donate on Giveth
-          </a>
+          </Button>
         </div>
       </ScrollReveal>
 
       <ScrollReveal client:load delay={0.45}>
-        <div class="bg-bone border border-athens rounded-xl p-6 mb-12">
+        <Card tone="bone" class="mb-12">
           <h2 class="text-lg font-semibold text-ink mb-2">New to crypto, or something not working?</h2>
           <p class="text-ink-muted">
             If the Giveth page gives you an error or you're not sure how to do it, write to us on
@@ -104,12 +99,12 @@ const steps = [
             >{SITE.houseHandle}</a>
             and we'll sort it out together.
           </p>
-        </div>
+        </Card>
       </ScrollReveal>
 
       <ScrollReveal client:load delay={0.5}>
         <p class="text-ink-muted text-sm">
-          Money isn't the only way to help.
+          There are other ways to help too.
           <a href="/support#other-ways" class="underline hover:text-grape-dark text-grape">See other ways to support the house</a>.
         </p>
       </ScrollReveal>

@@ -4,6 +4,8 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import ScrollReveal from "../components/ScrollReveal.tsx";
 import { SITE } from "../config/site.mjs";
+import Button from "../components/Button.astro";
+import Card from "../components/Card.astro";
 ---
 
 <Layout
@@ -28,7 +30,7 @@ import { SITE } from "../config/site.mjs";
 
       <div class="space-y-4">
         <ScrollReveal client:idle delay={0.2}>
-          <div class="bg-white rounded-xl border border-athens p-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+          <Card class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
             <div>
               <h2 class="text-lg font-semibold text-ink mb-1">Message the house</h2>
               <p class="text-ink-muted text-sm">
@@ -36,34 +38,24 @@ import { SITE } from "../config/site.mjs";
                 If you're asking about a stay, tell us who you are, your dates and what brings you to Barcelona.
               </p>
             </div>
-            <a
-              href={SITE.houseTelegram}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="shrink-0 inline-flex items-center justify-center px-6 py-2.5 bg-grape text-white rounded-lg hover:bg-grape-dark transition-colors font-medium text-sm"
-            >
+            <Button href={SITE.houseTelegram} class="shrink-0">
               {SITE.houseHandle}
-            </a>
-          </div>
+            </Button>
+          </Card>
         </ScrollReveal>
 
         <ScrollReveal client:idle delay={0.3}>
-          <div class="bg-white rounded-xl border border-athens p-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+          <Card class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
             <div>
               <h2 class="text-lg font-semibold text-ink mb-1">Follow on X</h2>
               <p class="text-ink-muted text-sm">
                 Updates, community moments, and announcements from Giveth House.
               </p>
             </div>
-            <a
-              href="https://x.com/GivethHouse"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="shrink-0 inline-flex items-center justify-center px-6 py-2.5 bg-white text-ink border-2 border-ink rounded-lg hover:bg-ink transition-colors font-medium text-sm hover:text-white"
-            >
+            <Button href="https://x.com/GivethHouse" variant="secondary" class="shrink-0">
               @GivethHouse
-            </a>
-          </div>
+            </Button>
+          </Card>
         </ScrollReveal>
       </div>
 
