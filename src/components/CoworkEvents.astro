@@ -24,25 +24,25 @@ const events = [
 
     <ScrollReveal client:idle delay={0.1}>
       <div>
-        <p class="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-4">
+        <p class="text-xs font-semibold uppercase tracking-widest text-ink-muted mb-4">
           Coworking
         </p>
-        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+        <h2 class="text-3xl md:text-4xl font-bold text-ink mb-4">
           Cowork with us
         </h2>
-        <p class="text-gray-600 mb-4">
+        <p class="text-ink-muted mb-4">
           Working remotely on something open source, web3, ReFi or public goods? Come work from
           the house for the day. Desks, good company and people building similar things, in a home
           rather than an office.
         </p>
-        <p class="text-gray-600 mb-8">
+        <p class="text-ink-muted mb-8">
           Like everything here, there's no fee: contribute what feels right.
         </p>
         <a
           href={SITE.houseTelegram}
           target="_blank"
           rel="noopener noreferrer"
-          class="inline-flex items-center justify-center px-6 py-3 bg-black text-white rounded-lg hover:bg-gray-800 transition-colors font-medium text-sm"
+          class="inline-flex items-center justify-center px-6 py-3 bg-grape text-white rounded-lg hover:bg-grape-dark transition-colors font-medium text-sm"
         >
           Ask about coworking
         </a>
@@ -51,13 +51,13 @@ const events = [
 
     <ScrollReveal client:idle delay={0.2}>
       <div>
-        <p class="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-4">
+        <p class="text-xs font-semibold uppercase tracking-widest text-ink-muted mb-4">
           Events
         </p>
-        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+        <h2 class="text-3xl md:text-4xl font-bold text-ink mb-4">
           Host something here
         </h2>
-        <div class="aspect-video overflow-hidden rounded-xl bg-gray-100 mb-6">
+        <div class="aspect-video overflow-hidden rounded-xl bg-athens mb-6">
           <Image
             src={bunkerEvento}
             alt="A community event in the basement at Giveth House"
@@ -69,18 +69,18 @@ const events = [
             loading="lazy"
           />
         </div>
-        <p class="text-gray-600 mb-4">
+        <p class="text-ink-muted mb-4">
           The basement and common areas work well for talks, workshops, small hacker houses,
           retreats and community dinners. Over the years the house has hosted:
         </p>
         <ul class="flex flex-wrap gap-2 mb-6">
           {events.map((event) => (
-            <li class="inline-flex items-center px-3 py-1.5 rounded-full border border-gray-200 bg-white text-xs md:text-sm font-medium text-gray-600 shadow-sm">
+            <li class="inline-flex items-center px-3 py-1.5 rounded-full border border-athens bg-white text-xs md:text-sm font-medium text-ink-muted shadow-sm">
               {event}
             </li>
           ))}
         </ul>
-        <p class="text-gray-600 mb-8">
+        <p class="text-ink-muted mb-8">
           Fun fact: the Token Engineering Commons launched its bonding-curve economy from the
           house kitchen.
         </p>
@@ -88,7 +88,7 @@ const events = [
           href={SITE.houseTelegram}
           target="_blank"
           rel="noopener noreferrer"
-          class="inline-flex items-center justify-center px-6 py-3 bg-white text-gray-900 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors font-medium text-sm"
+          class="inline-flex items-center justify-center px-6 py-3 bg-white text-ink border-2 border-ink rounded-lg hover:bg-ink transition-colors font-medium text-sm hover:text-white"
         >
           Propose an event
         </a>

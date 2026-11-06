@@ -32,32 +32,32 @@ const steps = [
     <section class="max-w-4xl mx-auto px-4 py-12 md:py-20">
 
       <ScrollReveal client:idle>
-        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Keep the house open</h1>
+        <h1 class="text-4xl md:text-5xl font-extrabold text-ink mb-4">Keep the house open</h1>
       </ScrollReveal>
 
       <ScrollReveal client:load delay={0.1}>
-        <p class="text-xl text-gray-600 mb-6 max-w-2xl">
+        <p class="text-xl text-ink-muted mb-6 max-w-2xl">
           Giveth House has no prices, no tickets and no membership fees. It runs on
           contributions from the people who stay, cowork and gather here. Every donation goes
           into rent, utilities, maintenance and keeping the doors open for the community.
         </p>
-        <p class="text-gray-600 mb-12 max-w-2xl">
+        <p class="text-ink-muted mb-12 max-w-2xl">
           Contribute whatever feels right for your stay. There's no minimum and no expected amount.
         </p>
       </ScrollReveal>
 
       <ScrollReveal client:load delay={0.15}>
-        <h2 class="text-2xl font-bold text-gray-900 mb-6">How to donate in 3 steps</h2>
+        <h2 class="text-2xl font-bold text-ink mb-6">How to donate in 3 steps</h2>
       </ScrollReveal>
 
       <div class="space-y-4 mb-12">
         {steps.map((step, i) => (
           <ScrollReveal client:load delay={0.2 + i * 0.05}>
             <div class="flex gap-4 items-start">
-              <div class="w-8 h-8 rounded-full bg-black text-white flex items-center justify-center text-sm font-bold shrink-0 mt-0.5">{i + 1}</div>
+              <div class="w-8 h-8 rounded-full bg-ink text-white flex items-center justify-center text-sm font-bold shrink-0 mt-0.5">{i + 1}</div>
               <div>
-                <h3 class="font-semibold text-gray-900 mb-1">{step.title}</h3>
-                <p class="text-gray-600 text-sm">
+                <h3 class="font-semibold text-ink mb-1">{step.title}</h3>
+                <p class="text-ink-muted text-sm">
                   {step.body}
                   {step.link && (
                     <>
@@ -66,7 +66,7 @@ const steps = [
                         href={step.link.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        class="underline hover:text-gray-900"
+                        class="underline hover:text-grape-dark text-grape"
                       >{step.link.label}</a>
                     </>
                   )}
@@ -83,7 +83,7 @@ const steps = [
             href={SITE.givethDonation}
             target="_blank"
             rel="noopener noreferrer"
-            class="inline-flex items-center justify-center px-8 py-3 bg-black text-white rounded-lg hover:bg-gray-800 transition-colors font-medium"
+            class="inline-flex items-center justify-center px-8 py-3 bg-grape text-white rounded-lg hover:bg-grape-dark transition-colors font-medium"
           >
             Donate on Giveth
           </a>
@@ -91,16 +91,16 @@ const steps = [
       </ScrollReveal>
 
       <ScrollReveal client:load delay={0.45}>
-        <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 mb-12">
-          <h2 class="text-lg font-semibold text-gray-900 mb-2">New to crypto, or something not working?</h2>
-          <p class="text-gray-600">
+        <div class="bg-bone border border-athens rounded-xl p-6 mb-12">
+          <h2 class="text-lg font-semibold text-ink mb-2">New to crypto, or something not working?</h2>
+          <p class="text-ink-muted">
             If the Giveth page gives you an error or you're not sure how to do it, write to us on
             Telegram at
             <a
               href={SITE.houseTelegram}
               target="_blank"
               rel="noopener noreferrer"
-              class="underline hover:text-gray-900"
+              class="underline hover:text-grape-dark text-grape"
             >{SITE.houseHandle}</a>
             and we'll sort it out together.
           </p>
@@ -108,9 +108,9 @@ const steps = [
       </ScrollReveal>
 
       <ScrollReveal client:load delay={0.5}>
-        <p class="text-gray-500 text-sm">
+        <p class="text-ink-muted text-sm">
           Money isn't the only way to help.
-          <a href="/support#other-ways" class="underline hover:text-gray-900">See other ways to support the house</a>.
+          <a href="/support#other-ways" class="underline hover:text-grape-dark text-grape">See other ways to support the house</a>.
         </p>
       </ScrollReveal>
 

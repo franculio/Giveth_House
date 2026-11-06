@@ -5,9 +5,9 @@ import { SITE } from "../config/site.mjs";
 
 <section id="about" class="max-w-6xl mx-auto px-4 py-12 md:py-20">
   <ScrollReveal client:idle scale={true}>
-    <div class="bg-black rounded-2xl p-8 md:p-12 text-center text-white">
+    <div data-dark class="bg-ink rounded-2xl p-8 md:p-12 text-center text-white">
       <h2 class="text-3xl md:text-4xl font-bold mb-4">Ready to Visit?</h2>
-      <p class="text-lg md:text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+      <p class="text-lg md:text-xl text-botticelli mb-8 max-w-2xl mx-auto">
         Write to us on Telegram about a stay, coworking day, or event. Franco reviews every
         request personally.
       </p>
@@ -16,18 +16,18 @@ import { SITE } from "../config/site.mjs";
           href={SITE.houseTelegram}
           target="_blank"
           rel="noopener noreferrer"
-          class="inline-flex items-center justify-center px-8 py-3 bg-white text-black rounded-lg hover:bg-gray-100 transition-colors font-medium"
+          class="inline-flex items-center justify-center px-8 py-3 bg-white text-ink rounded-lg hover:bg-athens transition-colors font-medium"
         >
           Write to us on Telegram
         </a>
         <a
           href="/support"
-          class="inline-flex items-center justify-center px-8 py-3 bg-black text-white border border-gray-700 rounded-lg hover:bg-gray-900 transition-colors font-medium"
+          class="inline-flex items-center justify-center px-8 py-3 text-white border-2 border-white rounded-lg hover:bg-white transition-colors font-medium hover:text-ink"
         >
           Support the House
         </a>
       </div>
-      <p class="text-sm text-gray-500 mt-6">
+      <p class="text-sm text-botticelli mt-6">
         No fixed price — contribute what feels right through the Giveth platform.
       </p>
     </div>

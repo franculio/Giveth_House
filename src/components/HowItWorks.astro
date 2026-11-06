@@ -3,10 +3,10 @@ import ScrollReveal from "./ScrollReveal.tsx";
 import { SITE } from "../config/site.mjs";
 ---
 
-<section class="max-w-6xl mx-auto px-4 py-12 md:py-20 border-t border-gray-100">
+<section class="max-w-6xl mx-auto px-4 py-12 md:py-20 border-t border-athens">
   <ScrollReveal client:idle delay={0.1}>
-    <h2 class="text-4xl font-bold text-gray-900 text-center mb-4">How it Works</h2>
-    <p class="text-center text-gray-500 mb-14 max-w-xl mx-auto">
+    <h2 class="text-4xl font-bold text-ink text-center mb-4">How it Works</h2>
+    <p class="text-center text-ink-muted mb-14 max-w-xl mx-auto">
       No booking fees, no fixed prices. Just a message on Telegram.
     </p>
   </ScrollReveal>
@@ -14,10 +14,10 @@ import { SITE } from "../config/site.mjs";
   <div class="grid md:grid-cols-3 gap-8">
     <ScrollReveal client:idle delay={0.2} scale={true}>
       <div class="text-center">
-        <div class="w-12 h-12 rounded-full bg-black text-white flex items-center justify-center text-xl font-bold mx-auto mb-4">1</div>
-        <h3 class="text-xl font-semibold text-gray-900 mb-2">Message us on Telegram</h3>
-        <p class="text-gray-600 text-sm">
-          Write to <a href={SITE.houseTelegram} target="_blank" rel="noopener noreferrer" class="underline hover:text-gray-900">{SITE.houseHandle}</a>
+        <div class="w-12 h-12 rounded-full bg-ink text-white flex items-center justify-center text-xl font-bold mx-auto mb-4">1</div>
+        <h3 class="text-xl font-semibold text-ink mb-2">Message us on Telegram</h3>
+        <p class="text-ink-muted text-sm">
+          Write to <a href={SITE.houseTelegram} target="_blank" rel="noopener noreferrer" class="underline hover:text-grape-dark text-grape">{SITE.houseHandle}</a>
           {" "}and tell us who you are, your dates, what brings you to Barcelona, your connection to
           Giveth, web3 or ReFi, and whether someone from the community recommended you.
         </p>
@@ -26,9 +26,9 @@ import { SITE } from "../config/site.mjs";
 
     <ScrollReveal client:idle delay={0.3} scale={true}>
       <div class="text-center">
-        <div class="w-12 h-12 rounded-full bg-black text-white flex items-center justify-center text-xl font-bold mx-auto mb-4">2</div>
-        <h3 class="text-xl font-semibold text-gray-900 mb-2">Get approved</h3>
-        <p class="text-gray-600 text-sm">
+        <div class="w-12 h-12 rounded-full bg-ink text-white flex items-center justify-center text-xl font-bold mx-auto mb-4">2</div>
+        <h3 class="text-xl font-semibold text-ink mb-2">Get approved</h3>
+        <p class="text-ink-muted text-sm">
           Franco reviews every request personally and replies via Telegram.
           Approvals are based on availability and alignment with the space.
         </p>
@@ -37,11 +37,11 @@ import { SITE } from "../config/site.mjs";
 
     <ScrollReveal client:idle delay={0.4} scale={true}>
       <div class="text-center">
-        <div class="w-12 h-12 rounded-full bg-black text-white flex items-center justify-center text-xl font-bold mx-auto mb-4">3</div>
-        <h3 class="text-xl font-semibold text-gray-900 mb-2">Stay & contribute</h3>
-        <p class="text-gray-600 text-sm">
+        <div class="w-12 h-12 rounded-full bg-ink text-white flex items-center justify-center text-xl font-bold mx-auto mb-4">3</div>
+        <h3 class="text-xl font-semibold text-ink mb-2">Stay & contribute</h3>
+        <p class="text-ink-muted text-sm">
           Show up, connect with the community, and give back through the{" "}
-          <a href="/donate" class="underline hover:text-gray-900">Giveth platform</a>
+          <a href="/donate" class="underline hover:text-grape-dark text-grape">Giveth platform</a>
           {" "}— whatever feels right for you.
         </p>
       </div>

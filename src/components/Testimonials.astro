@@ -10,10 +10,10 @@ const fallbackCss = `[data-testimonials]:not([data-ready]) > astro-island:nth-ch
 
 <section class="max-w-6xl mx-auto px-4 py-12 md:py-20">
   <ScrollReveal client:idle delay={0.1}>
-    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-4">
+    <h2 class="text-3xl md:text-4xl font-bold text-ink text-center mb-4">
       What people say
     </h2>
-    <p class="text-center text-gray-500 mb-12 max-w-xl mx-auto">
+    <p class="text-center text-ink-muted mb-12 max-w-xl mx-auto">
       From the people who've been here.
     </p>
   </ScrollReveal>
@@ -25,13 +25,13 @@ const fallbackCss = `[data-testimonials]:not([data-ready]) > astro-island:nth-ch
   >
     {testimonials.map((t, i) => (
       <ScrollReveal client:idle delay={0.15 + (i % TESTIMONIALS_VISIBLE) * 0.1}>
-        <figure class="bg-white border border-gray-200 rounded-xl p-6 h-full flex flex-col justify-between shadow-sm">
-          <blockquote class="text-gray-700 text-base leading-relaxed mb-6">
-            <span class="text-3xl text-gray-300 font-serif leading-none select-none" aria-hidden="true">&ldquo;</span>{t.quote}<span class="text-3xl text-gray-300 font-serif leading-none select-none" aria-hidden="true">&rdquo;</span>
+        <figure class="bg-white border border-athens rounded-xl p-6 h-full flex flex-col justify-between shadow-sm">
+          <blockquote class="text-ink text-base leading-relaxed mb-6">
+            <span class="text-3xl text-lavender font-serif leading-none select-none" aria-hidden="true">&ldquo;</span>{t.quote}<span class="text-3xl text-lavender font-serif leading-none select-none" aria-hidden="true">&rdquo;</span>
           </blockquote>
           <figcaption>
-            <p class="font-semibold text-gray-900 text-sm">{t.name}</p>
-            <p class="text-gray-500 text-xs mt-0.5">{t.role}</p>
+            <p class="font-semibold text-ink text-sm">{t.name}</p>
+            <p class="text-ink-muted text-xs mt-0.5">{t.role}</p>
           </figcaption>
         </figure>
       </ScrollReveal>

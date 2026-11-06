@@ -53,11 +53,11 @@ const faqs = [
   <main id="main-content" role="main">
     <section class="max-w-6xl mx-auto px-4 py-12 md:py-20">
       <ScrollReveal client:idle>
-        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">FAQs</h1>
+        <h1 class="text-4xl md:text-5xl font-extrabold text-ink mb-4">FAQs</h1>
       </ScrollReveal>
 
       <ScrollReveal client:load delay={0.1}>
-        <p class="text-xl text-gray-600 mb-12 max-w-2xl">
+        <p class="text-xl text-ink-muted mb-12 max-w-2xl">
           Learn more about what Giveth House is, who it's for, and how you can
           visit, stay, or support the space.
         </p>
@@ -67,12 +67,12 @@ const faqs = [
         <div class="space-y-3" role="list">
           {faqs.map((faq) => (
             <details
-              class="faq-accordion group bg-white rounded-lg border border-gray-200 shadow-sm overflow-hidden"
+              class="faq-accordion group bg-white rounded-lg border border-athens shadow-sm overflow-hidden"
             >
-              <summary class="flex items-center justify-between gap-4 list-none cursor-pointer px-6 py-4 text-left font-semibold text-gray-900 hover:bg-gray-50 transition-colors [&::-webkit-details-marker]:hidden">
+              <summary class="flex items-center justify-between gap-4 list-none cursor-pointer px-6 py-4 text-left font-semibold text-ink hover:bg-bone transition-colors [&::-webkit-details-marker]:hidden">
                 <span>{faq.question}</span>
                 <span
-                  class="shrink-0 w-6 h-6 flex items-center justify-center text-gray-400 group-open:rotate-180 transition-transform"
+                  class="shrink-0 w-6 h-6 flex items-center justify-center text-ink-muted group-open:rotate-180 transition-transform"
                   aria-hidden="true"
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -80,8 +80,8 @@ const faqs = [
                   </svg>
                 </span>
               </summary>
-              <div class="px-6 pb-4 pt-0 border-t border-gray-100">
-                <p class="text-gray-600 pt-3">{faq.answer}</p>
+              <div class="px-6 pb-4 pt-0 border-t border-athens">
+                <p class="text-ink-muted pt-3">{faq.answer}</p>
               </div>
             </details>
           ))}

@@ -18,11 +18,11 @@ import salonMesaGiveth from "../assets/images/salon_mesa_giveth.jpg";
     <section class="max-w-4xl mx-auto px-4 py-12 md:py-20">
 
       <ScrollReveal client:idle>
-        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Visit Giveth House</h1>
+        <h1 class="text-4xl md:text-5xl font-extrabold text-ink mb-4">Visit Giveth House</h1>
       </ScrollReveal>
 
       <ScrollReveal client:load delay={0.1}>
-        <p class="text-xl text-gray-600 mb-12">
+        <p class="text-xl text-ink-muted mb-12">
           A community home in Barcelona for builders, contributors, and communities across the
           Web3 and ReFi ecosystem.
         </p>
@@ -30,7 +30,7 @@ import salonMesaGiveth from "../assets/images/salon_mesa_giveth.jpg";
 
       <!-- Hero image -->
       <ScrollReveal client:load delay={0.15}>
-        <div class="w-full aspect-video overflow-hidden rounded-xl mb-12 bg-gray-100">
+        <div class="w-full aspect-video overflow-hidden rounded-xl mb-12 bg-athens">
           <Image
             src={salonMesaGiveth}
             alt="Inside Giveth House Barcelona"
@@ -46,14 +46,14 @@ import salonMesaGiveth from "../assets/images/salon_mesa_giveth.jpg";
 
       <!-- Gift economy callout -->
       <ScrollReveal client:load delay={0.15}>
-        <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 mb-12">
-          <h2 class="text-lg font-semibold text-gray-900 mb-2">Gift Economy</h2>
-          <p class="text-gray-600">
+        <div class="bg-bone border border-athens rounded-xl p-6 mb-12">
+          <h2 class="text-lg font-semibold text-ink mb-2">Gift Economy</h2>
+          <p class="text-ink-muted">
             There is no fixed price for staying at Giveth House. Guests are invited to contribute
             what feels right through the{" "}
             <a
               href="/donate"
-              class="underline hover:text-gray-900"
+              class="underline hover:text-grape-dark text-grape"
             >Giveth donation platform</a>
             {" "}— in crypto, on almost any chain. The house runs entirely on community generosity.
           </p>
@@ -62,14 +62,14 @@ import salonMesaGiveth from "../assets/images/salon_mesa_giveth.jpg";
 
       <!-- Types of stays -->
       <ScrollReveal client:load delay={0.2}>
-        <h2 class="text-2xl font-bold text-gray-900 mb-6">Ways to visit</h2>
+        <h2 class="text-2xl font-bold text-ink mb-6">Ways to visit</h2>
       </ScrollReveal>
 
       <div class="grid gap-6 md:grid-cols-3 mb-14">
         <ScrollReveal client:load delay={0.25}>
-          <article class="bg-white rounded-lg border border-gray-200 p-6 shadow-sm h-full">
-            <h3 class="text-xl font-semibold text-gray-900 mb-2">Stay</h3>
-            <p class="text-gray-600 text-sm">
+          <article class="bg-white rounded-lg border border-athens p-6 shadow-sm h-full">
+            <h3 class="text-xl font-semibold text-ink mb-2">Stay</h3>
+            <p class="text-ink-muted text-sm">
               Overnight accommodation for contributors passing through Barcelona or attending
               events. Priority for people with a connection to Giveth, Web3, or the ReFi ecosystem.
             </p>
@@ -77,9 +77,9 @@ import salonMesaGiveth from "../assets/images/salon_mesa_giveth.jpg";
         </ScrollReveal>
 
         <ScrollReveal client:load delay={0.3}>
-          <article class="bg-white rounded-lg border border-gray-200 p-6 shadow-sm h-full">
-            <h3 class="text-xl font-semibold text-gray-900 mb-2">Coworking</h3>
-            <p class="text-gray-600 text-sm">
+          <article class="bg-white rounded-lg border border-athens p-6 shadow-sm h-full">
+            <h3 class="text-xl font-semibold text-ink mb-2">Coworking</h3>
+            <p class="text-ink-muted text-sm">
               Day use of the house as a workspace. Good for remote workers and builders who want
               to work alongside the community without staying overnight.
             </p>
@@ -87,9 +87,9 @@ import salonMesaGiveth from "../assets/images/salon_mesa_giveth.jpg";
         </ScrollReveal>
 
         <ScrollReveal client:load delay={0.35}>
-          <article class="bg-white rounded-lg border border-gray-200 p-6 shadow-sm h-full">
-            <h3 class="text-xl font-semibold text-gray-900 mb-2">Visit</h3>
-            <p class="text-gray-600 text-sm">
+          <article class="bg-white rounded-lg border border-athens p-6 shadow-sm h-full">
+            <h3 class="text-xl font-semibold text-ink mb-2">Visit</h3>
+            <p class="text-ink-muted text-sm">
               Short visits to meet the community, attend a gathering, or connect with people at the
               house. Open to anyone aligned with the values of the space.
             </p>
@@ -99,17 +99,17 @@ import salonMesaGiveth from "../assets/images/salon_mesa_giveth.jpg";
 
       <!-- How it works -->
       <ScrollReveal client:load delay={0.4}>
-        <h2 class="text-2xl font-bold text-gray-900 mb-6">How it works</h2>
+        <h2 class="text-2xl font-bold text-ink mb-6">How it works</h2>
       </ScrollReveal>
 
       <div class="space-y-4 mb-14">
         <ScrollReveal client:load delay={0.45}>
           <div class="flex gap-4 items-start">
-            <div class="w-8 h-8 rounded-full bg-black text-white flex items-center justify-center text-sm font-bold shrink-0 mt-0.5">1</div>
+            <div class="w-8 h-8 rounded-full bg-ink text-white flex items-center justify-center text-sm font-bold shrink-0 mt-0.5">1</div>
             <div>
-              <h3 class="font-semibold text-gray-900 mb-1">Message us on Telegram</h3>
-              <p class="text-gray-600 text-sm">
-                Write to <a href={SITE.houseTelegram} target="_blank" rel="noopener noreferrer" class="underline hover:text-gray-900">{SITE.houseHandle}</a>
+              <h3 class="font-semibold text-ink mb-1">Message us on Telegram</h3>
+              <p class="text-ink-muted text-sm">
+                Write to <a href={SITE.houseTelegram} target="_blank" rel="noopener noreferrer" class="underline hover:text-grape-dark text-grape">{SITE.houseHandle}</a>
                 {" "}and tell us who you are, your dates, what brings you to Barcelona, your
                 connection to Giveth, web3 or ReFi, and whether someone from the community
                 recommended you.
@@ -120,10 +120,10 @@ import salonMesaGiveth from "../assets/images/salon_mesa_giveth.jpg";
 
         <ScrollReveal client:load delay={0.5}>
           <div class="flex gap-4 items-start">
-            <div class="w-8 h-8 rounded-full bg-black text-white flex items-center justify-center text-sm font-bold shrink-0 mt-0.5">2</div>
+            <div class="w-8 h-8 rounded-full bg-ink text-white flex items-center justify-center text-sm font-bold shrink-0 mt-0.5">2</div>
             <div>
-              <h3 class="font-semibold text-gray-900 mb-1">Franco reviews your request</h3>
-              <p class="text-gray-600 text-sm">
+              <h3 class="font-semibold text-ink mb-1">Franco reviews your request</h3>
+              <p class="text-ink-muted text-sm">
                 Franco, the house steward, reviews every request personally and gets back to you
                 via Telegram. Approvals are based on availability and alignment with the space.
               </p>
@@ -133,13 +133,13 @@ import salonMesaGiveth from "../assets/images/salon_mesa_giveth.jpg";
 
         <ScrollReveal client:load delay={0.55}>
           <div class="flex gap-4 items-start">
-            <div class="w-8 h-8 rounded-full bg-black text-white flex items-center justify-center text-sm font-bold shrink-0 mt-0.5">3</div>
+            <div class="w-8 h-8 rounded-full bg-ink text-white flex items-center justify-center text-sm font-bold shrink-0 mt-0.5">3</div>
             <div>
-              <h3 class="font-semibold text-gray-900 mb-1">Arrive, connect, and contribute</h3>
-              <p class="text-gray-600 text-sm">
+              <h3 class="font-semibold text-ink mb-1">Arrive, connect, and contribute</h3>
+              <p class="text-ink-muted text-sm">
                 Coordinate your arrival with Franco — there is no self-entry system. After your
                 stay, contribute what feels right through the{" "}
-                <a href="/donate" class="underline hover:text-gray-900">Giveth platform</a>.
+                <a href="/donate" class="underline hover:text-grape-dark text-grape">Giveth platform</a>.
               </p>
             </div>
           </div>
@@ -148,15 +148,15 @@ import salonMesaGiveth from "../assets/images/salon_mesa_giveth.jpg";
 
       <!-- Getting there -->
       <ScrollReveal client:load delay={0.6}>
-        <div class="bg-white rounded-xl border border-gray-200 p-6 mb-12">
-          <h2 class="text-2xl font-bold text-gray-900 mb-1">Getting there</h2>
-          <p class="text-gray-500 text-sm mb-3">{SITE.neighborhood}</p>
-          <p class="text-gray-600 text-sm">
+        <div class="bg-white rounded-xl border border-athens p-6 mb-12">
+          <h2 class="text-2xl font-bold text-ink mb-1">Getting there</h2>
+          <p class="text-ink-muted text-sm mb-3">{SITE.neighborhood}</p>
+          <p class="text-ink-muted text-sm">
             The house is in the Sants neighbourhood — a lively, local area of Barcelona well
             connected to the city centre and the airport. The exact address and arrival
             instructions are shared with guests once their stay is confirmed.
           </p>
-          <p class="text-sm text-gray-500 mt-4 border-t border-gray-100 pt-4">
+          <p class="text-sm text-ink-muted mt-4 border-t border-athens pt-4">
             There is no self-entry system. You'll coordinate your arrival directly with Franco
             after your request is approved.
           </p>
@@ -170,13 +170,13 @@ import salonMesaGiveth from "../assets/images/salon_mesa_giveth.jpg";
             href={SITE.houseTelegram}
             target="_blank"
             rel="noopener noreferrer"
-            class="inline-flex items-center justify-center px-8 py-3 bg-black text-white rounded-lg hover:bg-gray-800 transition-colors font-medium"
+            class="inline-flex items-center justify-center px-8 py-3 bg-grape text-white rounded-lg hover:bg-grape-dark transition-colors font-medium"
           >
             Message us on Telegram
           </a>
           <a
             href="/faqs"
-            class="inline-flex items-center justify-center px-8 py-3 bg-white text-gray-900 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors font-medium"
+            class="inline-flex items-center justify-center px-8 py-3 bg-white text-ink border-2 border-ink rounded-lg hover:bg-ink transition-colors font-medium hover:text-white"
           >
             Read the FAQs
           </a>

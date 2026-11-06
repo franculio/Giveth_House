@@ -3,17 +3,17 @@ import ScrollReveal from "./ScrollReveal.tsx";
 import { SITE } from "../config/site.mjs";
 ---
 
-<section class="bg-gray-900 text-white py-12 md:py-20 px-4">
+<section data-dark class="bg-ink text-white py-12 md:py-20 px-4">
   <div class="max-w-4xl mx-auto">
 
     <ScrollReveal client:idle delay={0.1}>
-      <p class="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-4">
+      <p class="text-xs font-semibold uppercase tracking-widest text-lavender-300 mb-4">
         Community Funded
       </p>
       <h2 class="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight">
         No tickets. No membership fees.<br class="hidden md:block" /> Just generosity.
       </h2>
-      <p class="text-gray-300 text-lg max-w-2xl mb-10">
+      <p class="text-botticelli text-lg max-w-2xl mb-10">
         Giveth House has no fixed price for staying. Guests are invited to contribute
         what feels right after their visit — through the Giveth donation platform,
         in crypto, on almost any chain. The house has run this way since 2017.
@@ -24,13 +24,13 @@ import { SITE } from "../config/site.mjs";
       <div class="flex flex-col sm:flex-row gap-4">
         <a
           href="/donate"
-          class="inline-flex items-center justify-center px-6 py-3 bg-white text-gray-900 rounded-lg hover:bg-gray-100 transition-colors font-medium text-sm"
+          class="inline-flex items-center justify-center px-6 py-3 bg-white text-ink rounded-lg hover:bg-athens transition-colors font-medium text-sm"
         >
           Donate on Giveth
         </a>
         <a
           href="/support#other-ways"
-          class="inline-flex items-center justify-center px-6 py-3 border border-gray-600 text-gray-300 rounded-lg hover:border-gray-400 hover:text-white transition-colors font-medium text-sm"
+          class="inline-flex items-center justify-center px-6 py-3 border-2 border-white text-white rounded-lg hover:bg-white transition-colors font-medium text-sm hover:text-ink"
         >
           Other ways to support
         </a>
