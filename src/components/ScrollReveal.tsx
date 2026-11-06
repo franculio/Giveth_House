@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import type { ReactNode } from "react";
 
 interface ScrollRevealProps {
@@ -18,6 +18,9 @@ export default function ScrollReveal({
   duration = 0.8,
   scale = false,
 }: ScrollRevealProps) {
+  const reduceMotion = useReducedMotion();
+  if (reduceMotion) return <div>{children}</div>;
+
   const variants = {
     hidden: {
       opacity: 0,
