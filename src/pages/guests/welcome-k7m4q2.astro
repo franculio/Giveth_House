@@ -17,14 +17,14 @@ const wifiNetworks = ["Blue", "Purple", "Green", "Yellow"];
 >
   <Header />
   <main id="main-content" role="main">
-    <section class="max-w-3xl mx-auto px-4 py-12 md:py-20">
+    <section class="max-w-3xl mx-auto px-4 py-10 md:py-20">
 
       <ScrollReveal client:idle>
-        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Welcome to Giveth House!</h1>
+        <h1 class="text-3xl md:text-5xl font-bold text-gray-900 mb-4">Welcome to Giveth House!</h1>
       </ScrollReveal>
 
       <ScrollReveal client:load delay={0.1}>
-        <p class="text-xl text-gray-600 mb-12">
+        <p class="text-lg md:text-xl text-gray-600 mb-10 md:mb-12">
           Here's everything you need for your stay. Franco will send you the exact address by
           message.
         </p>
@@ -32,28 +32,38 @@ const wifiNetworks = ["Blue", "Purple", "Green", "Yellow"];
 
       <ScrollReveal client:load delay={0.15}>
         <h2 class="text-2xl font-bold text-gray-900 mb-4">Getting here</h2>
-        <ul class="list-disc pl-5 space-y-2 text-gray-600 mb-12">
+        <ul class="list-disc pl-5 space-y-2 text-gray-600 mb-10 md:mb-12">
           <li>
-            The house is in Sants, about a 10 to 15 minute walk from Barcelona-Sants train station.
+            The house is in Sants, about a 10-minute walk from Barcelona-Sants train station.
           </li>
           <li>
-            From the airport (BCN), the easiest way is the Rodalies R2 Nord train from T2 to Sants
-            Estació (about 20 minutes), then a short walk.
+            From the airport (BCN), three options:
+            <ul class="list-disc pl-5 mt-2 space-y-2">
+              <li>
+                <strong class="text-gray-900">Train:</strong>
+                Rodalies R2 Nord from Terminal 2 to Sants Estació (about 20 minutes), then a short
+                walk.
+              </li>
+              <li>
+                <strong class="text-gray-900">Metro:</strong>
+                L9 Sud from the airport.
+              </li>
+              <li>
+                <strong class="text-gray-900">Bus:</strong>
+                line 46 to Magòria-La Campana, then about a 10-minute walk.
+              </li>
+            </ul>
           </li>
           <li>
-            By metro, take L9 Sud to Torrassa and then L1 to Mercat Nou, or L9 Sud to Plaça Espanya
-            and then L5 to Plaça de Sants.
-          </li>
-          <li>
-            By bus, take the 46 straight from the airport to Magòria-La Campana, then walk about
-            10 minutes.
+            Street numbers on our street go odd on one side and even on the other: look for our
+            number on the odd side.
           </li>
         </ul>
       </ScrollReveal>
 
       <ScrollReveal client:load delay={0.2}>
         <h2 class="text-2xl font-bold text-gray-900 mb-4">Arriving</h2>
-        <ul class="list-disc pl-5 space-y-2 text-gray-600 mb-12">
+        <ul class="list-disc pl-5 space-y-2 text-gray-600 mb-10 md:mb-12">
           <li>
             There's no self check-in: someone needs to open the door. Send your arrival time a day
             before so we can make sure someone's home.
@@ -64,38 +74,48 @@ const wifiNetworks = ["Blue", "Purple", "Green", "Yellow"];
 
       <ScrollReveal client:load delay={0.25}>
         <h2 class="text-2xl font-bold text-gray-900 mb-4">During your stay</h2>
-        <ul class="list-disc pl-5 space-y-3 text-gray-600 mb-12">
+        <ul class="list-disc pl-5 space-y-3 text-gray-600 mb-10 md:mb-12">
           <li>Bedding and towels are provided, so no need to bring your own.</li>
           <li>
-            <strong class="text-gray-900">Wifi.</strong>
-            There are four networks, named by color: {wifiNetworks.join(", ")}. They all use the
+            <strong class="text-gray-900">Wifi:</strong>
+            there are four networks, named by color: {wifiNetworks.join(", ")}. They all use the
             same password, which is written on the whiteboard in the kitchen. They run on different
             modems, so some work better on some floors. If one is slow where you are, try another.
           </li>
           <li>
-            <strong class="text-gray-900">Kitchen.</strong>
-            Clean up after you cook and leave everything as you found it, or better. There are two
-            fridges: the gray one is for things you don't want to share, and the white one is for
-            things you're happy to share.
+            <strong class="text-gray-900">Kitchen:</strong>
+            clean up after you cook. There's a sharing fridge, the white one, where everything is
+            for everyone, and a separate gray fridge for your personal food. Ask before taking
+            anything that isn't yours. If you leave food for the house when you go, put it on the
+            shelves.
           </li>
           <li>
-            <strong class="text-gray-900">Quiet.</strong>
-            Use common sense and respect the people in the house and our neighbors.
+            <strong class="text-gray-900">Quiet hours:</strong>
+            after 11pm on weekdays, please keep the terraces quiet: our neighbours sleep right
+            above them.
           </li>
           <li>
-            <strong class="text-gray-900">Cleaning.</strong>
-            The house is cleaned on Mondays and Thursdays from 9 to 12.
+            <strong class="text-gray-900">Terrace keys:</strong>
+            they hang on the hook by the entrance. Please put them back.
           </li>
-          <li>The house is shared, so treat it like a friend's home.</li>
+          <li>
+            <strong class="text-gray-900">Cleaning:</strong>
+            our cleaner comes on Mondays and Thursdays, 9 to 12.
+          </li>
+          <li>
+            <strong class="text-gray-900">Enjoy:</strong>
+            there's a sauna, board games, a terrace and a coworking space.
+          </li>
+          <li>The house is shared: leave it better than you found it.</li>
         </ul>
       </ScrollReveal>
 
       <ScrollReveal client:load delay={0.3}>
         <h2 class="text-2xl font-bold text-gray-900 mb-4">When you leave</h2>
-        <ul class="list-disc pl-5 space-y-2 text-gray-600 mb-12">
+        <ul class="list-disc pl-5 space-y-2 text-gray-600 mb-10 md:mb-12">
           <li>
-            Strip your bed and leave the sheets and towels in the basket in front of the bathroom.
-            There's a sign in the hallway.
+            Strip your bed and leave the used sheets and towels in the basket in the hallway,
+            right in front of the bathroom door.
           </li>
           <li>If you're leaving early and don't want to wake anyone, just send a message.</li>
           <li>If your plans change, let us know so the bed can go to someone else.</li>
