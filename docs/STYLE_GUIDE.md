@@ -44,7 +44,8 @@ A visual version of the palette, type and components is in [`style-guide.html`](
 Both SVGs have no fixed color: they take the CSS text color of the element they sit in (`color` or `text-*`). Set the
 color, not the file. Only black and white are allowed.
 
-The logo was vectorized from the original 900 px artwork: frames are exact geometry, letters follow the original shapes.
+Both files start at 0,0 and carry no internal ids, so the site inlines them with `astro-icon` (folder set in
+`astro.config.mjs`). The logo was vectorized from the original 900 px artwork: frames are exact geometry, letters follow the original shapes.
 If the original vector file or typeface turns up, replace these SVGs with it.
 
 ### Colors
@@ -64,7 +65,7 @@ width). Nothing else (text, edges, other logos) enters that margin.
 | Version | Minimum width |
 |---|---|
 | Full logo (with line) | 240 px on screen, 60 mm in print |
-| Compact logo | 96 px on screen, 25 mm in print |
+| Compact logo | 80 px on screen, 20 mm in print |
 
 Below that, the frame stroke and the line become hard to read. Use the compact version or just the page title.
 
@@ -204,7 +205,7 @@ say so to screen readers.
 
 **Chips** (events, partner names): pill, `athens` background, `ink` text, 14 px, 12 px by 6 px padding.
 
-**Header**: white, 1 px `athens` bottom border, compact logo at 40 px tall on the left, links in `ink`, one primary button
+**Header**: white, 1 px `athens` bottom border, black compact logo 48 px tall (about 84 px wide) on the left, links in `ink`, one primary button
 ("Write to us"). Sticky.
 
 **Footer**: `ink` background, white text, `lavender-300` links, compact logo in white.
@@ -298,6 +299,8 @@ The site currently uses Tailwind's default grays and system fonts. Replace as fo
 | Text "Giveth House" in header | compact logo SVG |
 
 ### Suggested order of work
+
+Status on 2026-11-06: steps 1, 2, 3 and 5 are applied on the site; step 4 and 6 are still open.
 
 1. Fonts and tokens in `global.css`, with `font-sans` on the body.
 2. Replace colors with the migration map above, page by page.
