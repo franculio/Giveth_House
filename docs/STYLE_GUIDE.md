@@ -7,7 +7,7 @@ This guide defines how giveth.house looks and sounds. It is based on the
 so the site feels like part of the same family, but Giveth House is a separate project with its own logo and
 identity. Where this guide and Giveth's differ, this guide wins for anything on giveth.house.
 
-A visual version of the palette, type and components is in [`style-guide.html`](style-guide.html).
+A visual version of the palette, type and components is in [`style-guide.html`](style-guide.html) (open it in a browser) and as a printable PDF, [`giveth-house-style-guide.pdf`](giveth-house-style-guide.pdf).
 
 ## 1. Principles
 
