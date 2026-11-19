@@ -1,0 +1,63 @@
+---
+/**
+ * A page module: a full-width band with one flat colour, a thick wall on top
+ * (the shared wall between blocks, as in the logo) and a centred container.
+ *
+ * Tones follow docs/STYLE_GUIDE.md section 4. Neutrals carry most of the
+ * page; dandelion, ink, grape and the lavender tint are used as the colour
+ * moments. Aquamarine, tulip and ocean are for illustrations only and are
+ * not offered here.
+ */
+interface Props {
+  tone?: "white" | "bone" | "dandelion" | "ink" | "grape" | "lavender";
+  pad?: "none" | "sm" | "md" | "md-tight" | "md-tight-flush" | "lg" | "lg-flush" | "bottom-lg";
+  wall?: boolean;
+  class?: string;
+  [key: string]: unknown;
+}
+
+const { tone = "white", pad = "md", wall = true, class: extra = "", ...rest } = Astro.props;
+
+// On coloured bands the muted grey would fall under 4.5:1, so it becomes ink.
+const tones = {
+  white: "bg-white text-ink",
+  bone: "bg-bone text-ink",
+  dandelion: "bg-dandelion text-ink [--color-ink-muted:var(--color-ink)]",
+  lavender: "bg-lavender-300 text-ink [--color-ink-muted:var(--color-ink)]",
+  ink: "bg-ink text-white",
+  grape: "bg-grape text-white",
+};
+
+const pads = {
+  // No space at all, for a block that touches the bands around it
+  none: "",
+  sm: "py-8 md:py-10",
+  md: "py-12 md:py-20",
+  // Like "md" but closer to the band above
+  "md-tight": "pt-10 md:pt-14 pb-12 md:pb-20",
+  // Like "md-tight" but with no space below, so the last element touches the next one
+  "md-tight-flush": "pt-10 md:pt-14",
+  lg: "py-16 md:py-24",
+  // Same top space as "lg" but no space below, so the last element touches the next band
+  "lg-flush": "pt-16 md:pt-24",
+  // Only space below, for a block that sits right under the previous band
+  "bottom-lg": "pb-16 md:pb-24",
+};
+
+const dark = tone === "ink" || tone === "grape";
+---
+
+<section
+  data-dark={dark || undefined}
+  class:list={[
+    "overflow-x-clip",
+    tones[tone],
+    wall && "border-t-[length:var(--stroke)] border-ink",
+    extra,
+  ]}
+  {...rest}
+>
+  <div class:list={["max-w-6xl mx-auto px-4", pads[pad]]}>
+    <slot />
+  </div>
+</section>

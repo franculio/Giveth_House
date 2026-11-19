@@ -1,4 +1,5 @@
 ---
+import Section from "./Section.astro";
 import { Image } from "astro:assets";
 import ScrollReveal from "./ScrollReveal.tsx";
 import giveth from "../assets/logos/giveth.svg";
@@ -20,41 +21,111 @@ const projects = [
   { name: "Vocdoni", url: "https://vocdoni.io/es/", logo: vocdoni, height: 24 },
   { name: "The DAO Fund", url: "https://thedao.fund", logo: thedao, height: 36, showName: true },
 ];
+// Logos are shown at this multiple of the base heights listed above, so they stay in
+// proportion to each other.
+const SCALE = 1.43;
+
+// The row is a carousel that slides sideways by itself. The list is drawn twice, one
+// right after the other, and the track moves by exactly one copy, so the loop has no jump.
+// The second copy is only there for the loop: it is hidden from screen readers and from the keyboard.
+const copies = [false, true];
 ---
 
-<section class="border-y border-athens bg-bone py-10 px-4">
-  <div class="max-w-3xl mx-auto">
+<Section tone="white" pad="sm" wall={false}>
+  <div class="py-4 md:py-6">
     <ScrollReveal client:idle delay={0.1}>
-      <p class="text-xs font-semibold uppercase tracking-widest text-ink-muted text-center mb-8">
+      <p class="text-xs font-semibold uppercase tracking-widest text-ink text-center mb-4">
         Part of the community
       </p>
-      <ul class="flex flex-wrap items-center justify-center gap-x-10 gap-y-6 md:gap-x-14">
-        {projects.map((project) => (
-          <li>
-            <a
-              href={project.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={`${project.name} (opens in new tab)`}
-              class="flex items-center gap-2 transition-transform duration-300 hover:-translate-y-0.5 focus-visible:-translate-y-0.5"
+      <div class="logo-carousel">
+        <div class="logo-track">
+          {copies.map((isCopy) => (
+            <ul
+              class:list={["logo-list", isCopy && "logo-copy"]}
+              aria-hidden={isCopy ? "true" : undefined}
             >
-              <Image
-                src={project.logo}
-                alt={project.showName ? "" : project.name}
-                height={project.height * 2}
-                format={project.logo.format === "svg" ? undefined : "webp"}
-                quality={90}
-                class="w-auto"
-                style={`height: ${project.height}px`}
-                loading="lazy"
-              />
-              {project.showName && (
-                <span class="text-sm font-semibold text-ink">{project.name}</span>
-              )}
-            </a>
-          </li>
-        ))}
-      </ul>
+              {projects.map((project) => (
+                <li>
+                  <a
+                    href={project.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`${project.name} (opens in new tab)`}
+                    tabindex={isCopy ? "-1" : undefined}
+                    class="flex items-center gap-2 min-h-11 transition-transform duration-300 hover:-translate-y-0.5 focus-visible:-translate-y-0.5"
+                  >
+                    <Image
+                      src={project.logo}
+                      alt={project.showName ? "" : project.name}
+                      height={Math.round(project.height * SCALE * 2)}
+                      format={project.logo.format === "svg" ? undefined : "webp"}
+                      quality={90}
+                      class="w-auto"
+                      style={`height: ${Math.round(project.height * SCALE)}px`}
+                      loading="eager"
+                    />
+                    {project.showName && (
+                      <span class="text-sm font-semibold text-ink whitespace-nowrap">{project.name}</span>
+                    )}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          ))}
+        </div>
+      </div>
     </ScrollReveal>
   </div>
-</section>
+</Section>
+
+<style>
+  .logo-carousel {
+    overflow: hidden;
+    /* Soft edges so the logos fade in and out instead of being cut */
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 2rem, #000 calc(100% - 2rem), transparent);
+    mask-image: linear-gradient(to right, transparent, #000 2rem, #000 calc(100% - 2rem), transparent);
+  }
+  .logo-track {
+    display: flex;
+    width: max-content;
+    animation: logo-slide 45s linear infinite;
+  }
+  .logo-list {
+    display: flex;
+    flex: none;
+    align-items: center;
+    gap: 2.5rem;
+    /* The same space as the gap, so the two copies are spaced like neighbours */
+    padding-right: 2.5rem;
+  }
+  @media (min-width: 768px) {
+    .logo-list {
+      gap: 3.5rem;
+      padding-right: 3.5rem;
+    }
+  }
+  /* The carousel stops while someone is pointing at it or tabbing through it */
+  .logo-carousel:hover .logo-track,
+  .logo-carousel:focus-within .logo-track {
+    animation-play-state: paused;
+  }
+  @keyframes logo-slide {
+    to {
+      transform: translateX(-50%);
+    }
+  }
+  /* With reduced motion nothing moves: one copy of the list, scrollable sideways */
+  @media (prefers-reduced-motion: reduce) {
+    .logo-carousel {
+      overflow-x: auto;
+      -webkit-mask-image: none;
+      mask-image: none;
+    }
+    .logo-track {
+      animation: none;
+    }
+    .logo-copy {
+      display: none;
+    }
+  }
+</style>

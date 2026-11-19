@@ -2,13 +2,18 @@
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import Section from "../components/Section.astro";
 import ScrollReveal from "../components/ScrollReveal.tsx";
+import Button from "../components/Button.astro";
 import { SITE } from "../config/site.mjs";
+
+// The same colours as the steps of How it Works on the home
+const stepColours = ["bg-dandelion", "bg-lavender-300", "bg-aquamarine"];
 
 const steps = [
   {
     title: "Open our project on Giveth",
-    body: "Go to the Giveth House project page. It's the only place we collect donations.",
+    body: "It's the only place we collect donations.",
     link: { href: SITE.givethDonation, label: "giveth.io/project/giveth-house" },
   },
   {
@@ -20,8 +25,6 @@ const steps = [
     body: "That's it. Thank you!",
   },
 ];
-import Button from "../components/Button.astro";
-import Card from "../components/Card.astro";
 ---
 
 <Layout
@@ -31,85 +34,65 @@ import Card from "../components/Card.astro";
 >
   <Header />
   <main id="main-content" role="main">
-    <section class="max-w-4xl mx-auto px-4 py-12 md:py-20">
-
-      <ScrollReveal client:idle>
-        <h1 class="text-4xl md:text-5xl font-extrabold text-ink mb-4">Keep the house open</h1>
-      </ScrollReveal>
-
-      <ScrollReveal client:load delay={0.1}>
-        <p class="text-xl text-ink-muted mb-6 max-w-2xl">
-          Giveth House has no fixed prices and no membership fees. It runs on contributions from the people who stay, cowork and gather here. Donations pay for rent, utilities and maintenance.
-        </p>
-        <p class="text-ink-muted mb-12 max-w-2xl">
-          Contribute whatever feels right for your stay. There's no minimum and no expected amount.
+    <Section tone="white" pad="lg" wall={false} aria-labelledby="donate-heading">
+      <ScrollReveal client:load>
+        <h1 id="donate-heading" class="display-title text-ink leading-[0.95] mb-6">Keep the house open</h1>
+        <p class="text-xl md:text-2xl text-ink max-w-2xl">
+          Contribute whatever feels right. There's no minimum and no expected amount.
         </p>
       </ScrollReveal>
+    </Section>
 
-      <ScrollReveal client:load delay={0.15}>
-        <h2 class="text-2xl font-bold text-ink mb-6">How to donate in 3 steps</h2>
-      </ScrollReveal>
-
-      <div class="space-y-4 mb-12">
+    <Section tone="white" pad="none" wall={false}>
+      <!-- Three steps, on the same column lines as the photos of the home and the steps of How it Works -->
+      <div class="grid cols-photo-grid gap-8">
         {steps.map((step, i) => (
-          <ScrollReveal client:load delay={0.2 + i * 0.05}>
-            <div class="flex gap-4 items-start">
-              <div class="w-8 h-8 rounded-full bg-ink text-white flex items-center justify-center text-sm font-bold shrink-0 mt-0.5">{i + 1}</div>
-              <div>
-                <h3 class="font-semibold text-ink mb-1">{step.title}</h3>
-                <p class="text-ink-muted text-sm">
-                  {step.body}
-                  {step.link && (
-                    <>
-                      {" "}
-                      <a
-                        href={step.link.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="underline hover:text-grape-dark text-grape"
-                      >{step.link.label}</a>
-                    </>
-                  )}
-                </p>
-              </div>
+          <ScrollReveal client:load delay={0.1 + i * 0.1} scale={true}>
+            <div class="md:pr-8">
+              <div class:list={["w-12 h-12 text-ink border-[length:var(--stroke)] border-ink flex items-center justify-center text-xl font-bold mb-4", stepColours[i]]}>{i + 1}</div>
+              <h2 class="text-xl font-semibold text-ink mb-2">{step.title}</h2>
+              <p class="text-ink-muted text-sm">
+                {step.body}
+                {step.link && (
+                  <>
+                    {" "}
+                    <a
+                      href={step.link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="underline hover:text-grape-dark text-grape"
+                    >{step.link.label}</a>
+                  </>
+                )}
+              </p>
             </div>
           </ScrollReveal>
         ))}
       </div>
 
       <ScrollReveal client:load delay={0.4}>
-        <div class="flex flex-col sm:flex-row gap-4 mb-12">
-          <Button href={SITE.givethDonation} size="lg">
-            Donate on Giveth
+        <div class="mt-10 md:mt-12 mb-10 md:mb-14 flex flex-wrap gap-4">
+          <Button href={SITE.givethDonation} size="lg" class="whitespace-nowrap">Donate on Giveth</Button>
+          <Button href="/support#other-ways" variant="secondary" size="lg" class="whitespace-nowrap">
+            Other ways to help
           </Button>
         </div>
       </ScrollReveal>
 
+      <!-- Pink is the colour of the economy. This block sits right above the footer block, same width -->
       <ScrollReveal client:load delay={0.45}>
-        <Card tone="bone" class="mb-12">
-          <h2 class="text-lg font-semibold text-ink mb-2">New to crypto, or something not working?</h2>
-          <p class="text-ink-muted">
-            If the Giveth page gives you an error or you're not sure how to do it, write to us on
-            Telegram at
-            <a
-              href={SITE.houseTelegram}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="underline hover:text-grape-dark text-grape"
-            >{SITE.houseHandle}</a>
+        <div class="bg-tulip text-ink border-[length:var(--stroke)] border-ink px-6 py-8 md:px-12 md:py-12">
+          <h2 class="font-display font-bold leading-tight mb-4" style="font-size: clamp(1.75rem, 3.4vw, 3rem);">
+            New to crypto, or something not working?
+          </h2>
+          <p class="text-2xl leading-snug max-w-3xl">
+            Write to us on Telegram at
+            <a href={SITE.houseTelegram} target="_blank" rel="noopener noreferrer" class="underline">{SITE.houseHandle}</a>
             and we'll sort it out together.
           </p>
-        </Card>
+        </div>
       </ScrollReveal>
-
-      <ScrollReveal client:load delay={0.5}>
-        <p class="text-ink-muted text-sm">
-          There are other ways to help too.
-          <a href="/support#other-ways" class="underline hover:text-grape-dark text-grape">See other ways to support the house</a>.
-        </p>
-      </ScrollReveal>
-
-    </section>
+    </Section>
   </main>
-  <Footer />
+  <Footer block />
 </Layout>

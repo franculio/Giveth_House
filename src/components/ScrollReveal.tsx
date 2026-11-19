@@ -1,5 +1,5 @@
 import { motion, useReducedMotion } from "framer-motion";
-import type { ReactNode } from "react";
+import type { CSSProperties, ReactNode } from "react";
 
 interface ScrollRevealProps {
   children: ReactNode;
@@ -8,6 +8,9 @@ interface ScrollRevealProps {
   distance?: number;
   duration?: number;
   scale?: boolean;
+  /** Optional, so the wrapper can itself be a grid item or fill its cell. */
+  className?: string;
+  style?: CSSProperties;
 }
 
 export default function ScrollReveal({
@@ -17,9 +20,17 @@ export default function ScrollReveal({
   distance = 50,
   duration = 0.8,
   scale = false,
+  className,
+  style,
 }: ScrollRevealProps) {
   const reduceMotion = useReducedMotion();
-  if (reduceMotion) return <div>{children}</div>;
+  if (reduceMotion) {
+    return (
+      <div className={className} style={style}>
+        {children}
+      </div>
+    );
+  }
 
   const variants = {
     hidden: {
@@ -46,6 +57,8 @@ export default function ScrollReveal({
 
   return (
     <motion.div
+      className={className}
+      style={style}
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "-50px" }}

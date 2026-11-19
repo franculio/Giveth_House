@@ -2,8 +2,39 @@
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import Section from "../components/Section.astro";
 import ScrollReveal from "../components/ScrollReveal.tsx";
+import CostContent from "../components/CostContent.astro";
 import { SITE } from "../config/site.mjs";
+
+// The story on a time axis, from now back to the start. `years` is the time that
+// passes until the next entry down, which is the one before it in time, and it
+// sets the space below the entry, so the gaps on the page are proportional to
+// the gaps in time. "Then" has no year: it happened in between.
+const timeline = [
+  { date: "Now", text: 'A third floor with a rooftop terrace, nine years in.', node: "bg-dandelion", years: 2 },
+  { date: "2024", text: 'The demolition that threatened the house is cancelled. It stays.', node: "bg-dandelion", years: 2 },
+  { date: "2022", text: 'Franco Ruiz takes care of the house.', node: "bg-lavender-300", years: 2 },
+  { date: "Then", text: 'It moves to Sants, a working-class, cooperative neighbourhood, and stays.', node: "bg-lavender-300", years: 1.2 },
+  { date: "2017", text: 'The first house opens near the Sagrada Família. The neighbours think it is an illegal Airbnb.', node: "bg-dandelion", years: 0.4 },
+  {
+    date: "2017",
+    big: "$5–6k = 4 months",
+    text: 'A week at the Berlin retreat cost $5–6k. In Barcelona, that rents a house for four months.',
+    node: "bg-tulip",
+    years: 1,
+  },
+  { date: "2016", text: 'Giveth is founded by altruists from the early Ethereum ecosystem.', node: "bg-aquamarine", years: 0 },
+] as const;
+
+// Each value is a tile with the word on top and its short explanation at the bottom.
+const values = [
+  { word: "Openness", note: "Freedom of thought", style: "bg-dandelion text-ink" },
+  { word: "Cooperation", note: "Camaraderie, no hierarchy", style: "bg-lavender-300 text-ink" },
+  { word: "Regenerative economics", note: "Built around public goods", style: "bg-white text-ink" },
+  { word: "Solarpunk optimism", note: "Building better systems together", style: "bg-grape text-white" },
+];
+
 ---
 
 <Layout
@@ -13,129 +44,83 @@ import { SITE } from "../config/site.mjs";
 >
   <Header />
   <main id="main-content" role="main">
-    <section class="max-w-4xl mx-auto px-4 py-12 md:py-20">
-      <ScrollReveal client:idle>
-        <h1 class="text-4xl md:text-5xl font-extrabold text-ink mb-4">Giveth House</h1>
-      </ScrollReveal>
-      <ScrollReveal client:load delay={0.1}>
-        <p class="text-xl text-ink-muted mb-12">
-          A home in Barcelona where Web3 builders and communities can live, work and try
-          things together.
+    <!-- The opening is a yellow band (the colour of the house) across the whole width, with no border -->
+    <Section tone="dandelion" pad="lg" wall={false} aria-labelledby="about-heading">
+      <ScrollReveal client:load>
+        <h1 id="about-heading" class="display-title text-ink leading-[0.95] mb-6">Giveth House</h1>
+        <p class="text-xl md:text-2xl text-ink max-w-2xl">
+          A home in Barcelona where Web3 builders and communities live, work and try things together.
+          Barcelona for its freedom of thought and choice, Sants for its workers' movements and cooperative culture.
         </p>
       </ScrollReveal>
+    </Section>
 
-      <div class="prose prose-lg max-w-none">
+    <Section tone="white" pad="md-tight" wall={false} aria-labelledby="story-heading">
+      <ScrollReveal client:idle>
+        <h2 id="story-heading" class="display-title text-ink leading-[0.95] mb-5 md:mb-6">How it began</h2>
+      </ScrollReveal>
+      <!-- The colour key: the same four colours as the rotating word of the home -->
+      <ul role="list" class="flex flex-wrap gap-x-6 gap-y-2 mb-8 md:mb-10 text-sm md:text-base font-semibold text-ink">
+        <li class="flex items-center gap-2"><span class="inline-block w-4 h-4 border-[3px] border-ink bg-dandelion" aria-hidden="true"></span>house</li>
+        <li class="flex items-center gap-2"><span class="inline-block w-4 h-4 border-[3px] border-ink bg-lavender-300" aria-hidden="true"></span>community</li>
+        <li class="flex items-center gap-2"><span class="inline-block w-4 h-4 border-[3px] border-ink bg-aquamarine" aria-hidden="true"></span>projects</li>
+        <li class="flex items-center gap-2"><span class="inline-block w-4 h-4 border-[3px] border-ink bg-tulip" aria-hidden="true"></span>economy</li>
+      </ul>
+      <!--
+        An axis: one thick ink line, a square on it for every milestone, the date
+        to its left and the text to its right. The space between entries follows
+        the time between them.
+      -->
+      <ol role="list" class="timeline">
+        {timeline.map((t, i) => (
+          <li class="timeline-item" style={`--years: ${t.years};`}>
+            <ScrollReveal client:idle delay={0.05} direction="right" distance={30}>
+              <div class="timeline-row">
+                <span class="timeline-date font-display font-extrabold leading-none">{t.date}</span>
+                <span class:list={["timeline-node", t.node]} aria-hidden="true"></span>
+                <div class="timeline-text">
+                  {"big" in t && (
+                    <p class="inline-block bg-tulip border-[length:var(--stroke)] border-ink font-display font-bold leading-none px-3 py-2 mb-3" style="font-size: clamp(1.5rem, 3.4vw, 3rem);">{t.big}</p>
+                  )}
+                  <p class="text-lg md:text-2xl leading-snug max-w-2xl">{t.text}</p>
+                </div>
+              </div>
+            </ScrollReveal>
+          </li>
+        ))}
+      </ol>
+    </Section>
 
-        <ScrollReveal client:load delay={0.2}>
-          <h2>Story</h2>
-          <p>
-            Giveth was founded in 2016 by altruists from the early Ethereum ecosystem. Their
-            mission was to build open, decentralized infrastructure to fund public goods and
-            reward people who give to society. A year later, Giveth House opened in Barcelona,
-            a base in real life for a community spread across the world.
-          </p>
-          <p>
-            The house started with a practical problem. In 2017 the Giveth team held a retreat
-            in Berlin, and renting the space cost $5,000–6,000 for the week.{" "}
-            <strong>Griff Green</strong> did the math: in Barcelona, that same money could
-            rent a house for four months. What began as a way to save on logistics became a
-            permanent base for a decentralised community that had no fixed address.
-          </p>
-          <p>
-            The first house was near the Sagrada Família, and the neighbours assumed it was an
-            illegal Airbnb. The team later moved to Sants, a working-class neighbourhood with
-            a cooperative culture that fit better with what the house wanted to be. It has been
-            there ever since.
-          </p>
-          <p>
-            Nine years later, the house is a meeting point for contributors across the
-            decentralised ecosystem. People arrive for a conference, a collaboration or a few
-            weeks of focused work, and often leave with new friends and new projects.
-          </p>
-        </ScrollReveal>
-
-        <ScrollReveal client:load delay={0.3}>
-          <h2>Why Barcelona</h2>
-          <p>
-            Barcelona was a deliberate choice. Giveth's founders had seen the Catalan struggle
-            for independence up close, and wanted a place that stands for freedom of thought
-            and freedom of choice, where those freedoms are practiced in real life.
-          </p>
-          <p>
-            Giveth House welcomes people from all walks of life who share a belief in equality,
-            safety, camaraderie and freedom from hierarchy. Sants, with its long history of
-            workers' movements and cooperative culture, felt like a natural home for a
-            solarpunk, blockchain4good community.
-          </p>
-        </ScrollReveal>
-
-        <ScrollReveal client:load delay={0.4}>
-          <h2>Community</h2>
-          <p>
-            Giveth House is the physical home of the Giveth Galaxy, a growing community of
-            connected projects and DAOs who care about the common good. Over the years the
-            house has welcomed people from Ethereum Foundation, Arbitrum, Starknet, Dappnode,
-            Fuel Labs, dOrg, Vocdoni, Talent Layer, General Magic and many others. Some stay a
-            few days, others a few weeks. What they share is curiosity about building new ways
-            to coordinate and cooperate.
-          </p>
-          <p>
-            It is more than a place to sleep. The house is a{" "}
-            <strong>Schelling point for the Web3 ecosystem</strong>: somewhere people naturally
-            end up meeting, and where collaborations, friendships and new ideas start on their
-            own.
-          </p>
-        </ScrollReveal>
-
-        <ScrollReveal client:load delay={0.5}>
-          <h2>Values</h2>
-          <p>
-            Giveth House is a human place, not a polished coworking space or a startup office.
-            It is shaped by:
-          </p>
-          <ul>
-            <li>openness and freedom of thought</li>
-            <li>cooperation and camaraderie</li>
-            <li>regenerative economics and public goods</li>
-            <li>solarpunk optimism: building better systems together</li>
-          </ul>
-          <p>
-            Many people call the house <strong>solarpunk</strong>: optimistic and
-            collaborative. It is a place where the values behind the code become real.
-          </p>
-        </ScrollReveal>
-
-        <ScrollReveal client:load delay={0.6}>
-          <h2>Stewardship</h2>
-          <p>
-            Since 2022, <strong>Franco Ruiz</strong> has looked after the house. He coordinates
-            guest stays, maintains the space, organizes activities and helps residents and
-            visitors work together.
-          </p>
-          <p>
-            The house has grown over the years. The latest addition is a third floor with a
-            rooftop terrace, an open space the community had long dreamed of, to gather and
-            enjoy Barcelona. In 2024, the neighbourhood demolition that had threatened the house
-            was officially cancelled. Giveth House is here to stay.
-          </p>
-        </ScrollReveal>
-
-        <ScrollReveal client:load delay={0.7}>
-          <h2>Support the House</h2>
-          <p>
-            Giveth House exists because the community chooses to support it. Donations from
-            people across the ecosystem pay for the practical things that keep a shared house
-            going: rent, utilities, maintenance and day-to-day costs.
-          </p>
-          <p>
-            The aim is for the house to stay a free, open resource for the Web3 ecosystem, where
-            the next generation of builders finds community and a warm welcome in Barcelona.
-            Every contribution helps keep it going.
-          </p>
-        </ScrollReveal>
-
+    <!--
+      One blue block that holds the values and the cost. The four values are tiles
+      inside it, so no value is ever the "same colour as the block below": they are
+      part of it.
+    -->
+    <Section tone="white" pad="md-tight-flush" wall={false} aria-labelledby="values-heading">
+      <div data-dark class="bg-ink text-white">
+        <div class="px-6 pt-10 md:px-12 md:pt-14">
+          <ScrollReveal client:idle>
+            <h2 id="values-heading" class="display-title text-white leading-[0.95] mb-8 md:mb-10">Values</h2>
+          </ScrollReveal>
+        </div>
+        <div class="quad">
+          {values.map((v, i) => (
+            <ScrollReveal client:idle className="quad-item" delay={i * 0.08} direction="up" distance={40}>
+              <div
+                data-dark={v.style.includes("text-white") ? true : undefined}
+                class:list={["w-full h-full p-4 md:p-6 flex flex-col justify-between gap-3", v.style]}
+              >
+                <p class="font-display font-bold leading-[1.02]" style="font-size: clamp(1.5rem, 2.6vw, 2.5rem);">{v.word}</p>
+                <p class="text-[13px] md:text-[15px] leading-snug">{v.note}</p>
+              </div>
+            </ScrollReveal>
+          ))}
+        </div>
+        <div class="px-6 pt-12 pb-12 md:px-12 md:pt-16 md:pb-20">
+          <CostContent accent="tulip" />
+        </div>
       </div>
-    </section>
+    </Section>
   </main>
-  <Footer />
+  <Footer block />
 </Layout>

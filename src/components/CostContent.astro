@@ -1,0 +1,44 @@
+---
+import ScrollReveal from "./ScrollReveal.tsx";
+import CostBars from "./CostBars.tsx";
+import Button from "./Button.astro";
+import { SITE } from "../config/site.mjs";
+
+// The euro sign goes after the figure, with a non-breaking space so the two never split across lines.
+interface Props {
+  accent?: "dandelion" | "tulip";
+}
+const { accent = "dandelion" } = Astro.props;
+
+const euro = (n: number) => `${Math.round(n).toLocaleString("en-US")} €`;
+---
+
+  <!-- The title takes the whole width of the block, in two or three lines -->
+  <ScrollReveal client:idle>
+    <h2 id="cost-heading" class="display-title text-white leading-[0.95]">
+      Keeping the door open costs {euro(SITE.monthlyCost)} a month.
+    </h2>
+  </ScrollReveal>
+
+  <!-- The explanation first, then the buttons side by side. On wide screens they sit in one row -->
+  <div class="mt-8 md:mt-10 grid lg:grid-cols-[1fr_auto] gap-x-12 gap-y-8 items-start">
+    <ScrollReveal client:idle delay={0.1}>
+      <p class="text-botticelli text-[17px]">
+        Rent, utilities and cleaning. Give back with money, time or knowledge.
+      </p>
+    </ScrollReveal>
+
+    <ScrollReveal client:idle delay={0.2}>
+      <div class="flex flex-wrap gap-4">
+        <Button href="/donate" variant="on-dark-yellow" size="lg" class="whitespace-nowrap">Donate on Giveth</Button>
+        <Button href="/support#other-ways" variant="on-dark-outline" size="lg" class="whitespace-nowrap">
+          Other ways to support
+        </Button>
+      </div>
+    </ScrollReveal>
+  </div>
+
+  <!-- Two bars that fill when they scroll into view: what the house needs and what has been given -->
+  <div class="mt-12 md:mt-16">
+    <CostBars client:visible total={SITE.monthlyCost} donated={SITE.monthlyDonated} {...(accent !== "dandelion" ? { accent } : {})} />
+  </div>

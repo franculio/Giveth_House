@@ -1,0 +1,14 @@
+---
+import Section from "./Section.astro";
+import CostContent from "./CostContent.astro";
+---
+
+<!--
+  The blue is a block of the same width as the photo and values block above it,
+  and touches it: the three of them stack like the frames of the logo.
+-->
+<Section tone="white" pad="none" wall={false} aria-labelledby="cost-heading">
+  <div data-dark class="bg-ink text-white px-6 py-12 md:px-12 md:py-20">
+    <CostContent accent="tulip" />
+  </div>
+</Section>

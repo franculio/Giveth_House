@@ -2,46 +2,91 @@
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import Section from "../components/Section.astro";
 import ScrollReveal from "../components/ScrollReveal.tsx";
 import { SITE } from "../config/site.mjs";
 
-const faqs = [
+// The questions come in four groups, one per theme, in the same order and with
+// the same colours as the rotating word of the home: house is dandelion,
+// community is lavender, projects is sky blue, economy is pink. Ink text on all
+// of them passes the contrast: the question is large bold text, which only
+// needs 3:1 on pink.
+const groups = [
   {
-    question: "What is Giveth House?",
-    answer:
-      "Giveth House is a community home in Barcelona's Sants neighborhood. It's a shared place to live, cowork and meet for builders and communities across the Web3 and ReFi ecosystem. It has been open since 2017 and has hosted contributors from projects like Ethereum Foundation, Arbitrum, Starknet, Dappnode and many others.",
+    title: "House",
+    colour: "bg-dandelion",
+    faqs: [
+      {
+        question: "What is Giveth House?",
+        answer:
+          "A community home in Barcelona's Sants neighbourhood where builders and communities from the Web3 and ReFi ecosystem live, cowork and meet. Open since 2017.",
+      },
+      {
+        question: "Who gets priority for a stay?",
+        answer:
+          "Stays are for contributors passing through Barcelona or attending events. Priority goes to people connected to Giveth, Web3 or ReFi.",
+      },
+      {
+        question: "How does arriving work?",
+        answer:
+          "There is no self-entry, so you coordinate your arrival with Franco once you're approved. We share the exact address once your stay is confirmed.",
+      },
+    ],
   },
   {
-    question: "How much does it cost to stay?",
-    answer:
-      "There is no fixed price. Giveth House runs on a gift economy: guests are invited to contribute what feels right through the Giveth donation platform after their stay. You can donate in almost any crypto token on most major chains. The house is sustained entirely by community generosity.",
+    title: "Community",
+    colour: "bg-lavender-300",
+    faqs: [
+      {
+        question: "Who is it for?",
+        answer:
+          "Open source contributors, DAO builders and Web3 communities visiting Barcelona. The door is open to anyone who shares the values of the space: curiosity, collaboration and building better systems.",
+      },
+      {
+        question: "What if I don't have a community vouch?",
+        answer:
+          "A vouch helps, but it isn't required. Share a little about what you're working on and Franco will consider your request.",
+      },
+      {
+        question: "Can I just visit for a short time?",
+        answer:
+          "Yes. Short visits to meet the community or join a gathering are welcome, for anyone who shares the values of the space. Message us on Telegram to arrange it.",
+      },
+    ],
   },
   {
-    question: "How do I apply for a stay, coworking day, or visit?",
-    answer:
-      "Everything starts with a message on Telegram. Write to @Giveth_House and tell us who you are, your dates, what brings you to Barcelona, your connection to Giveth, web3 or ReFi, and whether someone from the community recommended you. Franco reviews every request personally and replies via Telegram.",
+    title: "Projects",
+    colour: "bg-aquamarine",
+    faqs: [
+      {
+        question: "How do I apply for a stay, coworking day, or visit?",
+        answer:
+          "Write to @Giveth_House on Telegram: who you are, your dates, what brings you to Barcelona and your connection to Giveth, Web3 or ReFi. Franco replies personally.",
+      },
+      {
+        question: "Can I host an event?",
+        answer:
+          "Yes. Talks, workshops, hacker houses, dinners and meetups. The basement and common areas suit small gatherings. Write to us on Telegram.",
+      },
+    ],
   },
   {
-    question: "Who is it for?",
-    answer:
-      "The house is primarily for open source contributors, DAO builders, Ethereum ecosystem participants, and Web3 communities visiting Barcelona. That said, the door is open to anyone who shares the values of the space: curiosity, collaboration and building better systems. A community vouch is appreciated but not required.",
+    title: "Economy",
+    colour: "bg-tulip",
+    faqs: [
+      {
+        question: "How much does it cost to stay?",
+        answer:
+          "There is no fixed price. Guests contribute what feels right after their stay, in almost any crypto token. The house runs on that generosity.",
+      },
+      {
+        question: "How is Giveth House funded?",
+        answer:
+          "By community donations on the Giveth platform. They cover rent, utilities, maintenance and operations, so the space stays open to the Web3 ecosystem.",
+      },
+    ],
   },
-  {
-    question: "What if I don't have a community vouch?",
-    answer:
-      "A vouch helps but it's not a hard requirement. If you're aligned with the values of the space and can share a bit about what you're working on, Franco will consider your request. We'll ask about your connection to the community, so just be honest and genuine.",
-  },
-  {
-    question: "Can I host an event?",
-    answer:
-      "Yes. Giveth House regularly hosts small talks, workshops, hacker houses, community dinners, and informal meetups. The basement and common areas work well for intimate gatherings and collaborative sessions. Write to us on Telegram at @Giveth_House and mention you'd like to host an event.",
-  },
-  {
-    question: "How is Giveth House funded?",
-    answer:
-      "The house is supported through community donations on the Giveth platform. Contributions help cover rent, utilities, maintenance, and operations so the space can remain open as a shared resource for the Web3 ecosystem. Every contribution, large or small, makes a difference.",
-  },
-];
+] as const;
 ---
 
 <Layout
@@ -51,49 +96,65 @@ const faqs = [
 >
   <Header />
   <main id="main-content" role="main">
-    <section class="max-w-6xl mx-auto px-4 py-12 md:py-20">
-      <ScrollReveal client:idle>
-        <h1 class="text-4xl md:text-5xl font-extrabold text-ink mb-4">FAQs</h1>
-      </ScrollReveal>
-
-      <ScrollReveal client:load delay={0.1}>
-        <p class="text-xl text-ink-muted mb-12 max-w-2xl">
-          Learn more about what Giveth House is, who it's for, and how you can
-          visit, stay, or support the space.
+    <Section tone="white" pad="lg" wall={false} aria-labelledby="faq-heading">
+      <ScrollReveal client:load>
+        <h1 id="faq-heading" class="display-title text-ink leading-[0.95] mb-6">FAQs</h1>
+        <p class="text-xl md:text-2xl text-ink max-w-2xl">
+          Who the house is for, how a stay works, events and how it is funded.
         </p>
       </ScrollReveal>
+    </Section>
 
-      <ScrollReveal client:load delay={0.2}>
-        <div class="space-y-3" role="list">
-          {faqs.map((faq) => (
-            <details
-              class="faq-accordion group bg-white rounded-lg border border-athens shadow-sm overflow-hidden"
-            >
-              <summary class="flex items-center justify-between gap-4 list-none cursor-pointer px-6 py-4 text-left font-semibold text-ink hover:bg-bone transition-colors [&::-webkit-details-marker]:hidden">
-                <span>{faq.question}</span>
-                <span
-                  class="shrink-0 w-6 h-6 flex items-center justify-center text-ink-muted group-open:rotate-180 transition-transform"
-                  aria-hidden="true"
-                >
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="6 9 12 15 18 9"></polyline>
-                  </svg>
-                </span>
-              </summary>
-              <div class="px-6 pb-4 pt-0 border-t border-athens">
-                <p class="text-ink-muted pt-3">{faq.answer}</p>
+    <Section tone="white" pad="bottom-lg" wall={false}>
+      <div class="grid gap-12 md:gap-16">
+        {groups.map((group, g) => (
+          <ScrollReveal client:load delay={0.05 + g * 0.05}>
+            <section aria-labelledby={`faq-group-${g}`}>
+              <!-- No visible label: the colour tells the groups apart. The name stays for screen readers -->
+              <h2 id={`faq-group-${g}`} class="sr-only">{group.title}</h2>
+              <!-- The questions of a group are blocks stacked and sharing one wall -->
+              <div role="list">
+                {group.faqs.map((faq, i) => (
+                  <details
+                    role="listitem"
+                    class:list={[
+                      "faq group border-[length:var(--stroke)] border-ink bg-white",
+                      i > 0 && "-mt-[var(--stroke)]",
+                    ]}
+                  >
+                    <summary
+                      class:list={[
+                        "flex items-center gap-4 list-none cursor-pointer px-4 py-4 md:px-6 md:py-5 text-left text-ink hover:brightness-95 transition",
+                        group.colour,
+                      ]}
+                    >
+                      <span class="font-display font-bold text-xl md:text-3xl leading-tight flex-1">{faq.question}</span>
+                      <span
+                        class="shrink-0 w-6 h-6 flex items-center justify-center group-open:rotate-180 transition-transform"
+                        aria-hidden="true"
+                      >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="square">
+                          <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                      </span>
+                    </summary>
+                    <div class="px-4 py-5 md:px-6 md:py-6 bg-white text-ink">
+                      <p class="text-lg md:text-xl max-w-2xl">{faq.answer}</p>
+                    </div>
+                  </details>
+                ))}
               </div>
-            </details>
-          ))}
-        </div>
-      </ScrollReveal>
-    </section>
+            </section>
+          </ScrollReveal>
+        ))}
+      </div>
+    </Section>
   </main>
   <Footer />
 </Layout>
 
 <style>
-  .faq-accordion summary::-webkit-details-marker {
+  .faq summary::-webkit-details-marker {
     display: none;
   }
 </style>

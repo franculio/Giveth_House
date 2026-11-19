@@ -1,20 +1,21 @@
 ---
+import Section from "./Section.astro";
 import ScrollReveal from "./ScrollReveal.tsx";
 import { Icon } from "astro-icon/components";
 import Card from "./Card.astro";
 ---
 
-<section id="features" class="max-w-6xl mx-auto px-4 py-12 md:py-20">
+<Section tone="grape" id="features">
   <ScrollReveal client:idle delay={0.1}>
-    <h2 class="text-4xl font-bold text-ink text-center mb-4">What happens here</h2>
-    <p class="text-center text-ink-muted mb-12 max-w-xl mx-auto">
+    <h2 class="text-4xl font-bold text-white text-center mb-4">What happens here</h2>
+    <p class="text-center text-botticelli mb-12 max-w-2xl mx-auto">
       A home, a workspace and a place to meet.
     </p>
   </ScrollReveal>
   <div class="grid md:grid-cols-2 gap-8">
     <ScrollReveal client:idle delay={0.2} scale={true}>
       <Card class="h-full hover:shadow-lg transition-shadow">
-        <div class="w-12 h-12 bg-athens rounded-lg flex items-center justify-center mb-4">
+        <div class="w-12 h-12 bg-athens flex items-center justify-center mb-4">
           <Icon name="tabler:home" class="w-6 h-6 text-ink" aria-hidden="true" />
         </div>
         <h3 class="text-xl font-semibold text-ink mb-2">Stay</h3>
@@ -25,7 +26,7 @@ import Card from "./Card.astro";
     </ScrollReveal>
     <ScrollReveal client:idle delay={0.3} scale={true}>
       <Card class="h-full hover:shadow-lg transition-shadow">
-        <div class="w-12 h-12 bg-athens rounded-lg flex items-center justify-center mb-4">
+        <div class="w-12 h-12 bg-athens flex items-center justify-center mb-4">
           <Icon name="tabler:desk" class="w-6 h-6 text-ink" aria-hidden="true" />
         </div>
         <h3 class="text-xl font-semibold text-ink mb-2">Cowork</h3>
@@ -36,7 +37,7 @@ import Card from "./Card.astro";
     </ScrollReveal>
     <ScrollReveal client:idle delay={0.4} scale={true}>
       <Card class="h-full hover:shadow-lg transition-shadow">
-        <div class="w-12 h-12 bg-athens rounded-lg flex items-center justify-center mb-4">
+        <div class="w-12 h-12 bg-athens flex items-center justify-center mb-4">
           <Icon name="tabler:users" class="w-6 h-6 text-ink" aria-hidden="true" />
         </div>
         <h3 class="text-xl font-semibold text-ink mb-2">Gather</h3>
@@ -47,7 +48,7 @@ import Card from "./Card.astro";
     </ScrollReveal>
     <ScrollReveal client:idle delay={0.5} scale={true}>
       <Card class="h-full hover:shadow-lg transition-shadow">
-        <div class="w-12 h-12 bg-athens rounded-lg flex items-center justify-center mb-4">
+        <div class="w-12 h-12 bg-athens flex items-center justify-center mb-4">
           <Icon name="tabler:heart-handshake" class="w-6 h-6 text-ink" aria-hidden="true" />
         </div>
         <h3 class="text-xl font-semibold text-ink mb-2">Connect</h3>
@@ -57,4 +58,4 @@ import Card from "./Card.astro";
       </Card>
     </ScrollReveal>
   </div>
-</section>
+</Section>
