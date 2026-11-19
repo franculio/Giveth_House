@@ -21,7 +21,7 @@ import Button from "./Button.astro";
     
     <button
       type="button"
-      class="md:hidden p-2 text-ink hover:text-grape focus:outline-none focus:ring-2 focus:ring-grape focus:ring-offset-2 rounded-lg"
+      class="md:hidden p-2.5 text-ink hover:text-grape focus:outline-none focus:ring-2 focus:ring-grape focus:ring-offset-2"
       aria-label="Toggle menu"
       aria-expanded="false"
       aria-controls="mobile-menu"
@@ -34,7 +34,7 @@ import Button from "./Button.astro";
       <li>
         <a
           href="/about"
-          class="text-ink hover:text-grape transition-colors"
+          class="py-3 text-ink hover:text-grape transition-colors aria-[current=page]:underline underline-offset-8 decoration-2"
           aria-current={Astro.url.pathname === '/about' ? 'page' : undefined}
         >
           About
@@ -42,17 +42,8 @@ import Button from "./Button.astro";
       </li>
       <li>
         <a
-          href="/visit"
-          class="text-ink hover:text-grape transition-colors"
-          aria-current={Astro.url.pathname === '/visit' ? 'page' : undefined}
-        >
-          Visit
-        </a>
-      </li>
-      <li>
-        <a
           href="/faqs"
-          class="text-ink hover:text-grape transition-colors"
+          class="py-3 text-ink hover:text-grape transition-colors aria-[current=page]:underline underline-offset-8 decoration-2"
           aria-current={Astro.url.pathname === '/faqs' ? 'page' : undefined}
         >
           FAQs
@@ -61,10 +52,20 @@ import Button from "./Button.astro";
       <li>
         <a
           href="/support"
-          class="text-ink hover:text-grape transition-colors"
+          class="py-3 text-ink hover:text-grape transition-colors aria-[current=page]:underline underline-offset-8 decoration-2"
           aria-current={Astro.url.pathname === '/support' ? 'page' : undefined}
         >
           Support
+        </a>
+      </li>
+      <li>
+        <!-- Pink on white is 3.86:1: only valid for large text (19px bold or 24px regular) -->
+        <a
+          href="/donate"
+          class="py-3 text-[19px] font-bold text-tulip hover:text-ink transition-colors aria-[current=page]:underline underline-offset-8 decoration-2"
+          aria-current={Astro.url.pathname === '/donate' ? 'page' : undefined}
+        >
+          Donate
         </a>
       </li>
       <li>
@@ -83,7 +84,7 @@ import Button from "./Button.astro";
       <li>
         <a
           href="/about"
-          class="block px-4 py-3 text-ink hover:bg-bone hover:text-grape transition-colors"
+          class="block px-4 py-3 text-ink hover:bg-bone hover:text-grape transition-colors aria-[current=page]:underline underline-offset-4 decoration-2"
           role="menuitem"
           aria-current={Astro.url.pathname === '/about' ? 'page' : undefined}
         >
@@ -92,18 +93,8 @@ import Button from "./Button.astro";
       </li>
       <li>
         <a
-          href="/visit"
-          class="block px-4 py-3 text-ink hover:bg-bone hover:text-grape transition-colors"
-          role="menuitem"
-          aria-current={Astro.url.pathname === '/visit' ? 'page' : undefined}
-        >
-          Visit
-        </a>
-      </li>
-      <li>
-        <a
           href="/faqs"
-          class="block px-4 py-3 text-ink hover:bg-bone hover:text-grape transition-colors"
+          class="block px-4 py-3 text-ink hover:bg-bone hover:text-grape transition-colors aria-[current=page]:underline underline-offset-4 decoration-2"
           role="menuitem"
           aria-current={Astro.url.pathname === '/faqs' ? 'page' : undefined}
         >
@@ -113,11 +104,21 @@ import Button from "./Button.astro";
       <li>
         <a
           href="/support"
-          class="block px-4 py-3 text-ink hover:bg-bone hover:text-grape transition-colors"
+          class="block px-4 py-3 text-ink hover:bg-bone hover:text-grape transition-colors aria-[current=page]:underline underline-offset-4 decoration-2"
           role="menuitem"
           aria-current={Astro.url.pathname === '/support' ? 'page' : undefined}
         >
           Support
+        </a>
+      </li>
+      <li>
+        <a
+          href="/donate"
+          class="block px-4 py-3 text-xl font-bold text-tulip hover:bg-bone hover:text-ink transition-colors aria-[current=page]:underline underline-offset-4 decoration-2"
+          role="menuitem"
+          aria-current={Astro.url.pathname === '/donate' ? 'page' : undefined}
+        >
+          Donate
         </a>
       </li>
       <li>

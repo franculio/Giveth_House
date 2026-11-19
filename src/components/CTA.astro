@@ -2,17 +2,18 @@
 import ScrollReveal from "./ScrollReveal.tsx";
 import { SITE } from "../config/site.mjs";
 import Button from "./Button.astro";
+import Section from "./Section.astro";
 ---
 
-<section id="about" class="max-w-6xl mx-auto px-4 py-12 md:py-20">
-  <ScrollReveal client:idle scale={true}>
-    <div data-dark class="bg-ink rounded-2xl p-8 md:p-12 text-center text-white">
-      <h2 class="text-3xl md:text-4xl font-bold mb-4">Ready to Visit?</h2>
-      <p class="text-lg md:text-xl text-botticelli mb-8 max-w-2xl mx-auto">
+<Section tone="grape" pad="lg" wall={false} id="about">
+  <ScrollReveal client:idle>
+    <div>
+      <h2 class="display-title leading-[0.95] mb-6">Ready to visit?</h2>
+      <p class="text-lg md:text-xl text-botticelli mb-8 max-w-2xl">
         Write to us on Telegram about a stay, coworking day, or event. Franco reviews every
         request personally.
       </p>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <div class="flex flex-col sm:flex-row gap-4">
         <Button href={SITE.houseTelegram} variant="on-dark" size="lg">
           Write to us on Telegram
         </Button>
@@ -22,4 +23,4 @@ import Button from "./Button.astro";
       </div>
     </div>
   </ScrollReveal>
-</section>
+</Section>

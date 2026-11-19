@@ -1,0 +1,64 @@
+---
+import { getImage } from "astro:assets";
+import Section from "./Section.astro";
+import ScrollReveal from "./ScrollReveal.tsx";
+import RotatingPhoto from "./RotatingPhoto.tsx";
+import RotatingValues from "./RotatingValues.tsx";
+import sofaConGente from "../assets/images/Sofa_con_gente.jpg";
+import terraza2 from "../assets/images/Terraza_2.jpg";
+import salonReunion1 from "../assets/images/salon_reunion_1.jpg";
+import bunkerEvento from "../assets/images/bunker_evento.jpg";
+import salonMesa from "../assets/images/salon_mesa_giveth.jpg";
+
+// Two identical blocks that share one thick wall, like the two frames of the
+// logo. Each one turns on itself, in all four directions: one through photos
+// of the house, the other through its values. Nothing says who brings what.
+// Only 4:3 photos go here, so they are never cropped.
+const photos = await Promise.all(
+  [
+    { img: sofaConGente, alt: "Three people laughing on the orange sofa at Giveth House" },
+    { img: terraza2, alt: "People working together on the terrace at Giveth House" },
+    { img: salonReunion1, alt: "A coworking session in the living room at Giveth House" },
+    { img: bunkerEvento, alt: "A community event in the basement at Giveth House" },
+    { img: salonMesa, alt: "People around the table at Giveth House" },
+  ].map(async ({ img, alt }) => ({
+    src: (await getImage({ src: img, width: 1200, height: 900, format: "webp", quality: 80 })).src,
+    alt,
+  })),
+);
+
+const values = [
+  { title: "Knowledge", note: "What you know, shared at the table or on stage", bg: "dandelion", fg: "ink" },
+  { title: "Energy", note: "Your time and presence, which bring a room to life", bg: "lavender-300", fg: "ink" },
+  { title: "Community fabric", note: "Ties in Sants, built over years", bg: "grape", fg: "white" },
+  { title: "Meeting point", note: "Terrace, living room and basement for people to cross paths", bg: "bone", fg: "ink" },
+  { title: "Home", note: "A real house with a kitchen, not an office", bg: "aquamarine", fg: "ink" },
+  { title: "Reciprocity", note: "Giving and receiving, so the gift keeps moving", bg: "white", fg: "ink" },
+];
+---
+
+<Section tone="white" pad="lg-flush" wall={false} aria-labelledby="blocks-heading">
+  <ScrollReveal client:idle>
+    <h2 id="blocks-heading" class="display-title text-ink mb-6 md:mb-8 leading-[0.95]">
+      Everyone who comes adds a block.
+    </h2>
+    <p class="text-lg md:text-xl max-w-2xl mb-12 md:mb-16">
+      Giveth House is the sum of what each person brings. Every contribution has value, whatever form it takes, and together they hold the house up.
+    </p>
+  </ScrollReveal>
+
+  <!-- The turning values are hidden from screen readers, so the full list is here -->
+  <ul class="sr-only">
+    {values.map((v) => <li>{v.title}: {v.note}</li>)}
+  </ul>
+
+  <!-- The ink background shows through the gap, so the two blocks share one thick wall -->
+  <div class="duo">
+    <ScrollReveal client:idle className="duo-item" delay={0.05} direction="right" distance={50}>
+      <RotatingPhoto client:visible photos={photos} interval={3800} />
+    </ScrollReveal>
+    <ScrollReveal client:idle className="duo-item" delay={0.2} direction="left" distance={50}>
+      <RotatingValues client:visible values={values} interval={3800} startDelay={1900} directionOffset={2} />
+    </ScrollReveal>
+  </div>
+</Section>

@@ -1,6 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import ScrollReveal from "./ScrollReveal.tsx";
+import Section from "./Section.astro";
 import salonNormal from "../assets/images/salon_normal.jpg";
 import terraza1 from "../assets/images/Terraza_1.png";
 import bunkerEvento from "../assets/images/bunker_evento.jpg";
@@ -18,18 +19,16 @@ const photos = [
 ];
 ---
 
-<section class="max-w-6xl mx-auto px-4 py-12 md:py-20">
+<Section tone="white" pad="md-tight-flush" wall={false}>
   <ScrollReveal client:idle delay={0.1}>
-    <h2 class="text-4xl font-bold text-ink text-center mb-4">The Space</h2>
-    <p class="text-center text-ink-muted mb-10 max-w-xl mx-auto">
-      A home, a workspace and a terrace in Barcelona's Sants neighbourhood.
-    </p>
+    <h2 class="display-title text-ink mb-8 md:mb-10 leading-[0.95]">The Space</h2>
   </ScrollReveal>
 
   <ScrollReveal client:idle delay={0.2}>
-    <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+    <!-- The ink background shows through the gaps: photos share one thick wall, like the frames in the logo -->
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-[var(--stroke)] bg-ink border-[length:var(--stroke)] border-ink">
       {photos.map((photo) => (
-        <div class="aspect-square overflow-hidden rounded-lg bg-athens">
+        <div class="aspect-square overflow-hidden bg-athens">
           <Image
             src={photo.src}
             alt={photo.alt}
@@ -44,4 +43,4 @@ const photos = [
       ))}
     </div>
   </ScrollReveal>
-</section>
+</Section>

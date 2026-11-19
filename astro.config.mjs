@@ -10,6 +10,10 @@ import { SITE } from "./src/config/site.mjs";
 // https://astro.build/config
 export default defineConfig({
   site: SITE.url,
+  // The visit page is gone: its content lives on the home page
+  redirects: {
+    "/visit": "/",
+  },
   integrations: [
     react(),
     icon({ iconDir: "src/assets/brand" }),

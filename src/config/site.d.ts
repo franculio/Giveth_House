@@ -9,6 +9,11 @@ export const SITE: {
   houseTelegram: string;
   neighborhood: string;
   givethDonation: string;
+  monthlyCost: number;
+  monthlyDonated: number;
+  monthlyDonatedUsd: number;
+  usdPerEur: number;
+  exchangeRateDate: string;
 };
 
 export type SiteConfig = typeof SITE;

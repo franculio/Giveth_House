@@ -2,27 +2,51 @@
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import Section from "../components/Section.astro";
 import ScrollReveal from "../components/ScrollReveal.tsx";
+import Button from "../components/Button.astro";
+import { Icon } from "astro-icon/components";
 import { SITE } from "../config/site.mjs";
 
-type Campaign = {
-  name: string;
-  description: string;
-  url: string;
-  cta: string;
-};
-
-const campaigns: Campaign[] = [
+// Six blocks, each one a way to help. Money is one of them, not the headline.
+// Colours follow the themes of the home: house is dandelion, community is
+// lavender, projects is sky blue, economy is pink. Ink text on all of them
+// passes the contrast: the titles are large bold text.
+const ways = [
   {
-    name: "Giveth",
-    description:
-      "Support the house directly through the Giveth platform. You can donate in almost any crypto token on most major chains, and 100% of donations go to the project.",
-    url: "/donate",
-    cta: "Donate on Giveth",
+    id: "spread-the-word",
+    icon: "tabler:speakerphone",
+    colour: "bg-lavender-300",
+    title: "Spread the word",
+    text: "Tell builders in your network about the house, and send us a few lines about your stay.",
+    button: { label: "Send a testimonial" },
   },
-];
-import Button from "../components/Button.astro";
-import Card from "../components/Card.astro";
+  {
+    id: "host",
+    icon: "tabler:presentation",
+    colour: "bg-aquamarine",
+    title: "Host something",
+    text: "A talk, a workshop, a dinner or a small hacker house. Tell us your idea.",
+    button: { label: "Write to us" },
+  },
+  {
+    id: "community-supporter",
+    icon: "tabler:heart-handshake",
+    colour: "bg-dandelion",
+    title: "Become a Community Supporter",
+    text: "For regular guests who want to support the house in a more structured way.",
+    button: { label: "Get in touch" },
+  },
+  {
+    id: "bring",
+    icon: "tabler:gift",
+    colour: "bg-tulip",
+    title: "Bring something",
+    text: "Coffee, snacks and pantry basics are always welcome. Just bring them.",
+    // Ink on pink is 4.19:1, so the text of the pink block is large (24px) to pass
+    large: true,
+  },
+] as const;
 ---
 
 <Layout
@@ -32,126 +56,44 @@ import Card from "../components/Card.astro";
 >
   <Header />
   <main id="main-content" role="main">
-    <section class="max-w-4xl mx-auto px-4 py-12 md:py-20">
-
-      <ScrollReveal client:idle>
-        <h1 class="text-4xl md:text-5xl font-extrabold text-ink mb-4">Support Giveth House</h1>
-      </ScrollReveal>
-
-      <ScrollReveal client:load delay={0.1}>
-        <p class="text-xl text-ink-muted mb-10 max-w-2xl">
-          Giveth House runs on community generosity alone. It exists because people think a physical meeting place for the blockchain4good ecosystem is worth keeping alive.
+    <Section tone="white" pad="lg" wall={false} aria-labelledby="support-heading">
+      <ScrollReveal client:load>
+        <h1 id="support-heading" class="display-title text-ink leading-[0.95] mb-6">Support Giveth House</h1>
+        <p class="text-xl md:text-2xl text-ink max-w-2xl">
+          The house runs on community generosity. Money is one way to give, and not the only one.
         </p>
       </ScrollReveal>
+    </Section>
 
-      <!-- What your support makes possible -->
-      <ScrollReveal client:load delay={0.2}>
-        <Card tone="bone" class="mb-10">
-          <h2 class="text-lg font-semibold text-ink mb-3">What your support makes possible</h2>
-          <p class="text-ink-muted mb-4">
-            Since 2017, Giveth House has hosted over <strong>500 visitors</strong> from across the Web3 ecosystem, including builders from Ethereum Foundation, Arbitrum, Starknet, Dappnode, General Magic, Vocdoni, Fuel Labs, Blobscan, Gitcoin and many more. It has hosted hacker houses, workshops, unconferences and community dinners, and many collaborations that started over a shared meal and became real projects.
-          </p>
-          <p class="text-ink-muted">
-            Your donations cover what keeps the doors open: rent, utilities, maintenance and the day-to-day running of the house.
-          </p>
-        </Card>
-      </ScrollReveal>
-
-      <!-- Donation platforms -->
-      <ScrollReveal client:load delay={0.3}>
-        <h2 class="text-2xl font-bold text-ink mb-6">Donate</h2>
-      </ScrollReveal>
-
-      <div class="grid gap-6 mb-12">
-        {campaigns.map((campaign, index) => (
-          <ScrollReveal client:load delay={0.35 + index * 0.1}>
-            <Card as="article" class="flex flex-col justify-between h-full">
+    <Section tone="white" pad="none" wall={false}>
+      <!-- Blocks of equal width sharing one wall, same grammar as the offers of the home -->
+      <div id="other-ways" role="list" class="duo duo-auto scroll-mt-24">
+        {ways.map((way, i) => (
+          <ScrollReveal client:idle className="duo-item" delay={i * 0.1} direction="up" distance={40}>
+            <div
+              id={way.id}
+              role="listitem"
+              class:list={["w-full h-full p-6 md:p-8 flex flex-col justify-between gap-8 text-ink scroll-mt-24", way.colour]}
+            >
               <div>
-                <h3 class="text-2xl font-semibold text-ink mb-2">
-                  {campaign.name}
-                </h3>
-                <p class="text-ink-muted mb-4">
-                  {campaign.description}
-                </p>
+                <Icon name={way.icon} class="w-10 h-10 md:w-12 md:h-12 mb-5" aria-hidden="true" />
+                <h2 class="font-display font-bold leading-[1.02] mb-4" style="font-size: clamp(2rem, 3.4vw, 3.25rem);">
+                  {way.title}
+                </h2>
+                <p class:list={["max-w-md", "large" in way ? "text-2xl leading-snug" : "text-[17px]"]}>{way.text}</p>
               </div>
-              <div>
-                <Button href={campaign.url}>
-                  {campaign.cta}
-                </Button>
-              </div>
-            </Card>
+              {"button" in way && (
+                <div>
+                  <Button href={SITE.houseTelegram} size="lg" class="whitespace-nowrap">
+                    {way.button.label}
+                  </Button>
+                </div>
+              )}
+            </div>
           </ScrollReveal>
         ))}
       </div>
-
-      <!-- Other ways to support -->
-      <ScrollReveal client:load delay={0.45}>
-        <div id="other-ways" class="scroll-mt-24 mb-12">
-          <h2 class="text-2xl font-bold text-ink mb-4">Other ways to support</h2>
-          <p class="text-ink-muted mb-6">
-            Money isn't the only way to keep the house alive. You can also:
-          </p>
-          <ul class="space-y-4 text-ink-muted">
-            <li>
-              <strong class="text-ink">Spread the word.</strong>
-              Tell builders in your network about the house. Share
-              <a href={SITE.url} class="underline hover:text-grape-dark text-grape">giveth.house</a>.
-            </li>
-            <li>
-              <strong class="text-ink">Leave a testimonial.</strong>
-              A few lines about your stay helps others understand what this place is. Send it to
-              <a
-                href={SITE.houseTelegram}
-                target="_blank"
-                rel="noopener noreferrer"
-                class="underline hover:text-grape-dark text-grape"
-              >{SITE.houseHandle}</a>.
-            </li>
-            <li>
-              <strong class="text-ink">Host something.</strong>
-              Bring a talk, a workshop, a dinner or a small hacker house. Write to us with your idea.
-            </li>
-            <li>
-              <strong class="text-ink">Bring something for the house.</strong>
-              Coffee, snacks and pantry basics are always welcome.
-            </li>
-            <li>
-              <strong class="text-ink">Become a Community Supporter.</strong>
-              For regular guests who want to support the house in a more structured way.
-              <a href="#community-supporter" class="underline hover:text-grape-dark text-grape">More below</a>.
-            </li>
-          </ul>
-        </div>
-      </ScrollReveal>
-
-      <!-- Gift economy note -->
-      <ScrollReveal client:load delay={0.5}>
-        <div class="border-t border-athens pt-10">
-          <h2 class="text-2xl font-bold text-ink mb-4">If you've stayed here</h2>
-          <p class="text-ink-muted mb-4">
-            If you got something out of being here, please consider giving back through the donation page above.
-          </p>
-        </div>
-      </ScrollReveal>
-
-      <!-- Community Supporter -->
-      <ScrollReveal client:load delay={0.6}>
-        <div id="community-supporter" class="scroll-mt-24 border-t border-athens pt-10 mt-10">
-          <h2 class="text-2xl font-bold text-ink mb-4">Community Supporter</h2>
-          <p class="text-ink-muted mb-4">
-            If you use the space regularly and want to contribute in a more structured way,
-            we're developing a voluntary Community Supporter program. It's for people and teams who want to help keep the house running over the long term.
-          </p>
-          <p class="text-ink-muted mb-6">
-            There are no fixed tiers or public prices. If you're interested, write to us and we'll talk about what makes sense.
-          </p>
-          <Button href={SITE.houseTelegram}>
-            Get in touch via Telegram
-          </Button>
-        </div>
-      </ScrollReveal>
-
-    </section>
+    </Section>
   </main>
-  <Footer />
+  <Footer block />
 </Layout>

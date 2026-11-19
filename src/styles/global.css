@@ -1,11 +1,12 @@
 @import "tailwindcss";
 @import "@fontsource-variable/red-hat-display/wght.css";
 @import "@fontsource-variable/red-hat-text/wght.css";
+@import "@fontsource-variable/bricolage-grotesque/standard.css";
 @plugin "@tailwindcss/typography";
 
 /* Design tokens: see docs/STYLE_GUIDE.md */
 @theme {
-  --font-display: "Red Hat Display Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Bricolage Grotesque Variable", "Red Hat Display Variable", ui-sans-serif, system-ui, sans-serif;
   --font-sans: "Red Hat Text Variable", ui-sans-serif, system-ui, sans-serif;
 
   --color-ink: #1b1657;
@@ -22,6 +23,15 @@
   --color-botticelli: #d7ddea;
   --color-athens: #ebecf2;
   --color-bone: #f7f7f9;
+}
+
+/*
+ * Shape grammar, taken from the logo: square corners, no fill, one thick
+ * stroke. Blocks stack and share a wall (the gap between two blocks is one
+ * stroke, not two) and each block steps sideways from the one before.
+ */
+:root {
+  --stroke: 6px;
 }
 
 @layer base {
@@ -41,6 +51,14 @@
     letter-spacing: -0.02em;
   }
 
+  h1,
+  h2,
+  h3,
+  h4,
+  .font-display {
+    font-weight: 700;
+  }
+
   :focus-visible {
     outline: 2px solid var(--color-grape);
     outline-offset: 2px;
@@ -48,6 +66,194 @@
 
   [data-dark] :focus-visible {
     outline-color: var(--color-lavender-300);
+  }
+}
+
+/*
+ * Big headline type, shared by the hero title and the "Everyone who comes adds
+ * a block" title so both are exactly the same size. On phones the size follows
+ * the screen width so that the longest word of the rotating headline, with its
+ * full stop, always fits on one line.
+ */
+.display-title {
+  font-weight: 800;
+  letter-spacing: -0.012em;
+  font-stretch: 88%;
+  font-size: clamp(2rem, 10.8vw, 9rem);
+}
+@media (min-width: 640px) {
+  .display-title {
+    font-size: clamp(3.25rem, 10vw, 9rem);
+  }
+}
+
+/*
+ * A pair of identical blocks that share one thick wall, like the two frames of
+ * the logo. The ink background shows through the gap, so the wall is a single
+ * stroke. Used for the photo and values pair and for the coworking and events
+ * pair, so both pairs are exactly the same size.
+ */
+.duo {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--stroke);
+  background-color: var(--color-ink);
+  border: var(--stroke) solid var(--color-ink);
+}
+/* Same 4:3 shape as the photographs, so nothing is cropped */
+.duo-item {
+  aspect-ratio: 4 / 3;
+  min-width: 0;
+  overflow: hidden;
+}
+/* A text block never turns, so below 1024px it grows with its text instead of keeping the 4:3 shape */
+.duo-text {
+  aspect-ratio: auto;
+}
+@media (min-width: 768px) {
+  .duo {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (min-width: 1024px) {
+  .duo-text {
+    aspect-ratio: 4 / 3;
+  }
+}
+
+/*
+ * Three identical blocks in a row that share their walls, with a full-width
+ * strip stuck underneath. Same ink wall as the pairs above. Below 1024px the
+ * blocks stack and grow with their text.
+ */
+.trio {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--stroke);
+  background-color: var(--color-ink);
+  border: var(--stroke) solid var(--color-ink);
+}
+.trio-item {
+  min-width: 0;
+  overflow: hidden;
+}
+@media (min-width: 1024px) {
+  .trio {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  /* About as tall as the 4:3 blocks of the pair above */
+  .trio-item {
+    aspect-ratio: 7 / 8;
+  }
+}
+
+/* Blocks that grow with their text instead of keeping a fixed shape */
+.duo-auto .duo-item {
+  aspect-ratio: auto;
+}
+@media (min-width: 1024px) {
+  .duo-auto .duo-item {
+    min-height: 20rem;
+  }
+}
+
+/*
+ * Shared column lines. The photo grid of The Space has three columns separated by a
+ * wall of one stroke, so a new column starts every (width - stroke) / 3. How it Works
+ * and the figures use the same pitch, so the second and third columns of all three
+ * start on the same vertical lines.
+ */
+@media (min-width: 768px) {
+  .cols-photo-grid {
+    grid-template-columns:
+      calc((100% - var(--stroke)) / 3)
+      calc((100% - var(--stroke)) / 3)
+      1fr;
+    column-gap: 0;
+  }
+  /* The figures sit inside a block with a stroke and 3rem of padding on each side */
+  .cols-photo-grid-inset {
+    --inset: calc(var(--stroke) + 3rem);
+    grid-template-columns:
+      calc(33.3333% - (var(--inset) + var(--stroke)) / 3)
+      calc(33.3333% + (2 * var(--inset) - var(--stroke)) / 3)
+      1fr;
+    column-gap: 0;
+  }
+}
+
+/*
+ * Four identical blocks sharing their walls: two by two on small screens, a row
+ * of four from 1024px. Same ink wall as the pairs and the trio.
+ */
+.quad {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--stroke);
+  background-color: var(--color-ink);
+  border: var(--stroke) solid var(--color-ink);
+}
+.quad-item {
+  min-width: 0;
+  min-height: 9.5rem;
+  overflow: hidden;
+}
+@media (min-width: 1024px) {
+  .quad {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  .quad-item {
+    aspect-ratio: 1 / 1;
+  }
+}
+
+/*
+ * A time axis. The line is a single stroke in ink. Each milestone has a square on
+ * the line, its date to the left and its text to the right.
+ */
+.timeline {
+  --date-col: 5.5rem;
+  --node: 1.5rem;
+  --gap: 1rem;
+  position: relative;
+}
+.timeline::before {
+  content: "";
+  position: absolute;
+  top: 0.5rem;
+  bottom: 0.5rem;
+  left: calc(var(--date-col) + var(--gap) + var(--node) / 2 - var(--stroke) / 2);
+  width: var(--stroke);
+  background-color: var(--color-ink);
+}
+.timeline-item {
+  padding-bottom: calc(1.25rem + var(--years) * 3.5rem);
+}
+.timeline-item:last-child {
+  padding-bottom: 0;
+}
+.timeline-row {
+  display: grid;
+  grid-template-columns: var(--date-col) var(--node) minmax(0, 1fr);
+  column-gap: var(--gap);
+  align-items: start;
+}
+.timeline-date {
+  font-size: clamp(1.5rem, 3.4vw, 3rem);
+  white-space: nowrap;
+}
+.timeline-node {
+  position: relative;
+  width: var(--node);
+  height: var(--node);
+  margin-top: 0.15em;
+  border: var(--stroke) solid var(--color-ink);
+}
+@media (min-width: 768px) {
+  .timeline {
+    --date-col: 9rem;
+    --node: 2rem;
+    --gap: 1.5rem;
   }
 }
 
