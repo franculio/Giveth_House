@@ -62,7 +62,7 @@ export default function CostBars({ total, donated, accent = "dandelion" }: CostB
     <div
       ref={ref}
       role="img"
-      aria-label={`${format(donated)} given so far, out of the ${format(total)} the house needs each month`}
+      aria-label={`${format(donated)} given so far this month, out of the ${format(total)} the house needs each month`}
     >
       {/* What the house needs */}
       <div className="border-[length:var(--stroke)] border-white">
@@ -81,11 +81,11 @@ export default function CostBars({ total, donated, accent = "dandelion" }: CostB
       <div className="mt-4 md:mt-5 border-[length:var(--stroke)] border-white">
         <div className="h-16 md:h-24 flex items-center gap-4 md:gap-6 overflow-hidden">
           <motion.div {...grow(`${pct}%`, SECOND_DELAY)} className={`h-full flex-none ${accent === "tulip" ? "bg-tulip" : "bg-dandelion"}`} />
-          <span className="flex items-baseline gap-3 whitespace-nowrap">
+          <span className="flex items-center md:items-baseline gap-3 whitespace-nowrap min-w-0">
             <span className={`font-display font-extrabold leading-none ${accent === "tulip" ? "text-tulip" : "text-dandelion"}`} style={{ fontSize: "clamp(1.75rem, 5vw, 4rem)" }}>
               <CountUp to={donated} start={show} delay={SECOND_DELAY} />
             </span>
-            <span className="text-xs md:text-sm font-semibold uppercase tracking-widest text-botticelli">So far</span>
+            <span className="text-xs md:text-sm font-semibold uppercase tracking-widest text-botticelli leading-tight whitespace-normal md:whitespace-nowrap">So far this month</span>
           </span>
         </div>
       </div>

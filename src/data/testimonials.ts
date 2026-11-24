@@ -39,4 +39,10 @@ export const testimonials: Testimonial[] = [
     name: "Robert",
     role: "Web3Privacy Now",
   },
+  {
+    quote:
+      "The last visit to Giveth House reminded me so much of our early crypto meet-ups and gatherings. People with unexpected backgrounds sharing fascinating stories, late-night conversations that blow your mind. It's a magical place that brings together inspiring people and stories that remain with you for years.",
+    name: "Anja",
+    role: "European Ethereum Institute",
+  },
 ];

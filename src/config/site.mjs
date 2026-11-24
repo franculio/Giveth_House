@@ -1,9 +1,9 @@
 // Donations arrive on Giveth in US dollars, but the cost of the house is in euros.
-// Franco reported $190 for November 2026 as of Nov 13 (October 2026: $1).
-const DONATED_USD = 190;
+// Franco reported $600 for November 2026 as of Nov 24 (Nov 13: $190; October 2026: $1).
+const DONATED_USD = 600;
 // European Central Bank euro foreign exchange reference rate: US dollars per euro.
-const USD_PER_EUR = 1.1052;
-const EXCHANGE_RATE_DATE = "2026-11-13";
+const USD_PER_EUR = 1.0939;
+const EXCHANGE_RATE_DATE = "2026-11-23";
 // Exact conversion, kept to the cent. The page shows it rounded to the euro.
 const DONATED_EUR = Math.round((DONATED_USD / USD_PER_EUR) * 100) / 100;
 
