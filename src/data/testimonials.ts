@@ -29,12 +29,6 @@ export const testimonials: Testimonial[] = [
   },
   {
     quote:
-      "Every person who comes also contributes and puts their own thing into the house. It has a really homey feeling.",
-    name: "Franco Ruiz",
-    role: "Steward, Giveth House",
-  },
-  {
-    quote:
       "Sometimes the nicest surprises happen when you're not looking for them. I was recommended to visit the Giveth House as I was hosting an event nearby. I was looking for a bed, and instead I found warmth, intriguing conversations with veterans of my industry, a place of productivity, comfort and some newfound friends who I'll meet at next conferences around the globe. Support Giveth, so Franco can continue to build out this little magical oasis in the vast desert of today's commercialized world.",
     name: "Robert",
     role: "Web3Privacy Now",
